@@ -55,14 +55,21 @@ Based on real expedition planning documents:
 open ExpeditionPlanner/ExpeditionPlanner.xcodeproj
 
 # Build from command line
-cd ExpeditionPlanner && xcodebuild -scheme ExpeditionPlanner -destination 'generic/platform=iOS Simulator' build
+cd ExpeditionPlanner && xcodebuild -scheme ExpeditionPlanner -destination 'platform=iOS Simulator,name=iPhone 17' build
 
 # Run tests
-cd ExpeditionPlanner && xcodebuild test -scheme ExpeditionPlanner -destination 'platform=iOS Simulator,name=iPhone 15'
+cd ExpeditionPlanner && xcodebuild -scheme ExpeditionPlanner -destination 'platform=iOS Simulator,name=iPhone 17' test
 
 # Run SwiftLint
-swiftlint lint --config .swiftlint.yml
+cd ExpeditionPlanner && swiftlint lint --quiet
 ```
+
+## CI/CD
+
+GitHub Actions workflow (`.github/workflows/ci.yml`) runs on push and PR to main:
+- **SwiftLint**: Enforces code style with `--strict` flag
+- **Build**: Compiles for iOS Simulator
+- **Test**: Runs all unit tests and uploads results as artifacts
 
 ## Implementation Phases
 
@@ -74,9 +81,10 @@ swiftlint lint --config .swiftlint.yml
 
 ## Code Quality
 
-- SwiftLint configured via `.swiftlint.yml`
-- Unit tests in `ExpeditionPlannerTests/`
+- SwiftLint configured via `ExpeditionPlanner/.swiftlint.yml`
+- Unit tests in `ExpeditionPlanner/ExpeditionPlannerTests/` (91 tests)
 - All code must pass `swiftlint lint` with 0 violations
+- CI runs lint and tests on every PR
 
 ## Data Model Relationships
 
@@ -95,10 +103,14 @@ Expedition
 ## Conventions
 
 - Use `@Model` macro for all SwiftData entities
+- All SwiftData model properties must have default values OR be optional (CloudKit requirement)
+- All SwiftData relationships must be optional (CloudKit requirement)
+- Use fully qualified enum defaults in @Model classes (e.g., `ExpeditionStatus.planning` not `.planning`)
 - Views should be in feature-specific folders
 - Use `Measurement<Unit>` for elevation (UnitLength) and weight (UnitMass)
 - Coordinates use `CLLocationCoordinate2D`
 - Currency amounts use `Decimal` for precision
+- Use OSLog for logging, not print statements
 
 ## Example Data Sources
 
