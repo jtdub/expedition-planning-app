@@ -206,17 +206,17 @@ struct ExpeditionDetailView: View {
         case .routeMap:
             RouteMapView(expedition: expedition)
         case .participants:
-            ParticipantsPlaceholderView(expedition: expedition)
+            ParticipantListView(expedition: expedition)
         case .contacts:
-            ContactsPlaceholderView(expedition: expedition)
+            ContactListView(expedition: expedition)
         case .resupply:
-            ResupplyPlaceholderView(expedition: expedition)
+            ResupplyListView(expedition: expedition)
         case .permits:
-            PermitsPlaceholderView(expedition: expedition)
+            PermitListView(expedition: expedition)
         case .gear:
             GearListView(expedition: expedition)
         case .budget:
-            BudgetPlaceholderView(expedition: expedition)
+            BudgetListView(expedition: expedition)
         case .safety:
             SafetyPlaceholderView(expedition: expedition)
         case .insurance:
@@ -327,85 +327,7 @@ struct ExpeditionOverviewView: View {
     }
 }
 
-// MARK: - Placeholder Views for Phase 2+
-
-struct ItineraryPlaceholderView: View {
-    let expedition: Expedition
-
-    var body: some View {
-        ContentUnavailableView(
-            "Itinerary",
-            systemImage: "calendar.day.timeline.left",
-            description: Text("Itinerary management coming in Phase 2")
-        )
-        .navigationTitle("Itinerary")
-    }
-}
-
-struct ParticipantsPlaceholderView: View {
-    let expedition: Expedition
-
-    var body: some View {
-        ContentUnavailableView(
-            "Participants",
-            systemImage: "person.2",
-            description: Text("Participant management coming in Phase 4")
-        )
-        .navigationTitle("Participants")
-    }
-}
-
-struct ContactsPlaceholderView: View {
-    let expedition: Expedition
-
-    var body: some View {
-        ContentUnavailableView(
-            "Contacts",
-            systemImage: "person.crop.rectangle.stack",
-            description: Text("Contact directory coming in Phase 4")
-        )
-        .navigationTitle("Contacts")
-    }
-}
-
-struct ResupplyPlaceholderView: View {
-    let expedition: Expedition
-
-    var body: some View {
-        ContentUnavailableView(
-            "Resupply Points",
-            systemImage: "shippingbox",
-            description: Text("Resupply point management coming in Phase 4")
-        )
-        .navigationTitle("Resupply Points")
-    }
-}
-
-struct PermitsPlaceholderView: View {
-    let expedition: Expedition
-
-    var body: some View {
-        ContentUnavailableView(
-            "Permits",
-            systemImage: "doc.text",
-            description: Text("Permit tracking coming in Phase 4")
-        )
-        .navigationTitle("Permits")
-    }
-}
-
-struct BudgetPlaceholderView: View {
-    let expedition: Expedition
-
-    var body: some View {
-        ContentUnavailableView(
-            "Budget",
-            systemImage: "dollarsign.circle",
-            description: Text("Budget tracking coming in Phase 5")
-        )
-        .navigationTitle("Budget")
-    }
-}
+// MARK: - Placeholder Views
 
 struct SafetyPlaceholderView: View {
     let expedition: Expedition
@@ -414,7 +336,7 @@ struct SafetyPlaceholderView: View {
         ContentUnavailableView(
             "Risk Assessment",
             systemImage: "exclamationmark.shield",
-            description: Text("Risk assessment coming in Phase 4")
+            description: Text("Risk assessment management coming soon")
         )
         .navigationTitle("Safety")
     }

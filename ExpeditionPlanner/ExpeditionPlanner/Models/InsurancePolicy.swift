@@ -17,7 +17,15 @@ final class InsurancePolicy {
     var notes: String = ""
     var documentURL: String?
 
-    // Relationship - must be optional for CloudKit
+    // Document attachment storage
+    var attachedDocumentData: Data?
+    var attachedDocumentName: String?
+    var attachedDocumentType: String?
+
+    // Covered participants - stored as comma-separated UUIDs to avoid CloudKit inverse relationship requirement
+    var coveredParticipantIds: String = ""
+
+    // Relationships - must be optional for CloudKit
     var expedition: Expedition?
 
     init(
@@ -86,6 +94,39 @@ final class InsurancePolicy {
             return "Not Yet Active"
         }
         return "Unknown"
+    }
+
+    var hasAttachedDocument: Bool {
+        attachedDocumentData != nil
+    }
+
+    var coveredParticipantUUIDs: [UUID] {
+        get {
+            coveredParticipantIds.split(separator: ",")
+                .compactMap { UUID(uuidString: String($0)) }
+        }
+        set {
+            coveredParticipantIds = newValue.map { $0.uuidString }.joined(separator: ",")
+        }
+    }
+
+    var coveredParticipantCount: Int {
+        coveredParticipantUUIDs.count
+    }
+
+    func coveredParticipants(from expedition: Expedition?) -> [Participant] {
+        guard let expedition = expedition,
+              let participants = expedition.participants else { return [] }
+        let ids = coveredParticipantUUIDs
+        return participants.filter { ids.contains($0.id) }
+    }
+
+    func coveredParticipantNames(from expedition: Expedition?) -> String {
+        let names = coveredParticipants(from: expedition).map { $0.displayName }
+        if names.isEmpty {
+            return "No participants assigned"
+        }
+        return names.joined(separator: ", ")
     }
 }
 

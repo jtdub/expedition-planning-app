@@ -1,5 +1,7 @@
 import SwiftUI
 import SwiftData
+import PhotosUI
+import UniformTypeIdentifiers
 
 enum InsuranceFormMode {
     case add
@@ -28,6 +30,17 @@ struct InsurancePolicyFormView: View {
     @State private var notes = ""
     @State private var documentURL = ""
 
+    // Participant selection
+    @State private var selectedParticipantIds: Set<UUID> = []
+
+    // Document attachment
+    @State private var attachedDocumentData: Data?
+    @State private var attachedDocumentName: String?
+    @State private var attachedDocumentType: String?
+    @State private var showingDocumentPicker = false
+    @State private var showingPhotoPicker = false
+    @State private var selectedPhotoItem: PhotosPickerItem?
+
     private var isEditing: Bool {
         if case .edit = mode { return true }
         return false
@@ -36,6 +49,10 @@ struct InsurancePolicyFormView: View {
     private var editingPolicy: InsurancePolicy? {
         if case .edit(let policy) = mode { return policy }
         return nil
+    }
+
+    private var availableParticipants: [Participant] {
+        (expedition.participants ?? []).sorted { $0.name < $1.name }
     }
 
     var body: some View {
@@ -90,6 +107,43 @@ struct InsurancePolicyFormView: View {
                 Text("Coverage Details")
             }
 
+            // Covered Participants Section
+            if !availableParticipants.isEmpty {
+                Section {
+                    ForEach(availableParticipants) { participant in
+                        Button {
+                            toggleParticipant(participant)
+                        } label: {
+                            HStack {
+                                Image(systemName: participant.role.icon)
+                                    .foregroundStyle(.secondary)
+                                Text(participant.name)
+                                    .foregroundStyle(.primary)
+                                Spacer()
+                                if selectedParticipantIds.contains(participant.id) {
+                                    Image(systemName: "checkmark")
+                                        .foregroundStyle(.blue)
+                                }
+                            }
+                        }
+                    }
+
+                    if selectedParticipantIds.isEmpty {
+                        Text("No participants selected")
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                    } else {
+                        Text("\(selectedParticipantIds.count) participant(s) covered")
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                    }
+                } header: {
+                    Text("Covered Participants")
+                } footer: {
+                    Text("Select which expedition participants are covered by this policy.")
+                }
+            }
+
             Section {
                 TextField("Emergency Phone", text: $emergencyPhone)
                     .keyboardType(.phonePad)
@@ -101,13 +155,49 @@ struct InsurancePolicyFormView: View {
                 Text("Keep emergency numbers accessible in case of an incident.")
             }
 
+            // Document Attachment Section
             Section {
                 TextField("Document URL (optional)", text: $documentURL)
                     .keyboardType(.URL)
                     .textInputAutocapitalization(.never)
                     .autocorrectionDisabled()
+
+                if let docName = attachedDocumentName {
+                    HStack {
+                        Image(systemName: documentIcon)
+                            .foregroundStyle(.blue)
+                        Text(docName)
+                            .lineLimit(1)
+                        Spacer()
+                        Button {
+                            clearAttachment()
+                        } label: {
+                            Image(systemName: "xmark.circle.fill")
+                                .foregroundStyle(.secondary)
+                        }
+                    }
+                }
+
+                HStack {
+                    Button {
+                        showingDocumentPicker = true
+                    } label: {
+                        Label("Attach Document", systemImage: "doc.badge.plus")
+                    }
+
+                    Spacer()
+
+                    PhotosPicker(
+                        selection: $selectedPhotoItem,
+                        matching: .images
+                    ) {
+                        Label("Photo", systemImage: "photo.badge.plus")
+                    }
+                }
             } header: {
                 Text("Documentation")
+            } footer: {
+                Text("Attach a PDF or photo of your policy document for offline access.")
             }
 
             Section {
@@ -147,7 +237,81 @@ struct InsurancePolicyFormView: View {
                 loadPolicy(policy)
             }
         }
+        .onChange(of: selectedPhotoItem) { _, newValue in
+            Task {
+                await loadPhoto(from: newValue)
+            }
+        }
+        .fileImporter(
+            isPresented: $showingDocumentPicker,
+            allowedContentTypes: [.pdf, .png, .jpeg],
+            allowsMultipleSelection: false
+        ) { result in
+            handleDocumentImport(result)
+        }
     }
+
+    // MARK: - Document Icon
+
+    private var documentIcon: String {
+        guard let type = attachedDocumentType else { return "doc" }
+        if type.contains("pdf") {
+            return "doc.richtext"
+        } else if type.contains("image") || type.contains("png") || type.contains("jpeg") {
+            return "photo"
+        }
+        return "doc"
+    }
+
+    // MARK: - Participant Selection
+
+    private func toggleParticipant(_ participant: Participant) {
+        if selectedParticipantIds.contains(participant.id) {
+            selectedParticipantIds.remove(participant.id)
+        } else {
+            selectedParticipantIds.insert(participant.id)
+        }
+    }
+
+    // MARK: - Document Handling
+
+    private func loadPhoto(from item: PhotosPickerItem?) async {
+        guard let item = item else { return }
+
+        if let data = try? await item.loadTransferable(type: Data.self) {
+            await MainActor.run {
+                attachedDocumentData = data
+                attachedDocumentName = "Photo_\(Date().formatted(.dateTime.year().month().day())).jpg"
+                attachedDocumentType = "image/jpeg"
+            }
+        }
+    }
+
+    private func handleDocumentImport(_ result: Result<[URL], Error>) {
+        switch result {
+        case .success(let urls):
+            guard let url = urls.first else { return }
+            guard url.startAccessingSecurityScopedResource() else { return }
+            defer { url.stopAccessingSecurityScopedResource() }
+
+            if let data = try? Data(contentsOf: url) {
+                attachedDocumentData = data
+                attachedDocumentName = url.lastPathComponent
+                attachedDocumentType = url.pathExtension == "pdf" ? "application/pdf" : "image/\(url.pathExtension)"
+            }
+        case .failure:
+            break
+        }
+    }
+
+    private func clearAttachment() {
+        attachedDocumentData = nil
+        attachedDocumentName = nil
+        attachedDocumentType = nil
+        selectedPhotoItem = nil
+    }
+
+    // MARK: - Load/Save
 
     private func loadPolicy(_ policy: InsurancePolicy) {
         provider = policy.provider
@@ -171,6 +335,14 @@ struct InsurancePolicyFormView: View {
         currency = policy.currency
         notes = policy.notes
         documentURL = policy.documentURL ?? ""
+
+        // Load covered participants
+        selectedParticipantIds = Set(policy.coveredParticipantUUIDs)
+
+        // Load attached document
+        attachedDocumentData = policy.attachedDocumentData
+        attachedDocumentName = policy.attachedDocumentName
+        attachedDocumentType = policy.attachedDocumentType
     }
 
     private func savePolicy() {
@@ -193,6 +365,14 @@ struct InsurancePolicyFormView: View {
         policy.currency = currency
         policy.notes = notes
         policy.documentURL = documentURL.isEmpty ? nil : documentURL
+
+        // Save covered participants as UUIDs
+        policy.coveredParticipantUUIDs = Array(selectedParticipantIds)
+
+        // Save attached document
+        policy.attachedDocumentData = attachedDocumentData
+        policy.attachedDocumentName = attachedDocumentName
+        policy.attachedDocumentType = attachedDocumentType
 
         if isEditing {
             viewModel.updatePolicy(policy, in: expedition)
