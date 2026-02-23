@@ -152,7 +152,7 @@ struct ExpeditionDetailView: View {
         case .overview:
             ExpeditionOverviewView(expedition: expedition)
         case .itinerary:
-            ItineraryPlaceholderView(expedition: expedition)
+            ItineraryView(expedition: expedition)
         case .participants:
             ParticipantsPlaceholderView(expedition: expedition)
         case .contacts:

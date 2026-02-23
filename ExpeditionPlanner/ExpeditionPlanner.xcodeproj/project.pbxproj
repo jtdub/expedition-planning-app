@@ -1,0 +1,712 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		001 /* ExpeditionPlannerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101 /* ExpeditionPlannerApp.swift */; };
+		002 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102 /* ContentView.swift */; };
+		003 /* Expedition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103 /* Expedition.swift */; };
+		004 /* ItineraryDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104 /* ItineraryDay.swift */; };
+		005 /* GearItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105 /* GearItem.swift */; };
+		006 /* Participant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106 /* Participant.swift */; };
+		007 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107 /* Contact.swift */; };
+		008 /* ResupplyPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108 /* ResupplyPoint.swift */; };
+		009 /* Permit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109 /* Permit.swift */; };
+		010 /* BudgetItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110 /* BudgetItem.swift */; };
+		011 /* RiskAssessment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111 /* RiskAssessment.swift */; };
+		012 /* ExpeditionListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112 /* ExpeditionListView.swift */; };
+		013 /* ExpeditionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113 /* ExpeditionDetailView.swift */; };
+		014 /* ExpeditionFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114 /* ExpeditionFormView.swift */; };
+		015 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115 /* SettingsView.swift */; };
+		016 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116 /* Extensions.swift */; };
+		017 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117 /* Constants.swift */; };
+		0434DF32B009E858DC8E9A63 /* SyncStatusService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9466AF824266C9E22E26D382 /* SyncStatusService.swift */; };
+		16F203884CCD133A44A52959 /* SyncStatusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F838156F315826CE7A62ED8E /* SyncStatusTests.swift */; };
+		1BEC93D511E36E74419B8317 /* PermitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5552BA5C06A302D245BA3672 /* PermitTests.swift */; };
+		4A6AFC24FCCB923BA219EAE7 /* RiskAssessmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAA145005D9C1328FCCE90C /* RiskAssessmentTests.swift */; };
+		7F132CC562E2135D1F4A1CFB /* GearItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD483224C02737F12235F86 /* GearItemTests.swift */; };
+		A17ABF512B802147EAAD8234 /* SyncStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870068EBAAFFD661A688E177 /* SyncStatusView.swift */; };
+		B2603F6A5E66127766D22483 /* SettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DAF26198831311ED26B68A /* SettingsTests.swift */; };
+		D0798DE893E88927B17C79FA /* BudgetItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CDB4E5EE621043FC53681E /* BudgetItemTests.swift */; };
+		DB32E85BF1A78FFBF77F5C6C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 420ACEE4498D5E1FBCDC913E /* Foundation.framework */; };
+		E4C85E5AED5918E25D1C0F87 /* ExpeditionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1378969E397E8702EC17877 /* ExpeditionTests.swift */; };
+		ED5BF9CE473F11A025775732 /* ItineraryDayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCF1EDCF7A127F6EFDB3C9C /* ItineraryDayTests.swift */; };
+		P2001 /* ElevationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = P2101 /* ElevationService.swift */; };
+		P2002 /* ItineraryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = P2102 /* ItineraryViewModel.swift */; };
+		P2003 /* DayFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = P2103 /* DayFormViewModel.swift */; };
+		P2004 /* ItineraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = P2104 /* ItineraryView.swift */; };
+		P2005 /* ItineraryDayRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = P2105 /* ItineraryDayRowView.swift */; };
+		P2006 /* DayFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = P2106 /* DayFormView.swift */; };
+		P2007 /* DayDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = P2107 /* DayDetailView.swift */; };
+		P2008 /* ElevationChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = P2108 /* ElevationChartView.swift */; };
+		P2009 /* ElevationInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = P2109 /* ElevationInputView.swift */; };
+		P2010 /* LocationPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = P2110 /* LocationPickerView.swift */; };
+		P2011 /* ActivityTypePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = P2111 /* ActivityTypePicker.swift */; };
+		P2012 /* AcclimatizationWarningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = P2112 /* AcclimatizationWarningView.swift */; };
+		P2T01 /* ElevationServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = P2T101 /* ElevationServiceTests.swift */; };
+		P2T02 /* ItineraryViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = P2T102 /* ItineraryViewModelTests.swift */; };
+		LL001 /* LakeLouiseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = LL101 /* LakeLouiseService.swift */; };
+		LL002 /* LakeLouiseScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = LL102 /* LakeLouiseScoreView.swift */; };
+		LLT01 /* LakeLouiseServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = LLT101 /* LakeLouiseServiceTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2B8E61F0D7FDD72C33590683 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 600 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 400;
+			remoteInfo = ExpeditionPlanner;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		05DAF26198831311ED26B68A /* SettingsTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SettingsTests.swift; sourceTree = "<group>"; };
+		100 /* ExpeditionPlanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExpeditionPlanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		101 /* ExpeditionPlannerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpeditionPlannerApp.swift; sourceTree = "<group>"; };
+		102 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		103 /* Expedition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expedition.swift; sourceTree = "<group>"; };
+		104 /* ItineraryDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItineraryDay.swift; sourceTree = "<group>"; };
+		105 /* GearItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GearItem.swift; sourceTree = "<group>"; };
+		106 /* Participant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Participant.swift; sourceTree = "<group>"; };
+		107 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		108 /* ResupplyPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResupplyPoint.swift; sourceTree = "<group>"; };
+		109 /* Permit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Permit.swift; sourceTree = "<group>"; };
+		110 /* BudgetItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetItem.swift; sourceTree = "<group>"; };
+		111 /* RiskAssessment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiskAssessment.swift; sourceTree = "<group>"; };
+		112 /* ExpeditionListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpeditionListView.swift; sourceTree = "<group>"; };
+		113 /* ExpeditionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpeditionDetailView.swift; sourceTree = "<group>"; };
+		114 /* ExpeditionFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpeditionFormView.swift; sourceTree = "<group>"; };
+		115 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		116 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		117 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		118 /* ExpeditionPlanner.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ExpeditionPlanner.entitlements; sourceTree = "<group>"; };
+		3BCF1EDCF7A127F6EFDB3C9C /* ItineraryDayTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ItineraryDayTests.swift; sourceTree = "<group>"; };
+		420ACEE4498D5E1FBCDC913E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		5552BA5C06A302D245BA3672 /* PermitTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PermitTests.swift; sourceTree = "<group>"; };
+		7CAA145005D9C1328FCCE90C /* RiskAssessmentTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RiskAssessmentTests.swift; sourceTree = "<group>"; };
+		870068EBAAFFD661A688E177 /* SyncStatusView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SyncStatusView.swift; sourceTree = "<group>"; };
+		8DD483224C02737F12235F86 /* GearItemTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GearItemTests.swift; sourceTree = "<group>"; };
+		9466AF824266C9E22E26D382 /* SyncStatusService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SyncStatusService.swift; sourceTree = "<group>"; };
+		D1378969E397E8702EC17877 /* ExpeditionTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ExpeditionTests.swift; sourceTree = "<group>"; };
+		D5CDB4E5EE621043FC53681E /* BudgetItemTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BudgetItemTests.swift; sourceTree = "<group>"; };
+		EA077565D623286EDDB1D9A6 /* ExpeditionPlannerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExpeditionPlannerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F838156F315826CE7A62ED8E /* SyncStatusTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SyncStatusTests.swift; sourceTree = "<group>"; };
+		P2101 /* ElevationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElevationService.swift; sourceTree = "<group>"; };
+		P2102 /* ItineraryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItineraryViewModel.swift; sourceTree = "<group>"; };
+		P2103 /* DayFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayFormViewModel.swift; sourceTree = "<group>"; };
+		P2104 /* ItineraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItineraryView.swift; sourceTree = "<group>"; };
+		P2105 /* ItineraryDayRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItineraryDayRowView.swift; sourceTree = "<group>"; };
+		P2106 /* DayFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayFormView.swift; sourceTree = "<group>"; };
+		P2107 /* DayDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayDetailView.swift; sourceTree = "<group>"; };
+		P2108 /* ElevationChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElevationChartView.swift; sourceTree = "<group>"; };
+		P2109 /* ElevationInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElevationInputView.swift; sourceTree = "<group>"; };
+		P2110 /* LocationPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPickerView.swift; sourceTree = "<group>"; };
+		P2111 /* ActivityTypePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTypePicker.swift; sourceTree = "<group>"; };
+		P2112 /* AcclimatizationWarningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcclimatizationWarningView.swift; sourceTree = "<group>"; };
+		P2T101 /* ElevationServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElevationServiceTests.swift; sourceTree = "<group>"; };
+		P2T102 /* ItineraryViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItineraryViewModelTests.swift; sourceTree = "<group>"; };
+		LL101 /* LakeLouiseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LakeLouiseService.swift; sourceTree = "<group>"; };
+		LL102 /* LakeLouiseScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LakeLouiseScoreView.swift; sourceTree = "<group>"; };
+		LLT101 /* LakeLouiseServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LakeLouiseServiceTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		200 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C8F9D365EA68CD90272746FB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB32E85BF1A78FFBF77F5C6C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		25B0C4C61BC1071FE8F0CCE6 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				420ACEE4498D5E1FBCDC913E /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		300 = {
+			isa = PBXGroup;
+			children = (
+				301 /* ExpeditionPlanner */,
+				302 /* Products */,
+				674694AFC050B4333F9E2D14 /* Frameworks */,
+				E15B06024986D9ABCBBC5CF8 /* ExpeditionPlannerTests */,
+			);
+			sourceTree = "<group>";
+		};
+		301 /* ExpeditionPlanner */ = {
+			isa = PBXGroup;
+			children = (
+				101 /* ExpeditionPlannerApp.swift */,
+				102 /* ContentView.swift */,
+				118 /* ExpeditionPlanner.entitlements */,
+				303 /* Models */,
+				304 /* Views */,
+				305 /* Utilities */,
+				BCBD4D347997095576824E40 /* Services */,
+				P2VM /* ViewModels */,
+			);
+			path = ExpeditionPlanner;
+			sourceTree = "<group>";
+		};
+		302 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				100 /* ExpeditionPlanner.app */,
+				EA077565D623286EDDB1D9A6 /* ExpeditionPlannerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		303 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				103 /* Expedition.swift */,
+				104 /* ItineraryDay.swift */,
+				105 /* GearItem.swift */,
+				106 /* Participant.swift */,
+				107 /* Contact.swift */,
+				108 /* ResupplyPoint.swift */,
+				109 /* Permit.swift */,
+				110 /* BudgetItem.swift */,
+				111 /* RiskAssessment.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		304 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				306 /* Expeditions */,
+				307 /* Settings */,
+				D45F1224F8E4F52D45D017E2 /* Components */,
+				P2IT /* Itinerary */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		305 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				116 /* Extensions.swift */,
+				117 /* Constants.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		306 /* Expeditions */ = {
+			isa = PBXGroup;
+			children = (
+				112 /* ExpeditionListView.swift */,
+				113 /* ExpeditionDetailView.swift */,
+				114 /* ExpeditionFormView.swift */,
+			);
+			path = Expeditions;
+			sourceTree = "<group>";
+		};
+		307 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				115 /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		674694AFC050B4333F9E2D14 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				25B0C4C61BC1071FE8F0CCE6 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BCBD4D347997095576824E40 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				9466AF824266C9E22E26D382 /* SyncStatusService.swift */,
+				P2101 /* ElevationService.swift */,
+				LL101 /* LakeLouiseService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		D45F1224F8E4F52D45D017E2 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				870068EBAAFFD661A688E177 /* SyncStatusView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		E15B06024986D9ABCBBC5CF8 /* ExpeditionPlannerTests */ = {
+			isa = PBXGroup;
+			children = (
+				7CAA145005D9C1328FCCE90C /* RiskAssessmentTests.swift */,
+				8DD483224C02737F12235F86 /* GearItemTests.swift */,
+				5552BA5C06A302D245BA3672 /* PermitTests.swift */,
+				3BCF1EDCF7A127F6EFDB3C9C /* ItineraryDayTests.swift */,
+				05DAF26198831311ED26B68A /* SettingsTests.swift */,
+				D1378969E397E8702EC17877 /* ExpeditionTests.swift */,
+				F838156F315826CE7A62ED8E /* SyncStatusTests.swift */,
+				D5CDB4E5EE621043FC53681E /* BudgetItemTests.swift */,
+				P2T101 /* ElevationServiceTests.swift */,
+				P2T102 /* ItineraryViewModelTests.swift */,
+				LLT101 /* LakeLouiseServiceTests.swift */,
+			);
+			path = ExpeditionPlannerTests;
+			sourceTree = "<group>";
+		};
+		P2VM /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				P2102 /* ItineraryViewModel.swift */,
+				P2103 /* DayFormViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		P2IT /* Itinerary */ = {
+			isa = PBXGroup;
+			children = (
+				P2104 /* ItineraryView.swift */,
+				P2105 /* ItineraryDayRowView.swift */,
+				P2106 /* DayFormView.swift */,
+				P2107 /* DayDetailView.swift */,
+				P2108 /* ElevationChartView.swift */,
+				P2109 /* ElevationInputView.swift */,
+				P2110 /* LocationPickerView.swift */,
+				P2111 /* ActivityTypePicker.swift */,
+				P2112 /* AcclimatizationWarningView.swift */,
+				LL102 /* LakeLouiseScoreView.swift */,
+			);
+			path = Itinerary;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		400 /* ExpeditionPlanner */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 500 /* Build configuration list for PBXNativeTarget "ExpeditionPlanner" */;
+			buildPhases = (
+				401 /* Sources */,
+				200 /* Frameworks */,
+				402 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ExpeditionPlanner;
+			productName = ExpeditionPlanner;
+			productReference = 100 /* ExpeditionPlanner.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9DA759BFAD1D8B43EA83980D /* ExpeditionPlannerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DF70977324BA4F845C33AE4 /* Build configuration list for PBXNativeTarget "ExpeditionPlannerTests" */;
+			buildPhases = (
+				E24464E372CFFB1606ED73D8 /* Sources */,
+				C8F9D365EA68CD90272746FB /* Frameworks */,
+				CA0617D2EA8B4995F1D826D3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B386A0D5CC84E65A7FD99B3D /* PBXTargetDependency */,
+			);
+			name = ExpeditionPlannerTests;
+			productName = ExpeditionPlannerTests;
+			productReference = EA077565D623286EDDB1D9A6 /* ExpeditionPlannerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		600 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					400 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = 601 /* Build configuration list for PBXProject "ExpeditionPlanner" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 300;
+			productRefGroup = 302 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				400 /* ExpeditionPlanner */,
+				9DA759BFAD1D8B43EA83980D /* ExpeditionPlannerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		402 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CA0617D2EA8B4995F1D826D3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		401 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				001 /* ExpeditionPlannerApp.swift in Sources */,
+				002 /* ContentView.swift in Sources */,
+				003 /* Expedition.swift in Sources */,
+				004 /* ItineraryDay.swift in Sources */,
+				005 /* GearItem.swift in Sources */,
+				006 /* Participant.swift in Sources */,
+				007 /* Contact.swift in Sources */,
+				008 /* ResupplyPoint.swift in Sources */,
+				009 /* Permit.swift in Sources */,
+				010 /* BudgetItem.swift in Sources */,
+				011 /* RiskAssessment.swift in Sources */,
+				012 /* ExpeditionListView.swift in Sources */,
+				013 /* ExpeditionDetailView.swift in Sources */,
+				014 /* ExpeditionFormView.swift in Sources */,
+				015 /* SettingsView.swift in Sources */,
+				016 /* Extensions.swift in Sources */,
+				017 /* Constants.swift in Sources */,
+				0434DF32B009E858DC8E9A63 /* SyncStatusService.swift in Sources */,
+				A17ABF512B802147EAAD8234 /* SyncStatusView.swift in Sources */,
+				P2001 /* ElevationService.swift in Sources */,
+				P2002 /* ItineraryViewModel.swift in Sources */,
+				P2003 /* DayFormViewModel.swift in Sources */,
+				P2004 /* ItineraryView.swift in Sources */,
+				P2005 /* ItineraryDayRowView.swift in Sources */,
+				P2006 /* DayFormView.swift in Sources */,
+				P2007 /* DayDetailView.swift in Sources */,
+				P2008 /* ElevationChartView.swift in Sources */,
+				P2009 /* ElevationInputView.swift in Sources */,
+				P2010 /* LocationPickerView.swift in Sources */,
+				P2011 /* ActivityTypePicker.swift in Sources */,
+				P2012 /* AcclimatizationWarningView.swift in Sources */,
+				LL001 /* LakeLouiseService.swift in Sources */,
+				LL002 /* LakeLouiseScoreView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E24464E372CFFB1606ED73D8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A6AFC24FCCB923BA219EAE7 /* RiskAssessmentTests.swift in Sources */,
+				7F132CC562E2135D1F4A1CFB /* GearItemTests.swift in Sources */,
+				1BEC93D511E36E74419B8317 /* PermitTests.swift in Sources */,
+				ED5BF9CE473F11A025775732 /* ItineraryDayTests.swift in Sources */,
+				B2603F6A5E66127766D22483 /* SettingsTests.swift in Sources */,
+				E4C85E5AED5918E25D1C0F87 /* ExpeditionTests.swift in Sources */,
+				16F203884CCD133A44A52959 /* SyncStatusTests.swift in Sources */,
+				D0798DE893E88927B17C79FA /* BudgetItemTests.swift in Sources */,
+				P2T01 /* ElevationServiceTests.swift in Sources */,
+				P2T02 /* ItineraryViewModelTests.swift in Sources */,
+				LLT01 /* LakeLouiseServiceTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B386A0D5CC84E65A7FD99B3D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ExpeditionPlanner;
+			target = 400 /* ExpeditionPlanner */;
+			targetProxy = 2B8E61F0D7FDD72C33590683 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		07D6A3254FB31DC46B9FE68E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.expeditionplanner.tests;
+				PRODUCT_NAME = ExpeditionPlannerTests;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ExpeditionPlanner.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ExpeditionPlanner";
+			};
+			name = Debug;
+		};
+		56FD76EFA81462E5E1862F63 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.expeditionplanner.tests;
+				PRODUCT_NAME = ExpeditionPlannerTests;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ExpeditionPlanner.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ExpeditionPlanner";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		700 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		701 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		702 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ExpeditionPlanner/ExpeditionPlanner.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = L8C6ADCNAP;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.expedition.planner;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		703 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ExpeditionPlanner/ExpeditionPlanner.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = L8C6ADCNAP;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.expedition.planner;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DF70977324BA4F845C33AE4 /* Build configuration list for PBXNativeTarget "ExpeditionPlannerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				56FD76EFA81462E5E1862F63 /* Release */,
+				07D6A3254FB31DC46B9FE68E /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		500 /* Build configuration list for PBXNativeTarget "ExpeditionPlanner" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				702 /* Debug */,
+				703 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		601 /* Build configuration list for PBXProject "ExpeditionPlanner" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				700 /* Debug */,
+				701 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 600 /* Project object */;
+}
