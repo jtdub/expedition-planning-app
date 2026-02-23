@@ -16,7 +16,11 @@ struct ExpeditionPlannerApp: App {
                 ResupplyPoint.self,
                 Permit.self,
                 BudgetItem.self,
-                RiskAssessment.self
+                RiskAssessment.self,
+                InsurancePolicy.self,
+                Shelter.self,
+                WeatherForecast.self,
+                HistoricalClimate.self
             ])
 
             let modelConfiguration = ModelConfiguration(

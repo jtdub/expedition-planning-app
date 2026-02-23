@@ -45,6 +45,15 @@ struct ExpeditionDetailView: View {
                         detail: routeMapDetail
                     )
                 }
+
+                NavigationLink(value: ExpeditionSection.shelters) {
+                    SectionRow(
+                        title: "Shelters & Cabins",
+                        icon: "house.fill",
+                        color: .brown,
+                        detail: "Database"
+                    )
+                }
             }
 
             // Logistics Section
@@ -122,6 +131,15 @@ struct ExpeditionDetailView: View {
                         detail: "\((expedition.riskAssessments ?? []).count) risks"
                     )
                 }
+
+                NavigationLink(value: ExpeditionSection.insurance) {
+                    SectionRow(
+                        title: "Insurance",
+                        icon: "shield.checkered",
+                        color: .blue,
+                        detail: insuranceDetail
+                    )
+                }
             } header: {
                 Text("Safety")
             }
@@ -167,6 +185,17 @@ struct ExpeditionDetailView: View {
         }
     }
 
+    private var insuranceDetail: String {
+        let count = (expedition.insurancePolicies ?? []).count
+        if count == 0 {
+            return "No policies"
+        } else if count == 1 {
+            return "1 policy"
+        } else {
+            return "\(count) policies"
+        }
+    }
+
     @ViewBuilder
     private func sectionView(for section: ExpeditionSection) -> some View {
         switch section {
@@ -190,6 +219,10 @@ struct ExpeditionDetailView: View {
             BudgetPlaceholderView(expedition: expedition)
         case .safety:
             SafetyPlaceholderView(expedition: expedition)
+        case .insurance:
+            InsuranceListView(expedition: expedition)
+        case .shelters:
+            ShelterListView()
         }
     }
 }
@@ -200,6 +233,7 @@ enum ExpeditionSection: Hashable {
     case overview
     case itinerary
     case routeMap
+    case shelters
     case participants
     case contacts
     case resupply
@@ -207,6 +241,7 @@ enum ExpeditionSection: Hashable {
     case gear
     case budget
     case safety
+    case insurance
 }
 
 // MARK: - Section Row

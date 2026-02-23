@@ -40,6 +40,11 @@ struct DayDetailView: View {
                             elevationCard
                         }
 
+                        // Weather Card
+                        if day.date != nil && (day.startLatitude != nil || day.endLatitude != nil) {
+                            DayWeatherGroupBox(day: day)
+                        }
+
                         // Map Card
                         if day.startCoordinate != nil || day.endCoordinate != nil {
                             mapCard

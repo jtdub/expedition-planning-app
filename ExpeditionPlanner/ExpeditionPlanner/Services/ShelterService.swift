@@ -1,251 +1,171 @@
 import Foundation
 import CoreLocation
 
-/// Service for managing shelter cabin data
+/// Service for managing shelter data and conversions
 struct ShelterService {
-    // MARK: - Shelter Cabin Model
+    // MARK: - Seed Data Structure
 
-    struct ShelterCabin: Identifiable, Hashable {
-        let id: UUID
+    struct ShelterSeedData {
         let name: String
-        let coordinate: CLLocationCoordinate2D
+        let shelterType: ShelterType
+        let latitude: Double
+        let longitude: Double
         let elevationMeters: Double?
+        let region: String
         let capacity: Int?
-        let amenities: [Amenity]
-        let notes: String?
-        let region: Region
-
-        init(
-            id: UUID = UUID(),
-            name: String,
-            coordinate: CLLocationCoordinate2D,
-            elevationMeters: Double? = nil,
-            capacity: Int? = nil,
-            amenities: [Amenity] = [],
-            notes: String? = nil,
-            region: Region = .alaska
-        ) {
-            self.id = id
-            self.name = name
-            self.coordinate = coordinate
-            self.elevationMeters = elevationMeters
-            self.capacity = capacity
-            self.amenities = amenities
-            self.notes = notes
-            self.region = region
-        }
-
-        func hash(into hasher: inout Hasher) {
-            hasher.combine(id)
-        }
-
-        static func == (lhs: Self, rhs: Self) -> Bool {
-            lhs.id == rhs.id
-        }
+        let amenities: [ShelterAmenity]
+        let notes: String
     }
 
-    enum Amenity: String, CaseIterable {
-        case woodStove = "Wood Stove"
-        case sleepingPlatform = "Sleeping Platform"
-        case firewood = "Firewood"
-        case outhouse = "Outhouse"
-        case water = "Water Source"
-        case firstAid = "First Aid Kit"
-        case emergencySupplies = "Emergency Supplies"
-        case helipad = "Helipad"
+    // MARK: - Sample Alaska/Yukon Shelter Seed Data
 
-        var icon: String {
-            switch self {
-            case .woodStove: return "flame.fill"
-            case .sleepingPlatform: return "bed.double.fill"
-            case .firewood: return "tree.fill"
-            case .outhouse: return "toilet.fill"
-            case .water: return "drop.fill"
-            case .firstAid: return "cross.case.fill"
-            case .emergencySupplies: return "bag.fill"
-            case .helipad: return "airplane"
-            }
-        }
-    }
-
-    enum Region: String, CaseIterable {
-        case alaska = "Alaska"
-        case yukon = "Yukon"
-        case brooksRange = "Brooks Range"
-        case denali = "Denali Area"
-
-        var description: String {
-            switch self {
-            case .alaska: return "General Alaska"
-            case .yukon: return "Yukon Territory"
-            case .brooksRange: return "Brooks Range, Alaska"
-            case .denali: return "Denali National Park Area"
-            }
-        }
-    }
-
-    // MARK: - Sample Alaska/Yukon Shelter Data
-
-    /// Sample shelter cabins for Alaska and Yukon expeditions
-    /// Based on typical backcountry shelter locations in these regions
-    static let sampleShelters: [ShelterCabin] = [
+    /// Sample shelter data for seeding the database
+    static let sampleShelterData: [ShelterSeedData] = [
         // Brooks Range Shelters
-        ShelterCabin(
+        ShelterSeedData(
             name: "Chandalar Shelf Cabin",
-            coordinate: CLLocationCoordinate2D(latitude: 67.8912, longitude: -148.4521),
+            shelterType: .publicCabin,
+            latitude: 67.8912,
+            longitude: -148.4521,
             elevationMeters: 1220,
+            region: "Brooks Range",
             capacity: 6,
             amenities: [.woodStove, .sleepingPlatform, .firewood],
-            notes: "Emergency shelter on Chandalar River route. Maintained by BLM.",
-            region: .brooksRange
+            notes: "Emergency shelter on Chandalar River route. Maintained by BLM."
         ),
-        ShelterCabin(
+        ShelterSeedData(
             name: "Atigun Pass Shelter",
-            coordinate: CLLocationCoordinate2D(latitude: 68.1342, longitude: -149.4823),
+            shelterType: .emergencyShelter,
+            latitude: 68.1342,
+            longitude: -149.4823,
             elevationMeters: 1463,
+            region: "Brooks Range",
             capacity: 4,
             amenities: [.woodStove, .emergencySupplies, .firstAid],
-            notes: "High pass emergency shelter. Often used as storm refuge.",
-            region: .brooksRange
+            notes: "High pass emergency shelter. Often used as storm refuge."
         ),
-        ShelterCabin(
+        ShelterSeedData(
             name: "Galbraith Lake Cabin",
-            coordinate: CLLocationCoordinate2D(latitude: 68.4521, longitude: -149.5012),
+            shelterType: .publicCabin,
+            latitude: 68.4521,
+            longitude: -149.5012,
             elevationMeters: 823,
+            region: "Brooks Range",
             capacity: 8,
             amenities: [.woodStove, .sleepingPlatform, .firewood, .outhouse, .water],
-            notes: "Popular staging point for Brooks Range expeditions.",
-            region: .brooksRange
+            notes: "Popular staging point for Brooks Range expeditions."
         ),
-        ShelterCabin(
+        ShelterSeedData(
             name: "Anaktuvuk Pass Community Cabin",
-            coordinate: CLLocationCoordinate2D(latitude: 68.1433, longitude: -151.7350),
+            shelterType: .publicCabin,
+            latitude: 68.1433,
+            longitude: -151.7350,
             elevationMeters: 661,
+            region: "Brooks Range",
             capacity: 10,
             amenities: [.woodStove, .sleepingPlatform, .water, .firstAid],
-            notes: "Located near village. Check with community before use.",
-            region: .brooksRange
+            notes: "Located near village. Check with community before use."
         ),
 
         // Denali Area Shelters
-        ShelterCabin(
+        ShelterSeedData(
             name: "Wonder Lake Ranger Cabin",
-            coordinate: CLLocationCoordinate2D(latitude: 63.4534, longitude: -150.8723),
+            shelterType: .emergencyShelter,
+            latitude: 63.4534,
+            longitude: -150.8723,
             elevationMeters: 610,
+            region: "Denali Area",
             capacity: 4,
             amenities: [.woodStove, .firstAid, .emergencySupplies],
-            notes: "Emergency use only. Contact Denali NPS.",
-            region: .denali
+            notes: "Emergency use only. Contact Denali NPS."
         ),
-        ShelterCabin(
+        ShelterSeedData(
             name: "Kantishna Roadhouse Shelter",
-            coordinate: CLLocationCoordinate2D(latitude: 63.5412, longitude: -150.9934),
+            shelterType: .hut,
+            latitude: 63.5412,
+            longitude: -150.9934,
             elevationMeters: 530,
+            region: "Denali Area",
             capacity: 6,
             amenities: [.woodStove, .sleepingPlatform, .water, .outhouse],
-            notes: "Historic mining district shelter.",
-            region: .denali
+            notes: "Historic mining district shelter."
         ),
 
         // General Alaska
-        ShelterCabin(
+        ShelterSeedData(
             name: "Wiseman Creek Cabin",
-            coordinate: CLLocationCoordinate2D(latitude: 67.4123, longitude: -150.1023),
+            shelterType: .publicCabin,
+            latitude: 67.4123,
+            longitude: -150.1023,
             elevationMeters: 390,
+            region: "Alaska",
             capacity: 6,
             amenities: [.woodStove, .sleepingPlatform, .firewood, .outhouse],
-            notes: "BLM public use cabin. Reservations required.",
-            region: .alaska
+            notes: "BLM public use cabin. Reservations required."
         ),
-        ShelterCabin(
+        ShelterSeedData(
             name: "Coldfoot Emergency Shelter",
-            coordinate: CLLocationCoordinate2D(latitude: 67.2521, longitude: -150.1834),
+            shelterType: .emergencyShelter,
+            latitude: 67.2521,
+            longitude: -150.1834,
             elevationMeters: 317,
+            region: "Alaska",
             capacity: 8,
             amenities: [.woodStove, .sleepingPlatform, .firstAid, .emergencySupplies],
-            notes: "Near Coldfoot services. Good staging point.",
-            region: .alaska
+            notes: "Near Coldfoot services. Good staging point."
         ),
 
         // Yukon
-        ShelterCabin(
+        ShelterSeedData(
             name: "Tombstone Mountain Shelter",
-            coordinate: CLLocationCoordinate2D(latitude: 64.4512, longitude: -138.2341),
+            shelterType: .emergencyShelter,
+            latitude: 64.4512,
+            longitude: -138.2341,
             elevationMeters: 1100,
+            region: "Yukon",
             capacity: 6,
             amenities: [.woodStove, .sleepingPlatform, .firewood],
-            notes: "Tombstone Territorial Park emergency shelter.",
-            region: .yukon
+            notes: "Tombstone Territorial Park emergency shelter."
         ),
-        ShelterCabin(
+        ShelterSeedData(
             name: "Grizzly Lake Cabin",
-            coordinate: CLLocationCoordinate2D(latitude: 64.5234, longitude: -138.4521),
+            shelterType: .publicCabin,
+            latitude: 64.5234,
+            longitude: -138.4521,
             elevationMeters: 980,
+            region: "Yukon",
             capacity: 4,
             amenities: [.woodStove, .sleepingPlatform, .water],
-            notes: "Remote backcountry cabin. Good bear country awareness needed.",
-            region: .yukon
+            notes: "Remote backcountry cabin. Good bear country awareness needed."
         ),
-        ShelterCabin(
+        ShelterSeedData(
             name: "Divide Lake Shelter",
-            coordinate: CLLocationCoordinate2D(latitude: 64.3892, longitude: -138.3012),
+            shelterType: .emergencyShelter,
+            latitude: 64.3892,
+            longitude: -138.3012,
             elevationMeters: 1250,
+            region: "Yukon",
             capacity: 4,
             amenities: [.woodStove, .emergencySupplies],
-            notes: "High elevation emergency shelter.",
-            region: .yukon
+            notes: "High elevation emergency shelter."
         )
     ]
 
-    // MARK: - Filtering
-
-    /// Get shelters by region
-    static func shelters(in region: Region) -> [ShelterCabin] {
-        sampleShelters.filter { $0.region == region }
-    }
-
-    /// Get shelters within a distance of a coordinate
-    static func shelters(
-        near coordinate: CLLocationCoordinate2D,
-        withinMeters distance: Double
-    ) -> [ShelterCabin] {
-        let location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
-        return sampleShelters.filter { shelter in
-            let shelterLocation = CLLocation(
-                latitude: shelter.coordinate.latitude,
-                longitude: shelter.coordinate.longitude
-            )
-            return location.distance(from: shelterLocation) <= distance
-        }
-    }
-
-    /// Get shelters along a route (within distance of any route point)
-    static func shelters(
-        alongRoute coordinates: [CLLocationCoordinate2D],
-        withinMeters distance: Double = 10000 // 10km default
-    ) -> [ShelterCabin] {
-        var nearShelters: Set<ShelterCabin> = []
-
-        for coord in coordinates {
-            let nearby = shelters(near: coord, withinMeters: distance)
-            nearShelters.formUnion(nearby)
-        }
-
-        return Array(nearShelters).sorted { $0.name < $1.name }
-    }
-
     // MARK: - Conversion to RouteWaypoint
 
-    /// Convert a shelter to a RouteWaypoint for map display
-    static func toWaypoint(_ shelter: ShelterCabin) -> RouteWaypoint {
-        let amenityNotes = shelter.amenities.map { $0.rawValue }.joined(separator: ", ")
-        let notes = [shelter.notes, "Amenities: \(amenityNotes)"]
+    /// Convert a Shelter model to a RouteWaypoint for map display
+    static func toWaypoint(_ shelter: Shelter) -> RouteWaypoint? {
+        guard let coordinate = shelter.coordinate else { return nil }
+
+        let amenityNotes = shelter.amenitySummary
+        let notes = [shelter.notes, amenityNotes.isEmpty ? nil : "Amenities: \(amenityNotes)"]
             .compactMap { $0 }
+            .filter { !$0.isEmpty }
             .joined(separator: "\n")
 
         return RouteWaypoint(
             id: shelter.id,
-            coordinate: shelter.coordinate,
+            coordinate: coordinate,
             name: shelter.name,
             type: .shelter,
             elevationMeters: shelter.elevationMeters,
@@ -256,21 +176,50 @@ struct ShelterService {
         )
     }
 
-    /// Convert all shelters to RouteWaypoints
-    static func allShelterWaypoints() -> [RouteWaypoint] {
-        sampleShelters.map { toWaypoint($0) }
+    /// Convert an array of shelters to RouteWaypoints
+    static func toWaypoints(_ shelters: [Shelter]) -> [RouteWaypoint] {
+        shelters.compactMap { toWaypoint($0) }
     }
 
-    /// Get shelter waypoints for a specific region
-    static func shelterWaypoints(in region: Region) -> [RouteWaypoint] {
-        shelters(in: region).map { toWaypoint($0) }
+    // MARK: - Location Queries (Static, for use without SwiftData)
+
+    /// Get shelters from seed data within a distance of a coordinate
+    static func seedShelters(
+        near coordinate: CLLocationCoordinate2D,
+        withinMeters distance: Double
+    ) -> [ShelterSeedData] {
+        let location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
+        return sampleShelterData.filter { shelter in
+            let shelterLocation = CLLocation(
+                latitude: shelter.latitude,
+                longitude: shelter.longitude
+            )
+            return location.distance(from: shelterLocation) <= distance
+        }
     }
 
-    /// Get shelter waypoints along a route
-    static func shelterWaypoints(
+    /// Get shelters from seed data along a route
+    static func seedShelters(
         alongRoute coordinates: [CLLocationCoordinate2D],
         withinMeters distance: Double = 10000
-    ) -> [RouteWaypoint] {
-        shelters(alongRoute: coordinates, withinMeters: distance).map { toWaypoint($0) }
+    ) -> [ShelterSeedData] {
+        var seenNames: Set<String> = []
+        var nearShelters: [ShelterSeedData] = []
+
+        for coord in coordinates {
+            let nearby = seedShelters(near: coord, withinMeters: distance)
+            for shelter in nearby where !seenNames.contains(shelter.name) {
+                seenNames.insert(shelter.name)
+                nearShelters.append(shelter)
+            }
+        }
+
+        return nearShelters.sorted { $0.name < $1.name }
+    }
+
+    // MARK: - Region List
+
+    static var availableRegions: [String] {
+        Array(Set(sampleShelterData.map { $0.region })).sorted()
     }
 }
