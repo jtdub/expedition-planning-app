@@ -2,7 +2,8 @@ import SwiftUI
 import SwiftData
 
 struct InsuranceListView: View {
-    @Environment(\.modelContext) private var modelContext
+    @Environment(\.modelContext)
+    private var modelContext
     @Bindable var expedition: Expedition
 
     @State private var viewModel: InsuranceViewModel?
@@ -254,8 +255,7 @@ struct InsurancePolicyRow: View {
         .contentShape(Rectangle())
     }
 
-    @ViewBuilder
-    private var statusBadge: some View {
+    @ViewBuilder private var statusBadge: some View {
         if policy.isExpired {
             Text("Expired")
                 .font(.caption2)

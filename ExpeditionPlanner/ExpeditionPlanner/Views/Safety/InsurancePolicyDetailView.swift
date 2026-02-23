@@ -2,7 +2,8 @@ import SwiftUI
 import SwiftData
 
 struct InsurancePolicyDetailView: View {
-    @Environment(\.dismiss) private var dismiss
+    @Environment(\.dismiss)
+    private var dismiss
 
     let policy: InsurancePolicy
     let expedition: Expedition
@@ -215,8 +216,7 @@ struct InsurancePolicyDetailView: View {
         }
     }
 
-    @ViewBuilder
-    private var statusHeader: some View {
+    @ViewBuilder private var statusHeader: some View {
         HStack(spacing: 16) {
             Image(systemName: policy.insuranceType.icon)
                 .font(.largeTitle)

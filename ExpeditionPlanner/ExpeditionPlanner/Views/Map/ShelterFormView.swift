@@ -8,7 +8,8 @@ enum ShelterFormMode {
 }
 
 struct ShelterFormView: View {
-    @Environment(\.dismiss) private var dismiss
+    @Environment(\.dismiss)
+    private var dismiss
 
     let mode: ShelterFormMode
     var viewModel: ShelterViewModel

@@ -14,8 +14,6 @@ struct DayDetailView: View {
 
     @State private var showingEditSheet = false
     @State private var showingLakeLouiseSheet = false
-    @State private var weatherForecast: WeatherForecast?
-    @State private var isLoadingWeather = false
 
     private var risk: AcclimatizationRisk {
         ElevationService.assessRisk(for: day)
@@ -44,7 +42,7 @@ struct DayDetailView: View {
 
                         // Weather Card
                         if day.date != nil && (day.startLatitude != nil || day.endLatitude != nil) {
-                            weatherCard
+                            DayWeatherGroupBox(day: day)
                         }
 
                         // Map Card
@@ -363,81 +361,6 @@ struct DayDetailView: View {
                 }
             }
         }
-    }
-
-    // MARK: - Weather Card
-
-    private var weatherCard: some View {
-        GroupBox("Weather Forecast") {
-            if isLoadingWeather {
-                HStack {
-                    ProgressView()
-                        .controlSize(.small)
-                    Text("Loading weather...")
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
-                }
-                .frame(maxWidth: .infinity)
-                .padding(.vertical, 8)
-            } else if let forecast = weatherForecast {
-                WeatherSectionView(forecast: forecast) {
-                    Task {
-                        await loadWeather()
-                    }
-                }
-            } else {
-                VStack(spacing: 12) {
-                    Image(systemName: "cloud.sun")
-                        .font(.largeTitle)
-                        .foregroundStyle(.secondary)
-
-                    Text("Weather data not loaded")
-                        .font(.subheadline)
-                        .foregroundStyle(.secondary)
-
-                    Button {
-                        Task {
-                            await loadWeather()
-                        }
-                    } label: {
-                        Label("Load Weather", systemImage: "arrow.clockwise")
-                    }
-                    .buttonStyle(.borderedProminent)
-                }
-                .frame(maxWidth: .infinity)
-                .padding(.vertical, 8)
-            }
-        }
-        .task {
-            await loadWeather()
-        }
-    }
-
-    private func loadWeather() async {
-        guard let lat = day.endLatitude ?? day.startLatitude,
-              let lon = day.endLongitude ?? day.startLongitude,
-              let date = day.date else {
-            return
-        }
-
-        isLoadingWeather = true
-
-        let weatherService = WeatherService(modelContext: modelContext)
-        let locationName = day.endLocation.isEmpty ? day.startLocation : day.endLocation
-
-        do {
-            weatherForecast = try await weatherService.fetchForecast(
-                latitude: lat,
-                longitude: lon,
-                locationName: locationName,
-                forDate: date,
-                itineraryDayId: day.id
-            )
-        } catch {
-            // Weather fetch failed - leave forecast nil
-        }
-
-        isLoadingWeather = false
     }
 
     // MARK: - Camp Card

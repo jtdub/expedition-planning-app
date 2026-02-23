@@ -2,7 +2,8 @@ import SwiftUI
 import SwiftData
 
 struct ShelterListView: View {
-    @Environment(\.modelContext) private var modelContext
+    @Environment(\.modelContext)
+    private var modelContext
 
     @State private var viewModel: ShelterViewModel?
     @State private var showingAddSheet = false

@@ -3,7 +3,8 @@ import SwiftData
 import MapKit
 
 struct ShelterDetailView: View {
-    @Environment(\.dismiss) private var dismiss
+    @Environment(\.dismiss)
+    private var dismiss
 
     let shelter: Shelter
     var viewModel: ShelterViewModel

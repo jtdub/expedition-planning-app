@@ -7,7 +7,8 @@ enum InsuranceFormMode {
 }
 
 struct InsurancePolicyFormView: View {
-    @Environment(\.dismiss) private var dismiss
+    @Environment(\.dismiss)
+    private var dismiss
 
     let mode: InsuranceFormMode
     let expedition: Expedition
