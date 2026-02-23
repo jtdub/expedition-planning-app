@@ -175,8 +175,10 @@ struct SettingsView: View {
 // MARK: - Data Management View
 
 struct DataManagementView: View {
+    @StateObject private var mapCache = MapCacheService.shared
     @State private var showingExportSheet = false
     @State private var showingClearConfirmation = false
+    @State private var showingDownloadSheet = false
 
     var body: some View {
         List {
@@ -198,26 +200,70 @@ struct DataManagementView: View {
                 Text("Export your expedition data for backup or transfer.")
             }
 
+            // Offline Maps Section
             Section {
+                LabeledContent("Cache Size", value: mapCache.formattedCacheSize)
+
+                if mapCache.isDownloading {
+                    HStack {
+                        Text("Downloading...")
+                        Spacer()
+                        ProgressView(value: mapCache.downloadProgress)
+                            .frame(width: 100)
+                    }
+                }
+
+                ForEach(mapCache.cachedRegions) { region in
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text(region.name)
+                            .font(.body)
+                        HStack {
+                            Text("\(region.tileCount) tiles")
+                            Text("•")
+                            Text(region.formattedSize)
+                            Text("•")
+                            Text("Zoom \(region.minZoom)-\(region.maxZoom)")
+                        }
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                    }
+                    .swipeActions(edge: .trailing) {
+                        Button(role: .destructive) {
+                            mapCache.deleteRegion(region)
+                        } label: {
+                            Label("Delete", systemImage: "trash")
+                        }
+                    }
+                }
+
                 Button(role: .destructive) {
                     showingClearConfirmation = true
                 } label: {
-                    Label("Clear Cache", systemImage: "trash")
+                    Label("Clear All Map Cache", systemImage: "trash")
                 }
+                .disabled(mapCache.cachedRegions.isEmpty)
             } header: {
-                Text("Cache")
+                Text("Offline Maps")
             } footer: {
-                Text("Clearing the cache removes temporary files and downloaded maps.")
+                Text(offlineMapsFooter)
             }
         }
         .navigationTitle("Data Management")
         .confirmationDialog("Clear Cache?", isPresented: $showingClearConfirmation) {
             Button("Clear Cache", role: .destructive) {
-                // Clear cache action
+                mapCache.clearCache()
             }
             Button("Cancel", role: .cancel) {}
         } message: {
-            Text("This will remove temporary files and downloaded offline maps.")
+            Text("This will remove all downloaded offline map tiles.")
+        }
+    }
+
+    private var offlineMapsFooter: String {
+        if mapCache.cachedRegions.isEmpty {
+            return "Download map regions from the Route Map view for offline use."
+        } else {
+            return "Swipe left on a region to delete it."
         }
     }
 }

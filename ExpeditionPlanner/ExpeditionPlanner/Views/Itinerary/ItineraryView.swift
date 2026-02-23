@@ -15,6 +15,7 @@ struct ItineraryView: View {
     @State private var showingFilterSheet = false
     @State private var selectedDay: ItineraryDay?
     @State private var isEditMode = false
+    @State private var showingRouteMap = false
 
     var body: some View {
         Group {
@@ -45,9 +46,20 @@ struct ItineraryView: View {
 
             if let viewModel, viewModel.totalDays > 0 {
                 ToolbarItem(placement: .topBarLeading) {
-                    filterMenu(viewModel: viewModel)
+                    HStack(spacing: 16) {
+                        filterMenu(viewModel: viewModel)
+
+                        Button {
+                            showingRouteMap = true
+                        } label: {
+                            Image(systemName: "map")
+                        }
+                    }
                 }
             }
+        }
+        .navigationDestination(isPresented: $showingRouteMap) {
+            RouteMapView(expedition: expedition)
         }
         .sheet(isPresented: $showingAddSheet) {
             DayFormView(mode: .create(expedition: expedition), modelContext: modelContext)
