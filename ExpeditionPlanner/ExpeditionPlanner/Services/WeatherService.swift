@@ -191,6 +191,11 @@ final class WeatherService {
             forecast.sunriseTime = dayForecast.sun.sunrise
             forecast.sunsetTime = dayForecast.sun.sunset
             forecast.windSpeedKmh = dayForecast.wind.speed.converted(to: .kilometersPerHour).value
+
+            // Extract moon phase
+            forecast.moonPhase = dayForecast.moon.phase.rawValue
+            // Calculate moon illumination from phase
+            forecast.moonIllumination = moonIllumination(for: dayForecast.moon.phase)
         } else {
             // Use current weather as fallback
             let current = weather.currentWeather
@@ -206,12 +211,45 @@ final class WeatherService {
             forecast.pressure = current.pressure.converted(to: .hectopascals).value
         }
 
+        // Extract weather alerts if available
+        if let alerts = weather.weatherAlerts, let firstAlert = alerts.first {
+            forecast.alertType = firstAlert.summary
+            forecast.alertSeverity = firstAlert.severity.rawValue
+            forecast.alertDescription = firstAlert.detailsURL.absoluteString
+            // WeatherAlert doesn't expose start/end dates directly in the API
+            // The metadata is available through the detailsURL
+        }
+
         forecast.itineraryDayId = itineraryDayId
         forecast.fetchedAt = Date()
         forecast.expiresAt = Date().addingTimeInterval(forecastCacheDuration)
         forecast.dataSource = "WeatherKit"
 
         return forecast
+    }
+
+    /// Calculate approximate moon illumination from phase
+    private func moonIllumination(for phase: MoonPhase) -> Double {
+        switch phase {
+        case .new:
+            return 0.0
+        case .waxingCrescent:
+            return 0.25
+        case .firstQuarter:
+            return 0.5
+        case .waxingGibbous:
+            return 0.75
+        case .full:
+            return 1.0
+        case .waningGibbous:
+            return 0.75
+        case .lastQuarter:
+            return 0.5
+        case .waningCrescent:
+            return 0.25
+        @unknown default:
+            return 0.5
+        }
     }
 
     // MARK: - Static Formatting
