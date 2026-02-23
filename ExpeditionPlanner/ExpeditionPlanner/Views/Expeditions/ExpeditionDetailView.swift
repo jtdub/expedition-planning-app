@@ -128,7 +128,16 @@ struct ExpeditionDetailView: View {
                         title: "Risk Assessment",
                         icon: "exclamationmark.shield",
                         color: .red,
-                        detail: "\((expedition.riskAssessments ?? []).count) risks"
+                        detail: riskAssessmentDetail
+                    )
+                }
+
+                NavigationLink(value: ExpeditionSection.emergencyContacts) {
+                    SectionRow(
+                        title: "Emergency Contacts",
+                        icon: "exclamationmark.triangle.fill",
+                        color: .red,
+                        detail: emergencyContactsDetail
                     )
                 }
 
@@ -196,6 +205,31 @@ struct ExpeditionDetailView: View {
         }
     }
 
+    private var riskAssessmentDetail: String {
+        let assessments = expedition.riskAssessments ?? []
+        let count = assessments.count
+        let needsAttention = assessments.filter { $0.needsAttention }.count
+        if count == 0 {
+            return "No risks"
+        } else if needsAttention > 0 {
+            return "\(count) risks, \(needsAttention) need attention"
+        } else {
+            return "\(count) risks"
+        }
+    }
+
+    private var emergencyContactsDetail: String {
+        let contacts = expedition.contacts ?? []
+        let emergencyCount = contacts.filter { $0.isEmergencyContact }.count
+        if emergencyCount == 0 {
+            return "None set"
+        } else if emergencyCount == 1 {
+            return "1 contact"
+        } else {
+            return "\(emergencyCount) contacts"
+        }
+    }
+
     @ViewBuilder
     private func sectionView(for section: ExpeditionSection) -> some View {
         switch section {
@@ -218,7 +252,9 @@ struct ExpeditionDetailView: View {
         case .budget:
             BudgetListView(expedition: expedition)
         case .safety:
-            SafetyPlaceholderView(expedition: expedition)
+            RiskAssessmentListView(expedition: expedition)
+        case .emergencyContacts:
+            EmergencyContactsView(expedition: expedition)
         case .insurance:
             InsuranceListView(expedition: expedition)
         case .shelters:
@@ -241,6 +277,7 @@ enum ExpeditionSection: Hashable {
     case gear
     case budget
     case safety
+    case emergencyContacts
     case insurance
 }
 
@@ -324,21 +361,6 @@ struct ExpeditionOverviewView: View {
         }
         .navigationTitle("Overview")
         .navigationBarTitleDisplayMode(.inline)
-    }
-}
-
-// MARK: - Placeholder Views
-
-struct SafetyPlaceholderView: View {
-    let expedition: Expedition
-
-    var body: some View {
-        ContentUnavailableView(
-            "Risk Assessment",
-            systemImage: "exclamationmark.shield",
-            description: Text("Risk assessment management coming soon")
-        )
-        .navigationTitle("Safety")
     }
 }
 
