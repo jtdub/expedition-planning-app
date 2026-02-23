@@ -43,14 +43,40 @@ final class RouteMapViewModel {
 
         // Add nearby shelter cabins if enabled
         if showNearbyShelters && !routeCoordinates.isEmpty {
-            let shelterWaypoints = ShelterService.shelterWaypoints(
-                alongRoute: routeCoordinates,
-                withinMeters: 15000 // 15km from route
-            )
+            let shelterWaypoints = fetchShelterWaypoints()
             allWaypoints.append(contentsOf: shelterWaypoints)
         }
 
         return allWaypoints
+    }
+
+    /// Fetch shelters from SwiftData and convert to waypoints
+    private func fetchShelterWaypoints() -> [RouteWaypoint] {
+        let descriptor = FetchDescriptor<Shelter>()
+        do {
+            let shelters = try modelContext.fetch(descriptor)
+            // Filter to shelters near the route
+            let nearShelters = filterSheltersNearRoute(shelters, withinMeters: 15000)
+            return ShelterService.toWaypoints(nearShelters)
+        } catch {
+            logger.error("Failed to fetch shelters: \(error.localizedDescription)")
+            return []
+        }
+    }
+
+    /// Filter shelters that are within distance of any route coordinate
+    private func filterSheltersNearRoute(_ shelters: [Shelter], withinMeters distance: Double) -> [Shelter] {
+        guard !routeCoordinates.isEmpty else { return [] }
+
+        return shelters.filter { shelter in
+            guard let lat = shelter.latitude, let lon = shelter.longitude else { return false }
+            let shelterLocation = CLLocation(latitude: lat, longitude: lon)
+
+            return routeCoordinates.contains { coord in
+                let routeLocation = CLLocation(latitude: coord.latitude, longitude: coord.longitude)
+                return shelterLocation.distance(from: routeLocation) <= distance
+            }
+        }
     }
 
     var filteredWaypoints: [RouteWaypoint] {

@@ -39,6 +39,9 @@ final class Expedition {
     @Relationship(deleteRule: .cascade, inverse: \RiskAssessment.expedition)
     var riskAssessments: [RiskAssessment]?
 
+    @Relationship(deleteRule: .cascade, inverse: \InsurancePolicy.expedition)
+    var insurancePolicies: [InsurancePolicy]?
+
     init(
         name: String = "",
         expeditionDescription: String = "",
