@@ -112,12 +112,13 @@ final class WeatherService {
         let calendar = Calendar.current
         let startOfDay = calendar.startOfDay(for: date)
         let endOfDay = calendar.date(byAdding: .day, value: 1, to: startOfDay) ?? date
+        let now = Date()
 
         let descriptor = FetchDescriptor<WeatherForecast>(
             predicate: #Predicate { forecast in
                 forecast.forecastDate >= startOfDay &&
                 forecast.forecastDate < endOfDay &&
-                !forecast.isExpired
+                forecast.expiresAt > now
             }
         )
 
