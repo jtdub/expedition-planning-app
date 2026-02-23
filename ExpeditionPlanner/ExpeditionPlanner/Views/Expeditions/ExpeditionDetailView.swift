@@ -214,7 +214,7 @@ struct ExpeditionDetailView: View {
         case .permits:
             PermitsPlaceholderView(expedition: expedition)
         case .gear:
-            GearPlaceholderView(expedition: expedition)
+            GearListView(expedition: expedition)
         case .budget:
             BudgetPlaceholderView(expedition: expedition)
         case .safety:
@@ -391,19 +391,6 @@ struct PermitsPlaceholderView: View {
             description: Text("Permit tracking coming in Phase 4")
         )
         .navigationTitle("Permits")
-    }
-}
-
-struct GearPlaceholderView: View {
-    let expedition: Expedition
-
-    var body: some View {
-        ContentUnavailableView(
-            "Gear List",
-            systemImage: "backpack",
-            description: Text("Gear management coming in Phase 3")
-        )
-        .navigationTitle("Gear")
     }
 }
 
