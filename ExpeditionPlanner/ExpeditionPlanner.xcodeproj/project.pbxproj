@@ -52,6 +52,22 @@
 		LL001 /* LakeLouiseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = LL101 /* LakeLouiseService.swift */; };
 		LL002 /* LakeLouiseScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = LL102 /* LakeLouiseScoreView.swift */; };
 		LLT01 /* LakeLouiseServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = LLT101 /* LakeLouiseServiceTests.swift */; };
+		RM001 /* DistanceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = RM101 /* DistanceService.swift */; };
+		RM002 /* RouteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = RM102 /* RouteService.swift */; };
+		RM003 /* GPXService.swift in Sources */ = {isa = PBXBuildFile; fileRef = RM103 /* GPXService.swift */; };
+		RM004 /* RouteMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = RM104 /* RouteMapViewModel.swift */; };
+		RM005 /* RouteMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = RM105 /* RouteMapView.swift */; };
+		RM006 /* WaypointMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = RM106 /* WaypointMarkerView.swift */; };
+		RM007 /* WaypointDetailSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = RM107 /* WaypointDetailSheet.swift */; };
+		RM008 /* RouteMapOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = RM108 /* RouteMapOverlayView.swift */; };
+		RM009 /* GPXImportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = RM109 /* GPXImportView.swift */; };
+		RMT01 /* DistanceServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = RMT101 /* DistanceServiceTests.swift */; };
+		RMT02 /* GPXServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = RMT102 /* GPXServiceTests.swift */; };
+		RMT03 /* RouteServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = RMT103 /* RouteServiceTests.swift */; };
+		RM010 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = RM110 /* LocationManager.swift */; };
+		RM011 /* ShelterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = RM111 /* ShelterService.swift */; };
+		RM012 /* MapCacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = RM112 /* MapCacheService.swift */; };
+		RM013 /* RouteMapSheets.swift in Sources */ = {isa = PBXBuildFile; fileRef = RM113 /* RouteMapSheets.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +129,23 @@
 		LL101 /* LakeLouiseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LakeLouiseService.swift; sourceTree = "<group>"; };
 		LL102 /* LakeLouiseScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LakeLouiseScoreView.swift; sourceTree = "<group>"; };
 		LLT101 /* LakeLouiseServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LakeLouiseServiceTests.swift; sourceTree = "<group>"; };
+		RM101 /* DistanceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceService.swift; sourceTree = "<group>"; };
+		RM102 /* RouteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteService.swift; sourceTree = "<group>"; };
+		RM103 /* GPXService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPXService.swift; sourceTree = "<group>"; };
+		RM104 /* RouteMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteMapViewModel.swift; sourceTree = "<group>"; };
+		RM105 /* RouteMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteMapView.swift; sourceTree = "<group>"; };
+		RM106 /* WaypointMarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaypointMarkerView.swift; sourceTree = "<group>"; };
+		RM107 /* WaypointDetailSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaypointDetailSheet.swift; sourceTree = "<group>"; };
+		RM108 /* RouteMapOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteMapOverlayView.swift; sourceTree = "<group>"; };
+		RM109 /* GPXImportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPXImportView.swift; sourceTree = "<group>"; };
+		RMT101 /* DistanceServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceServiceTests.swift; sourceTree = "<group>"; };
+		RMT102 /* GPXServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPXServiceTests.swift; sourceTree = "<group>"; };
+		RMT103 /* RouteServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteServiceTests.swift; sourceTree = "<group>"; };
+		RM110 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		RM111 /* ShelterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelterService.swift; sourceTree = "<group>"; };
+		RM112 /* MapCacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCacheService.swift; sourceTree = "<group>"; };
+		RM113 /* RouteMapSheets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteMapSheets.swift; sourceTree = "<group>"; };
+		119 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +191,7 @@
 				101 /* ExpeditionPlannerApp.swift */,
 				102 /* ContentView.swift */,
 				118 /* ExpeditionPlanner.entitlements */,
+				119 /* Info.plist */,
 				303 /* Models */,
 				304 /* Views */,
 				305 /* Utilities */,
@@ -199,8 +233,22 @@
 				307 /* Settings */,
 				D45F1224F8E4F52D45D017E2 /* Components */,
 				P2IT /* Itinerary */,
+				RMMAP /* Map */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		RMMAP /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				RM105 /* RouteMapView.swift */,
+				RM106 /* WaypointMarkerView.swift */,
+				RM107 /* WaypointDetailSheet.swift */,
+				RM108 /* RouteMapOverlayView.swift */,
+				RM109 /* GPXImportView.swift */,
+				RM113 /* RouteMapSheets.swift */,
+			);
+			path = Map;
 			sourceTree = "<group>";
 		};
 		305 /* Utilities */ = {
@@ -244,6 +292,12 @@
 				9466AF824266C9E22E26D382 /* SyncStatusService.swift */,
 				P2101 /* ElevationService.swift */,
 				LL101 /* LakeLouiseService.swift */,
+				RM101 /* DistanceService.swift */,
+				RM102 /* RouteService.swift */,
+				RM103 /* GPXService.swift */,
+				RM110 /* LocationManager.swift */,
+				RM111 /* ShelterService.swift */,
+				RM112 /* MapCacheService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -270,6 +324,9 @@
 				P2T101 /* ElevationServiceTests.swift */,
 				P2T102 /* ItineraryViewModelTests.swift */,
 				LLT101 /* LakeLouiseServiceTests.swift */,
+				RMT101 /* DistanceServiceTests.swift */,
+				RMT102 /* GPXServiceTests.swift */,
+				RMT103 /* RouteServiceTests.swift */,
 			);
 			path = ExpeditionPlannerTests;
 			sourceTree = "<group>";
@@ -279,6 +336,7 @@
 			children = (
 				P2102 /* ItineraryViewModel.swift */,
 				P2103 /* DayFormViewModel.swift */,
+				RM104 /* RouteMapViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -427,6 +485,19 @@
 				P2012 /* AcclimatizationWarningView.swift in Sources */,
 				LL001 /* LakeLouiseService.swift in Sources */,
 				LL002 /* LakeLouiseScoreView.swift in Sources */,
+				RM001 /* DistanceService.swift in Sources */,
+				RM002 /* RouteService.swift in Sources */,
+				RM003 /* GPXService.swift in Sources */,
+				RM004 /* RouteMapViewModel.swift in Sources */,
+				RM005 /* RouteMapView.swift in Sources */,
+				RM006 /* WaypointMarkerView.swift in Sources */,
+				RM007 /* WaypointDetailSheet.swift in Sources */,
+				RM008 /* RouteMapOverlayView.swift in Sources */,
+				RM009 /* GPXImportView.swift in Sources */,
+				RM010 /* LocationManager.swift in Sources */,
+				RM011 /* ShelterService.swift in Sources */,
+				RM012 /* MapCacheService.swift in Sources */,
+				RM013 /* RouteMapSheets.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,6 +516,9 @@
 				P2T01 /* ElevationServiceTests.swift in Sources */,
 				P2T02 /* ItineraryViewModelTests.swift in Sources */,
 				LLT01 /* LakeLouiseServiceTests.swift in Sources */,
+				RMT01 /* DistanceServiceTests.swift in Sources */,
+				RMT02 /* GPXServiceTests.swift in Sources */,
+				RMT03 /* RouteServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -628,6 +702,7 @@
 				DEVELOPMENT_TEAM = L8C6ADCNAP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ExpeditionPlanner/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -658,6 +733,7 @@
 				DEVELOPMENT_TEAM = L8C6ADCNAP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ExpeditionPlanner/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

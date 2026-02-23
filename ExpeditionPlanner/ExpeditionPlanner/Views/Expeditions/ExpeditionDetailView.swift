@@ -36,6 +36,15 @@ struct ExpeditionDetailView: View {
                         detail: "\((expedition.itinerary ?? []).count) days"
                     )
                 }
+
+                NavigationLink(value: ExpeditionSection.routeMap) {
+                    SectionRow(
+                        title: "Route Map",
+                        icon: "map",
+                        color: .cyan,
+                        detail: routeMapDetail
+                    )
+                }
             }
 
             // Logistics Section
@@ -146,6 +155,18 @@ struct ExpeditionDetailView: View {
         return formatter.string(from: NSDecimalNumber(decimal: expedition.totalBudget)) ?? "$0"
     }
 
+    private var routeMapDetail: String {
+        let waypoints = RouteService.extractWaypoints(from: expedition)
+        let waypointCount = waypoints.count
+        if waypointCount == 0 {
+            return "No waypoints"
+        } else if waypointCount == 1 {
+            return "1 waypoint"
+        } else {
+            return "\(waypointCount) waypoints"
+        }
+    }
+
     @ViewBuilder
     private func sectionView(for section: ExpeditionSection) -> some View {
         switch section {
@@ -153,6 +174,8 @@ struct ExpeditionDetailView: View {
             ExpeditionOverviewView(expedition: expedition)
         case .itinerary:
             ItineraryView(expedition: expedition)
+        case .routeMap:
+            RouteMapView(expedition: expedition)
         case .participants:
             ParticipantsPlaceholderView(expedition: expedition)
         case .contacts:
@@ -176,6 +199,7 @@ struct ExpeditionDetailView: View {
 enum ExpeditionSection: Hashable {
     case overview
     case itinerary
+    case routeMap
     case participants
     case contacts
     case resupply
