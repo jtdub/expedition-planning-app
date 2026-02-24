@@ -26,27 +26,35 @@
 		017 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117 /* Constants.swift */; };
 		03CE01C72EC221C22AE9CBED /* ResupplyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B695CF83D907365368C6CE8 /* ResupplyViewModel.swift */; };
 		0434DF32B009E858DC8E9A63 /* SyncStatusService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9466AF824266C9E22E26D382 /* SyncStatusService.swift */; };
+		06DF9A6C6DD600D961654994 /* AccommodationFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F9B69D5F8D6E318EA0F314 /* AccommodationFormView.swift */; };
 		0A9B9ABA2BA5928460585216 /* RiskAssessmentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4DC1CA449E1E151F6C3345 /* RiskAssessmentViewModel.swift */; };
 		12D1237E0A95E3900EADD1F3 /* ParticipantRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1FC338C8D0EFE57DAB06FC /* ParticipantRowView.swift */; };
 		16F203884CCD133A44A52959 /* SyncStatusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F838156F315826CE7A62ED8E /* SyncStatusTests.swift */; };
+		1B6EEB6DA055B80C43A064CE /* AccommodationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B83F58592680670966FF525 /* AccommodationDetailView.swift */; };
 		1BEC93D511E36E74419B8317 /* PermitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5552BA5C06A302D245BA3672 /* PermitTests.swift */; };
 		1EEA31308684686E7B8DDF65 /* PermitDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC690067BE946357BB56A4A6 /* PermitDetailView.swift */; };
 		20D7F65F2BB9EA66B7DCC9E5 /* BudgetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C05A1EE532F355330D8DA1 /* BudgetViewModel.swift */; };
 		216299D046B3EB3BDCB18A23 /* ParticipantFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB044253DE60443329BB0042 /* ParticipantFormView.swift */; };
 		261AA88FD409F5AE2A414C0E /* RiskAssessmentDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D05613A00EB713488548EC /* RiskAssessmentDetailView.swift */; };
+		26AB820582E5CC5D4D607B06 /* TransportListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6DF5CC7C7DBD55808FA61E /* TransportListView.swift */; };
+		2AC2220F2029A70295F06CDA /* SatelliteDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0418909D68337C695811A94A /* SatelliteDevice.swift */; };
 		30DAAED01F397756C2C2EFE6 /* InsurancePolicyFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDBF6E9789DB98ADD88CDD5 /* InsurancePolicyFormView.swift */; };
 		35D8A5A9D123FF0CFCC14D47 /* ContactDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F8F49FB58474374C87E0C8 /* ContactDetailView.swift */; };
+		36E786D5C75C30F20F58C0D0 /* AccommodationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C5EED4F8DC1492EBCD5273 /* AccommodationListView.swift */; };
 		3BD05D2DBAC0F7C507B740DB /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F28D321016A515D0131114 /* WeatherService.swift */; };
 		42B5FA5CD893B59B9EA3E35C /* ShelterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19048C3A13B24CE36258073E /* ShelterViewModel.swift */; };
+		44D623799313A22464B2DA40 /* TransportFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF79405E72C13CB4784F0DA /* TransportFormView.swift */; };
 		4A6AFC24FCCB923BA219EAE7 /* RiskAssessmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAA145005D9C1328FCCE90C /* RiskAssessmentTests.swift */; };
 		545A185D43905CE68659B7A0 /* BudgetSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A75D81BD6B24C84B3179692 /* BudgetSummaryView.swift */; };
 		572D98B22CC6532AB7627364 /* PermitFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B9BBEA0060C806CC82259D /* PermitFormView.swift */; };
 		589FAA86C9EE6EF81411A39D /* InsurancePolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E92BDDB7AEFED01271D196 /* InsurancePolicy.swift */; };
+		5AA6CB87210608908B8523CD /* Accommodation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71203CF5DE80A45D4129DE9C /* Accommodation.swift */; };
 		5CC21C3CDC82C325E3270A9F /* WeatherForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10F30939006C038063EA0D9 /* WeatherForecast.swift */; };
 		5D31AA674A3496D0FD0CAF5C /* ContactViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D084EDF6F0A6D4580D88A9A7 /* ContactViewModel.swift */; };
 		5F05E129F7D1B6435E233078 /* GearViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341D5CEB0D1625516B2B6D66 /* GearViewModel.swift */; };
 		5FDA49215E8CFAC4E534312D /* DayWeatherCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E01CD7265998A303456854 /* DayWeatherCard.swift */; };
 		64BADD0DC57BA65EA41AFC26 /* BudgetListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891B27DD79F8EB983B3174C1 /* BudgetListView.swift */; };
+		7A9493B052D617FE396C6AFA /* SatelliteDeviceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782368A25AAF9F42F3ABE1F2 /* SatelliteDeviceViewModel.swift */; };
 		7AC8DA71EDC18DA9E5060BEF /* ShelterDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6C15CE83AC38C6CF3D5954 /* ShelterDetailView.swift */; };
 		7B5DF9794AF9DCF6A9CE7E36 /* InsuranceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A976D9B7F821FC04903A551 /* InsuranceViewModel.swift */; };
 		7B9052BA80EF036CC2107B18 /* ResupplyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952B6E770951CDC5A814EB29 /* ResupplyListView.swift */; };
@@ -55,6 +63,8 @@
 		839D033CF69CA3466455B47E /* PermitListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A0C5FF44AA00B94F0ABC14 /* PermitListView.swift */; };
 		8843E8F0A7D8725B5672B93B /* RiskMatrixView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FC6A206E66F64BCEF9EB32 /* RiskMatrixView.swift */; };
 		88C4ECFBD2D5EF1B868418B7 /* ShelterFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92318202FC80142AFC622A3E /* ShelterFormView.swift */; };
+		892AB102C9FFCD634B6E1E43 /* AccommodationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6E4BDE40E727E8662D2B36 /* AccommodationViewModel.swift */; };
+		893BB1002E9669FC69C68A7A /* SatelliteDeviceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B941E268935E8A82698E2C28 /* SatelliteDeviceDetailView.swift */; };
 		89B1255036CA3DF2223706C5 /* CSVExportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ECAA25E019B53031A2B27FC /* CSVExportService.swift */; };
 		8D5F29D6CA94C27A34F6442E /* PermitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A2E1CFF6B84CBF61B1C050 /* PermitViewModel.swift */; };
 		92A2EFDBCCD3955B58965169 /* InsuranceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDF2373A32170A2DE1FCD9E /* InsuranceListView.swift */; };
@@ -67,10 +77,13 @@
 		A17ABF512B802147EAAD8234 /* SyncStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870068EBAAFFD661A688E177 /* SyncStatusView.swift */; };
 		A89CD27CE61E4585A3C15C92 /* ResupplyDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9990431B8384CA2672FF2A4 /* ResupplyDetailView.swift */; };
 		AB378C09FDD37EDBF0EAD77E /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5151A65F2947A0FA54D821 /* WeatherViewModel.swift */; };
+		AC5F7BBA9B67518DCD05489F /* TransportLeg.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8E8443F18754BD48445A27 /* TransportLeg.swift */; };
 		AD6ED5D1E07BAA908FB94A78 /* ParticipantViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D3A01A76C33AA0E6F0FCDC /* ParticipantViewModel.swift */; };
 		B08C0A233ADDC7301F0BE8F6 /* GearItemFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0136F567FEF4A9E645C0B0B /* GearItemFormView.swift */; };
 		B18A6BAB6161B0E4EF9EFBEB /* ResupplyRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0CA53E3DB6A03FE588B6DC /* ResupplyRowView.swift */; };
 		B2603F6A5E66127766D22483 /* SettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DAF26198831311ED26B68A /* SettingsTests.swift */; };
+		B4ED7F04F8FBD657F56B9FDD /* TransportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC2A9CE7DFE26A05B3D01D6 /* TransportViewModel.swift */; };
+		B7D422C03738923FB8BC212A /* SatelliteDeviceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB2E92B68A6A868DCECE352 /* SatelliteDeviceListView.swift */; };
 		B92022465767C646AD0815FF /* ResupplyFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24F7CCF9E0A973BE0A30699 /* ResupplyFormView.swift */; };
 		BB0F4CB60B477009042ED4F3 /* BudgetRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3620B6287A001ED5CFD199FD /* BudgetRowView.swift */; };
 		C64659D0A5524695E1449305 /* HistoricalClimate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47705312316727090D596DF1 /* HistoricalClimate.swift */; };
@@ -85,8 +98,10 @@
 		E4C85E5AED5918E25D1C0F87 /* ExpeditionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1378969E397E8702EC17877 /* ExpeditionTests.swift */; };
 		EAFA9239313F8B95F88193E7 /* ContactFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E838034CAE71A826A816B58 /* ContactFormView.swift */; };
 		ED5BF9CE473F11A025775732 /* ItineraryDayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCF1EDCF7A127F6EFDB3C9C /* ItineraryDayTests.swift */; };
+		EE3C0833CD9F39DE7F1C6DD5 /* SatelliteDeviceFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A47C679F714D3C79B17C7A9 /* SatelliteDeviceFormView.swift */; };
 		F02F02E586F929B8DFA99DFC /* WeightSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7E3C130067A7AA87459DD0 /* WeightSummaryView.swift */; };
 		F232F6609543E654078AD267 /* Shelter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953CFB3C4F714B47108640E3 /* Shelter.swift */; };
+		F2761D9703DE6E1357FE12E5 /* TransportDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9067035F1696616448AB21B /* TransportDetailView.swift */; };
 		F460DB2D6299AB4D2AFD2CB3 /* ParticipantDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856BCE3A7D33E4FA6D1AFD44 /* ParticipantDetailView.swift */; };
 		FCE358CE0B5A7860B5ED4780 /* ContactRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE4C70C8F614AF34A5505A5 /* ContactRowView.swift */; };
 		FE46E478E7D733AA391D6C97 /* WeatherSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF1E024A6E21347C44900D5 /* WeatherSectionView.swift */; };
@@ -136,6 +151,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0418909D68337C695811A94A /* SatelliteDevice.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SatelliteDevice.swift; sourceTree = "<group>"; };
 		05DAF26198831311ED26B68A /* SettingsTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SettingsTests.swift; sourceTree = "<group>"; };
 		0FDBF6E9789DB98ADD88CDD5 /* InsurancePolicyFormView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = InsurancePolicyFormView.swift; sourceTree = "<group>"; };
 		100 /* ExpeditionPlanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExpeditionPlanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -163,6 +179,7 @@
 		20A34FDFEB22A2ECDFEE5051 /* ContactListView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ../Views/Logistics/Contacts/ContactListView.swift; sourceTree = "<group>"; };
 		20E01CD7265998A303456854 /* DayWeatherCard.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DayWeatherCard.swift; sourceTree = "<group>"; };
 		27F28D321016A515D0131114 /* WeatherService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
+		2FC2A9CE7DFE26A05B3D01D6 /* TransportViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransportViewModel.swift; sourceTree = "<group>"; };
 		341D5CEB0D1625516B2B6D66 /* GearViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GearViewModel.swift; sourceTree = "<group>"; };
 		3620B6287A001ED5CFD199FD /* BudgetRowView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ../Views/Budget/BudgetRowView.swift; sourceTree = "<group>"; };
 		3A1FC338C8D0EFE57DAB06FC /* ParticipantRowView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ../Views/Logistics/Participants/ParticipantRowView.swift; sourceTree = "<group>"; };
@@ -179,16 +196,21 @@
 		53F8F49FB58474374C87E0C8 /* ContactDetailView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ../Views/Logistics/Contacts/ContactDetailView.swift; sourceTree = "<group>"; };
 		5552BA5C06A302D245BA3672 /* PermitTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PermitTests.swift; sourceTree = "<group>"; };
 		5A4DC1CA449E1E151F6C3345 /* RiskAssessmentViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RiskAssessmentViewModel.swift; sourceTree = "<group>"; };
+		5BB2E92B68A6A868DCECE352 /* SatelliteDeviceListView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Logistics/SatelliteDevice/SatelliteDeviceListView.swift; sourceTree = "<group>"; };
 		5D5151A65F2947A0FA54D821 /* WeatherViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
 		5E6C15CE83AC38C6CF3D5954 /* ShelterDetailView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ShelterDetailView.swift; sourceTree = "<group>"; };
 		5E72D58DB17708CFF27CE1FB /* InsurancePolicyDetailView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = InsurancePolicyDetailView.swift; sourceTree = "<group>"; };
 		60B9BBEA0060C806CC82259D /* PermitFormView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ../Views/Logistics/Permits/PermitFormView.swift; sourceTree = "<group>"; };
 		62A3DD0568D5FB2AF37AA4E4 /* ShelterListView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ShelterListView.swift; sourceTree = "<group>"; };
+		67C5EED4F8DC1492EBCD5273 /* AccommodationListView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Logistics/Accommodation/AccommodationListView.swift; sourceTree = "<group>"; };
 		68C05A1EE532F355330D8DA1 /* BudgetViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ../ViewModels/BudgetViewModel.swift; sourceTree = "<group>"; };
 		68E92BDDB7AEFED01271D196 /* InsurancePolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsurancePolicy.swift; sourceTree = "<group>"; };
 		69D05613A00EB713488548EC /* RiskAssessmentDetailView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RiskAssessmentDetailView.swift; sourceTree = "<group>"; };
 		6A07262E9A3D98277EE258B4 /* RiskAssessmentListView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RiskAssessmentListView.swift; sourceTree = "<group>"; };
+		6B83F58592680670966FF525 /* AccommodationDetailView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Logistics/Accommodation/AccommodationDetailView.swift; sourceTree = "<group>"; };
 		6ECAA25E019B53031A2B27FC /* CSVExportService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ../Services/CSVExportService.swift; sourceTree = "<group>"; };
+		71203CF5DE80A45D4129DE9C /* Accommodation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Accommodation.swift; sourceTree = "<group>"; };
+		782368A25AAF9F42F3ABE1F2 /* SatelliteDeviceViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SatelliteDeviceViewModel.swift; sourceTree = "<group>"; };
 		7917753DDED431080D16D270 /* EmergencyContactsView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EmergencyContactsView.swift; sourceTree = "<group>"; };
 		7CAA145005D9C1328FCCE90C /* RiskAssessmentTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RiskAssessmentTests.swift; sourceTree = "<group>"; };
 		80D45F2FC3782BADD746A22B /* BudgetItemFormView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ../Views/Budget/BudgetItemFormView.swift; sourceTree = "<group>"; };
@@ -196,16 +218,20 @@
 		870068EBAAFFD661A688E177 /* SyncStatusView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SyncStatusView.swift; sourceTree = "<group>"; };
 		891B27DD79F8EB983B3174C1 /* BudgetListView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ../Views/Budget/BudgetListView.swift; sourceTree = "<group>"; };
 		8C4CF6231BB178A3DE617DC2 /* DayWeatherGroupBox.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DayWeatherGroupBox.swift; sourceTree = "<group>"; };
+		8C6E4BDE40E727E8662D2B36 /* AccommodationViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AccommodationViewModel.swift; sourceTree = "<group>"; };
 		8DD483224C02737F12235F86 /* GearItemTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GearItemTests.swift; sourceTree = "<group>"; };
+		8E6DF5CC7C7DBD55808FA61E /* TransportListView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Logistics/Transport/TransportListView.swift; sourceTree = "<group>"; };
 		8E7E3C130067A7AA87459DD0 /* WeightSummaryView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WeightSummaryView.swift; sourceTree = "<group>"; };
 		92318202FC80142AFC622A3E /* ShelterFormView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ShelterFormView.swift; sourceTree = "<group>"; };
 		9466AF824266C9E22E26D382 /* SyncStatusService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SyncStatusService.swift; sourceTree = "<group>"; };
 		952B6E770951CDC5A814EB29 /* ResupplyListView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ../Views/Logistics/Resupply/ResupplyListView.swift; sourceTree = "<group>"; };
 		953CFB3C4F714B47108640E3 /* Shelter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shelter.swift; sourceTree = "<group>"; };
+		9A47C679F714D3C79B17C7A9 /* SatelliteDeviceFormView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Logistics/SatelliteDevice/SatelliteDeviceFormView.swift; sourceTree = "<group>"; };
 		9B695CF83D907365368C6CE8 /* ResupplyViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ../ViewModels/ResupplyViewModel.swift; sourceTree = "<group>"; };
 		A2E3C94F08CF7709C8B84434 /* ParticipantListView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ../Views/Logistics/Participants/ParticipantListView.swift; sourceTree = "<group>"; };
 		A7631BA38E8C85AB43FAB7FD /* GearViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GearViewModel.swift; sourceTree = "<group>"; };
 		B0136F567FEF4A9E645C0B0B /* GearItemFormView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GearItemFormView.swift; sourceTree = "<group>"; };
+		B941E268935E8A82698E2C28 /* SatelliteDeviceDetailView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Logistics/SatelliteDevice/SatelliteDeviceDetailView.swift; sourceTree = "<group>"; };
 		C4CC970EF31F11B723572AD0 /* GearRowView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GearRowView.swift; sourceTree = "<group>"; };
 		C512B137A913FAAF4A29C0C7 /* PDFExportService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ../Services/PDFExportService.swift; sourceTree = "<group>"; };
 		C82CF15D4837783B7112C44B /* PermitRowView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ../Views/Logistics/Permits/PermitRowView.swift; sourceTree = "<group>"; };
@@ -216,14 +242,18 @@
 		D24F7CCF9E0A973BE0A30699 /* ResupplyFormView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ../Views/Logistics/Resupply/ResupplyFormView.swift; sourceTree = "<group>"; };
 		D4FC6A206E66F64BCEF9EB32 /* RiskMatrixView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RiskMatrixView.swift; sourceTree = "<group>"; };
 		D5CDB4E5EE621043FC53681E /* BudgetItemTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BudgetItemTests.swift; sourceTree = "<group>"; };
+		D9067035F1696616448AB21B /* TransportDetailView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Logistics/Transport/TransportDetailView.swift; sourceTree = "<group>"; };
 		D9990431B8384CA2672FF2A4 /* ResupplyDetailView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ../Views/Logistics/Resupply/ResupplyDetailView.swift; sourceTree = "<group>"; };
 		DB044253DE60443329BB0042 /* ParticipantFormView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ../Views/Logistics/Participants/ParticipantFormView.swift; sourceTree = "<group>"; };
+		E8F9B69D5F8D6E318EA0F314 /* AccommodationFormView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Logistics/Accommodation/AccommodationFormView.swift; sourceTree = "<group>"; };
 		EA077565D623286EDDB1D9A6 /* ExpeditionPlannerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExpeditionPlannerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAF1E024A6E21347C44900D5 /* WeatherSectionView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WeatherSectionView.swift; sourceTree = "<group>"; };
+		EC8E8443F18754BD48445A27 /* TransportLeg.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransportLeg.swift; sourceTree = "<group>"; };
 		F06524D6F730DD87F845552C /* GearListView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GearListView.swift; sourceTree = "<group>"; };
 		F838156F315826CE7A62ED8E /* SyncStatusTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SyncStatusTests.swift; sourceTree = "<group>"; };
 		FA0CA53E3DB6A03FE588B6DC /* ResupplyRowView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ../Views/Logistics/Resupply/ResupplyRowView.swift; sourceTree = "<group>"; };
 		FC690067BE946357BB56A4A6 /* PermitDetailView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ../Views/Logistics/Permits/PermitDetailView.swift; sourceTree = "<group>"; };
+		FCF79405E72C13CB4784F0DA /* TransportFormView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Logistics/Transport/TransportFormView.swift; sourceTree = "<group>"; };
 		LL101 /* LakeLouiseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LakeLouiseService.swift; sourceTree = "<group>"; };
 		LL102 /* LakeLouiseScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LakeLouiseScoreView.swift; sourceTree = "<group>"; };
 		LLT101 /* LakeLouiseServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LakeLouiseServiceTests.swift; sourceTree = "<group>"; };
@@ -337,6 +367,9 @@
 				953CFB3C4F714B47108640E3 /* Shelter.swift */,
 				D10F30939006C038063EA0D9 /* WeatherForecast.swift */,
 				47705312316727090D596DF1 /* HistoricalClimate.swift */,
+				EC8E8443F18754BD48445A27 /* TransportLeg.swift */,
+				71203CF5DE80A45D4129DE9C /* Accommodation.swift */,
+				0418909D68337C695811A94A /* SatelliteDevice.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -384,6 +417,16 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
+		4F9D041395F4931688D7A7A1 /* Transport */ = {
+			isa = PBXGroup;
+			children = (
+				8E6DF5CC7C7DBD55808FA61E /* TransportListView.swift */,
+				D9067035F1696616448AB21B /* TransportDetailView.swift */,
+				FCF79405E72C13CB4784F0DA /* TransportFormView.swift */,
+			);
+			name = Transport;
+			sourceTree = "<group>";
+		};
 		664DCFBF3928664B5F573148 /* Budget */ = {
 			isa = PBXGroup;
 			children = (
@@ -419,6 +462,26 @@
 			path = Safety;
 			sourceTree = "<group>";
 		};
+		99A1B36E6E8868D608EF6698 /* SatelliteDevice */ = {
+			isa = PBXGroup;
+			children = (
+				5BB2E92B68A6A868DCECE352 /* SatelliteDeviceListView.swift */,
+				B941E268935E8A82698E2C28 /* SatelliteDeviceDetailView.swift */,
+				9A47C679F714D3C79B17C7A9 /* SatelliteDeviceFormView.swift */,
+			);
+			name = SatelliteDevice;
+			sourceTree = "<group>";
+		};
+		AF73BF37A4B6D87F7855461F /* Accommodation */ = {
+			isa = PBXGroup;
+			children = (
+				67C5EED4F8DC1492EBCD5273 /* AccommodationListView.swift */,
+				6B83F58592680670966FF525 /* AccommodationDetailView.swift */,
+				E8F9B69D5F8D6E318EA0F314 /* AccommodationFormView.swift */,
+			);
+			name = Accommodation;
+			sourceTree = "<group>";
+		};
 		B51654DBF2DD69B85B49B067 /* Participants */ = {
 			isa = PBXGroup;
 			children = (
@@ -437,6 +500,9 @@
 				BCCC14DAD2EBE25BC6A1C428 /* Contacts */,
 				F47CC2DC52BE28B75DA6E44F /* Permits */,
 				DB65F48537A7F149171794BD /* Resupply */,
+				4F9D041395F4931688D7A7A1 /* Transport */,
+				AF73BF37A4B6D87F7855461F /* Accommodation */,
+				99A1B36E6E8868D608EF6698 /* SatelliteDevice */,
 			);
 			name = Logistics;
 			sourceTree = "<group>";
@@ -571,6 +637,9 @@
 				9B695CF83D907365368C6CE8 /* ResupplyViewModel.swift */,
 				68C05A1EE532F355330D8DA1 /* BudgetViewModel.swift */,
 				5A4DC1CA449E1E151F6C3345 /* RiskAssessmentViewModel.swift */,
+				2FC2A9CE7DFE26A05B3D01D6 /* TransportViewModel.swift */,
+				8C6E4BDE40E727E8662D2B36 /* AccommodationViewModel.swift */,
+				782368A25AAF9F42F3ABE1F2 /* SatelliteDeviceViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -786,6 +855,21 @@
 				8843E8F0A7D8725B5672B93B /* RiskMatrixView.swift in Sources */,
 				D404EE6E161FF79297F213B0 /* EmergencyContactsView.swift in Sources */,
 				0A9B9ABA2BA5928460585216 /* RiskAssessmentViewModel.swift in Sources */,
+				AC5F7BBA9B67518DCD05489F /* TransportLeg.swift in Sources */,
+				5AA6CB87210608908B8523CD /* Accommodation.swift in Sources */,
+				2AC2220F2029A70295F06CDA /* SatelliteDevice.swift in Sources */,
+				B4ED7F04F8FBD657F56B9FDD /* TransportViewModel.swift in Sources */,
+				892AB102C9FFCD634B6E1E43 /* AccommodationViewModel.swift in Sources */,
+				7A9493B052D617FE396C6AFA /* SatelliteDeviceViewModel.swift in Sources */,
+				26AB820582E5CC5D4D607B06 /* TransportListView.swift in Sources */,
+				F2761D9703DE6E1357FE12E5 /* TransportDetailView.swift in Sources */,
+				44D623799313A22464B2DA40 /* TransportFormView.swift in Sources */,
+				36E786D5C75C30F20F58C0D0 /* AccommodationListView.swift in Sources */,
+				1B6EEB6DA055B80C43A064CE /* AccommodationDetailView.swift in Sources */,
+				06DF9A6C6DD600D961654994 /* AccommodationFormView.swift in Sources */,
+				B7D422C03738923FB8BC212A /* SatelliteDeviceListView.swift in Sources */,
+				893BB1002E9669FC69C68A7A /* SatelliteDeviceDetailView.swift in Sources */,
+				EE3C0833CD9F39DE7F1C6DD5 /* SatelliteDeviceFormView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

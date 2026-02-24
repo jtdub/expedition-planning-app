@@ -33,8 +33,11 @@ final class Participant {
     var hasPaid: Bool = false
     var notes: String = ""
 
-    // Relationship - must be optional for CloudKit
+    // Relationships - must be optional for CloudKit
     var expedition: Expedition?
+
+    @Relationship(deleteRule: .nullify, inverse: \TransportLeg.participant)
+    var transportLegs: [TransportLeg]?
 
     init(
         name: String = "",

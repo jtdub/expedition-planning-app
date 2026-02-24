@@ -76,6 +76,24 @@ struct ExpeditionDetailView: View {
                     )
                 }
 
+                NavigationLink(value: ExpeditionSection.transport) {
+                    SectionRow(
+                        title: "Transport",
+                        icon: "airplane",
+                        color: .blue,
+                        detail: transportDetail
+                    )
+                }
+
+                NavigationLink(value: ExpeditionSection.accommodations) {
+                    SectionRow(
+                        title: "Accommodations",
+                        icon: "building.2",
+                        color: .purple,
+                        detail: accommodationsDetail
+                    )
+                }
+
                 NavigationLink(value: ExpeditionSection.resupply) {
                     SectionRow(
                         title: "Resupply Points",
@@ -91,6 +109,15 @@ struct ExpeditionDetailView: View {
                         icon: "doc.text",
                         color: .gray,
                         detail: "\((expedition.permits ?? []).count) permits"
+                    )
+                }
+
+                NavigationLink(value: ExpeditionSection.satelliteDevices) {
+                    SectionRow(
+                        title: "Satellite Devices",
+                        icon: "antenna.radiowaves.left.and.right",
+                        color: .orange,
+                        detail: satelliteDevicesDetail
                     )
                 }
             } header: {
@@ -230,6 +257,40 @@ struct ExpeditionDetailView: View {
         }
     }
 
+    private var transportDetail: String {
+        let count = (expedition.transportLegs ?? []).count
+        if count == 0 {
+            return "No transport"
+        } else if count == 1 {
+            return "1 leg"
+        } else {
+            return "\(count) legs"
+        }
+    }
+
+    private var accommodationsDetail: String {
+        let count = (expedition.accommodations ?? []).count
+        if count == 0 {
+            return "No accommodations"
+        } else if count == 1 {
+            return "1 accommodation"
+        } else {
+            return "\(count) accommodations"
+        }
+    }
+
+    private var satelliteDevicesDetail: String {
+        let count = (expedition.satelliteDevices ?? []).count
+        if count == 0 {
+            return "No devices"
+        } else if count == 1 {
+            return "1 device"
+        } else {
+            return "\(count) devices"
+        }
+    }
+
+    // swiftlint:disable cyclomatic_complexity
     @ViewBuilder
     private func sectionView(for section: ExpeditionSection) -> some View {
         switch section {
@@ -243,10 +304,16 @@ struct ExpeditionDetailView: View {
             ParticipantListView(expedition: expedition)
         case .contacts:
             ContactListView(expedition: expedition)
+        case .transport:
+            TransportListView(expedition: expedition)
+        case .accommodations:
+            AccommodationListView(expedition: expedition)
         case .resupply:
             ResupplyListView(expedition: expedition)
         case .permits:
             PermitListView(expedition: expedition)
+        case .satelliteDevices:
+            SatelliteDeviceListView(expedition: expedition)
         case .gear:
             GearListView(expedition: expedition)
         case .budget:
@@ -261,6 +328,7 @@ struct ExpeditionDetailView: View {
             ShelterListView()
         }
     }
+    // swiftlint:enable cyclomatic_complexity
 }
 
 // MARK: - Expedition Section
@@ -272,8 +340,11 @@ enum ExpeditionSection: Hashable {
     case shelters
     case participants
     case contacts
+    case transport
+    case accommodations
     case resupply
     case permits
+    case satelliteDevices
     case gear
     case budget
     case safety
