@@ -31,7 +31,8 @@ struct ChakiApp: App {
                 RiskAssessment.self,
                 InsurancePolicy.self,
                 Shelter.self,
-                HistoricalClimate.self
+                HistoricalClimate.self,
+                ChecklistItem.self
             ])
 
             let cloudKitDatabase: ModelConfiguration.CloudKitDatabase

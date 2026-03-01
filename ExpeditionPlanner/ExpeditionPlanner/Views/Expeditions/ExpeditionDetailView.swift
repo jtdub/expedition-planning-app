@@ -120,6 +120,15 @@ struct ExpeditionDetailView: View {
                         detail: satelliteDevicesDetail
                     )
                 }
+
+                NavigationLink(value: ExpeditionSection.checklist) {
+                    SectionRow(
+                        title: "Pre-Departure Tasks",
+                        icon: "checklist",
+                        color: .mint,
+                        detail: checklistDetail
+                    )
+                }
             } header: {
                 Text("Logistics")
             }
@@ -279,6 +288,15 @@ struct ExpeditionDetailView: View {
         }
     }
 
+    private var checklistDetail: String {
+        let items = expedition.checklistItems ?? []
+        if items.isEmpty {
+            return "No tasks"
+        }
+        let done = items.filter { $0.isComplete }.count
+        return "\(done)/\(items.count) done"
+    }
+
     private var satelliteDevicesDetail: String {
         let count = (expedition.satelliteDevices ?? []).count
         if count == 0 {
@@ -314,6 +332,8 @@ struct ExpeditionDetailView: View {
             PermitListView(expedition: expedition)
         case .satelliteDevices:
             SatelliteDeviceListView(expedition: expedition)
+        case .checklist:
+            ChecklistListView(expedition: expedition)
         case .gear:
             GearListView(expedition: expedition)
         case .budget:
@@ -345,6 +365,7 @@ enum ExpeditionSection: Hashable {
     case resupply
     case permits
     case satelliteDevices
+    case checklist
     case gear
     case budget
     case safety
