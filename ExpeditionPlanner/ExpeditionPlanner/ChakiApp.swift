@@ -2,7 +2,7 @@ import SwiftUI
 import SwiftData
 
 @main
-struct ExpeditionPlannerApp: App {
+struct ChakiApp: App {
     let modelContainer: ModelContainer
 
     init() {

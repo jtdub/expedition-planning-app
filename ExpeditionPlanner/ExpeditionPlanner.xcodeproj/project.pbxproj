@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		001 /* ExpeditionPlannerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101 /* ExpeditionPlannerApp.swift */; };
+		001 /* ChakiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101 /* ChakiApp.swift */; };
+		A001 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A101 /* Assets.xcassets */; };
 		002 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102 /* ContentView.swift */; };
 		003 /* Expedition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103 /* Expedition.swift */; };
 		004 /* ItineraryDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104 /* ItineraryDay.swift */; };
@@ -146,7 +147,7 @@
 			containerPortal = 600 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 400;
-			remoteInfo = ExpeditionPlanner;
+			remoteInfo = Chaki;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -154,8 +155,9 @@
 		0418909D68337C695811A94A /* SatelliteDevice.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SatelliteDevice.swift; sourceTree = "<group>"; };
 		05DAF26198831311ED26B68A /* SettingsTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SettingsTests.swift; sourceTree = "<group>"; };
 		0FDBF6E9789DB98ADD88CDD5 /* InsurancePolicyFormView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = InsurancePolicyFormView.swift; sourceTree = "<group>"; };
-		100 /* ExpeditionPlanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExpeditionPlanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		101 /* ExpeditionPlannerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpeditionPlannerApp.swift; sourceTree = "<group>"; };
+		100 /* Chaki.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chaki.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		101 /* ChakiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChakiApp.swift; sourceTree = "<group>"; };
+		A101 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		102 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		103 /* Expedition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expedition.swift; sourceTree = "<group>"; };
 		104 /* ItineraryDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItineraryDay.swift; sourceTree = "<group>"; };
@@ -329,10 +331,11 @@
 		301 /* ExpeditionPlanner */ = {
 			isa = PBXGroup;
 			children = (
-				101 /* ExpeditionPlannerApp.swift */,
+				101 /* ChakiApp.swift */,
 				102 /* ContentView.swift */,
 				118 /* ExpeditionPlanner.entitlements */,
 				119 /* Info.plist */,
+				A101 /* Assets.xcassets */,
 				303 /* Models */,
 				304 /* Views */,
 				305 /* Utilities */,
@@ -345,7 +348,7 @@
 		302 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				100 /* ExpeditionPlanner.app */,
+				100 /* Chaki.app */,
 				EA077565D623286EDDB1D9A6 /* ExpeditionPlannerTests.xctest */,
 			);
 			name = Products;
@@ -675,9 +678,9 @@
 			);
 			dependencies = (
 			);
-			name = ExpeditionPlanner;
-			productName = ExpeditionPlanner;
-			productReference = 100 /* ExpeditionPlanner.app */;
+			name = Chaki;
+			productName = Chaki;
+			productReference = 100 /* Chaki.app */;
 			productType = "com.apple.product-type.application";
 		};
 		9DA759BFAD1D8B43EA83980D /* ExpeditionPlannerTests */ = {
@@ -737,6 +740,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A001 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -754,7 +758,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				001 /* ExpeditionPlannerApp.swift in Sources */,
+				001 /* ChakiApp.swift in Sources */,
 				002 /* ContentView.swift in Sources */,
 				003 /* Expedition.swift in Sources */,
 				004 /* ItineraryDay.swift in Sources */,
@@ -920,7 +924,7 @@
 				PRODUCT_NAME = ExpeditionPlannerTests;
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ExpeditionPlanner.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ExpeditionPlanner";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Chaki.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Chaki";
 			};
 			name = Debug;
 		};
@@ -938,7 +942,7 @@
 				PRODUCT_NAME = ExpeditionPlannerTests;
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ExpeditionPlanner.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ExpeditionPlanner";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Chaki.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Chaki";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -1085,7 +1089,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.expedition.planner;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chaki.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1116,7 +1120,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.expedition.planner;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chaki.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

@@ -1,7 +1,7 @@
 import XCTest
 import SwiftData
 import CoreLocation
-@testable import ExpeditionPlanner
+@testable import Chaki
 
 final class ItineraryDayTests: XCTestCase {
 

@@ -1,6 +1,6 @@
 import XCTest
 import CoreLocation
-@testable import ExpeditionPlanner
+@testable import Chaki
 
 final class GPXServiceTests: XCTestCase {
 
