@@ -42,6 +42,9 @@ final class Participant {
     @Relationship(deleteRule: .nullify, inverse: \ChecklistItem.assignedTo)
     var checklistAssignments: [ChecklistItem]?
 
+    @Relationship(deleteRule: .nullify, inverse: \GearItem.carriedBy)
+    var gearAssignments: [GearItem]?
+
     init(
         name: String = "",
         email: String = "",

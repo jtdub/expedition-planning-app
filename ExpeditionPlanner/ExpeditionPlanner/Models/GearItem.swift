@@ -31,6 +31,10 @@ final class GearItem {
     // Relationship - must be optional for CloudKit
     var expedition: Expedition?
 
+    // Ownership and carrier assignment
+    var ownershipType: GearOwnershipType = GearOwnershipType.personal
+    var carriedBy: Participant?
+
     init(
         name: String = "",
         category: GearCategory = .personalItems,
@@ -38,7 +42,8 @@ final class GearItem {
         descriptionOrPurpose: String = "",
         exampleProduct: String = "",
         selection: String = "",
-        quantity: Int = 1
+        quantity: Int = 1,
+        ownershipType: GearOwnershipType = .personal
     ) {
         self.id = UUID()
         self.name = name
@@ -48,6 +53,7 @@ final class GearItem {
         self.exampleProduct = exampleProduct
         self.selection = selection
         self.quantity = quantity
+        self.ownershipType = ownershipType
     }
 
     // MARK: - Computed Properties
@@ -60,6 +66,10 @@ final class GearItem {
     var totalWeight: Measurement<UnitMass>? {
         guard let grams = weightGrams else { return nil }
         return Measurement(value: grams * Double(quantity), unit: .grams)
+    }
+
+    var carriedByName: String {
+        carriedBy?.displayName ?? "Unassigned"
     }
 
     var isComplete: Bool {
@@ -124,6 +134,20 @@ enum GearCategory: String, Codable, CaseIterable {
         case .toolsFirstAidEmergency: return 10
         case .personalItems: return 11
         case .electronics: return 12
+        }
+    }
+}
+
+// MARK: - Gear Ownership Type
+
+enum GearOwnershipType: String, Codable, CaseIterable {
+    case personal = "Personal"
+    case group = "Group"
+
+    var icon: String {
+        switch self {
+        case .personal: return "person"
+        case .group: return "person.3"
         }
     }
 }

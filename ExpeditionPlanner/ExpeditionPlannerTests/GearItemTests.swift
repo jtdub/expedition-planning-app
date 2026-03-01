@@ -144,4 +144,95 @@ final class GearItemTests: XCTestCase {
         XCTAssertEqual(GearPriority.critical.icon, "exclamationmark.triangle.fill")
         XCTAssertEqual(GearPriority.critical.color, "red")
     }
+
+    // MARK: - Ownership Type Tests
+
+    func testDefaultOwnershipType() throws {
+        let item = GearItem(name: "Test")
+        XCTAssertEqual(item.ownershipType, .personal)
+    }
+
+    func testGroupOwnershipType() throws {
+        let item = GearItem(name: "Tent", ownershipType: .group)
+        XCTAssertEqual(item.ownershipType, .group)
+    }
+
+    func testCarriedByNameWithParticipant() throws {
+        let item = GearItem(name: "Stove")
+        let participant = Participant(name: "Alice Smith")
+        item.carriedBy = participant
+        XCTAssertEqual(item.carriedByName, "Alice Smith")
+    }
+
+    func testCarriedByNameWithoutParticipant() throws {
+        let item = GearItem(name: "Filter")
+        XCTAssertNil(item.carriedBy)
+        XCTAssertEqual(item.carriedByName, "Unassigned")
+    }
+
+    func testOwnershipTypeAllCases() throws {
+        let allCases = GearOwnershipType.allCases
+        XCTAssertEqual(allCases.count, 2)
+        XCTAssertTrue(allCases.contains(.personal))
+        XCTAssertTrue(allCases.contains(.group))
+    }
+
+    func testOwnershipTypeIcons() throws {
+        for ownership in GearOwnershipType.allCases {
+            XCTAssertFalse(ownership.icon.isEmpty)
+        }
+        XCTAssertEqual(GearOwnershipType.personal.icon, "person")
+        XCTAssertEqual(GearOwnershipType.group.icon, "person.3")
+    }
+
+    @MainActor func testGearItemWithOwnershipPersistence() throws {
+        let container = try ModelContainer(
+            for: Expedition.self,
+            configurations: ModelConfiguration(isStoredInMemoryOnly: true)
+        )
+        let context = container.mainContext
+
+        let expedition = Expedition(name: "Test Expedition")
+        context.insert(expedition)
+
+        let item = GearItem(name: "Bear Canister", ownershipType: .group)
+        item.expedition = expedition
+        context.insert(item)
+
+        try context.save()
+
+        let descriptor = FetchDescriptor<GearItem>()
+        let fetched = try context.fetch(descriptor)
+        XCTAssertEqual(fetched.count, 1)
+        XCTAssertEqual(fetched.first?.ownershipType, .group)
+        XCTAssertEqual(fetched.first?.name, "Bear Canister")
+    }
+
+    @MainActor func testGearItemCarrierAssignment() throws {
+        let container = try ModelContainer(
+            for: Expedition.self,
+            configurations: ModelConfiguration(isStoredInMemoryOnly: true)
+        )
+        let context = container.mainContext
+
+        let expedition = Expedition(name: "Test Expedition")
+        context.insert(expedition)
+
+        let participant = Participant(name: "Bob Jones")
+        participant.expedition = expedition
+        context.insert(participant)
+
+        let item = GearItem(name: "Water Filter", ownershipType: .group)
+        item.expedition = expedition
+        item.carriedBy = participant
+        context.insert(item)
+
+        try context.save()
+
+        let descriptor = FetchDescriptor<GearItem>()
+        let fetched = try context.fetch(descriptor)
+        XCTAssertEqual(fetched.count, 1)
+        XCTAssertEqual(fetched.first?.carriedBy?.name, "Bob Jones")
+        XCTAssertEqual(fetched.first?.carriedByName, "Bob Jones")
+    }
 }

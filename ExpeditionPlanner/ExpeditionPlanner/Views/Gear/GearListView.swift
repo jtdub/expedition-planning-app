@@ -143,6 +143,15 @@ struct GearListView: View {
                 .buttonStyle(.plain)
             }
 
+            // Weight distribution link
+            if !viewModel.groupItems.isEmpty {
+                NavigationLink {
+                    GearWeightDistributionView(viewModel: viewModel)
+                } label: {
+                    Label("Weight Distribution", systemImage: "chart.bar.horizontal")
+                }
+            }
+
             // Filter indicator
             if viewModel.hasActiveFilters {
                 Section {
@@ -310,6 +319,36 @@ struct GearListView: View {
                 }
             }
 
+            // Ownership submenu
+            Menu("Ownership") {
+                Button {
+                    viewModel.filterOwnership = nil
+                } label: {
+                    Label(
+                        "All",
+                        systemImage: viewModel.filterOwnership == nil ? "checkmark" : ""
+                    )
+                }
+
+                Divider()
+
+                ForEach(GearOwnershipType.allCases, id: \.self) { ownership in
+                    Button {
+                        viewModel.filterOwnership = ownership
+                    } label: {
+                        Label {
+                            Text(ownership.rawValue)
+                        } icon: {
+                            if viewModel.filterOwnership == ownership {
+                                Image(systemName: "checkmark")
+                            } else {
+                                Image(systemName: ownership.icon)
+                            }
+                        }
+                    }
+                }
+            }
+
             Divider()
 
             // Sort order submenu
@@ -344,6 +383,10 @@ struct GearListView: View {
 
         if let priority = viewModel.filterPriority {
             parts.append(priority.rawValue)
+        }
+
+        if let ownership = viewModel.filterOwnership {
+            parts.append(ownership.rawValue)
         }
 
         if viewModel.showUnpackedOnly {

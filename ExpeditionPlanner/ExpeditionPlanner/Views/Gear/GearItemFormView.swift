@@ -32,6 +32,8 @@ struct GearItemFormView: View {
     @State private var isWeighed = false
     @State private var isInHand = false
     @State private var isPacked = false
+    @State private var ownershipType: GearOwnershipType = .personal
+    @State private var carriedByID: UUID?
 
     private var isEditing: Bool {
         if case .edit = mode { return true }
@@ -61,6 +63,9 @@ struct GearItemFormView: View {
             Form {
                 // Basic Info Section
                 basicInfoSection
+
+                // Assignment Section
+                assignmentSection
 
                 // Weight Section
                 weightSection
@@ -127,6 +132,27 @@ struct GearItemFormView: View {
                 .lineLimit(2...4)
         } header: {
             Text("Basic Info")
+        }
+    }
+
+    private var assignmentSection: some View {
+        Section {
+            Picker("Ownership", selection: $ownershipType) {
+                ForEach(GearOwnershipType.allCases, id: \.self) { type in
+                    Label(type.rawValue, systemImage: type.icon).tag(type)
+                }
+            }
+
+            if ownershipType == .group {
+                Picker("Carried By", selection: $carriedByID) {
+                    Text("Unassigned").tag(nil as UUID?)
+                    ForEach(expedition.participants ?? []) { participant in
+                        Text(participant.displayName).tag(participant.id as UUID?)
+                    }
+                }
+            }
+        } header: {
+            Text("Assignment")
         }
     }
 
@@ -289,6 +315,8 @@ struct GearItemFormView: View {
         isWeighed = item.isWeighed
         isInHand = item.isInHand
         isPacked = item.isPacked
+        ownershipType = item.ownershipType
+        carriedByID = item.carriedBy?.id
     }
 
     private func saveItem() {
@@ -314,6 +342,12 @@ struct GearItemFormView: View {
         item.isWeighed = isWeighed
         item.isInHand = isInHand
         item.isPacked = isPacked
+        item.ownershipType = ownershipType
+        if ownershipType == .group, let carriedByID {
+            item.carriedBy = (expedition.participants ?? []).first { $0.id == carriedByID }
+        } else {
+            item.carriedBy = nil
+        }
 
         dismiss()
     }
