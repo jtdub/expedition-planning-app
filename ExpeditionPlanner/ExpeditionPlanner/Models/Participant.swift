@@ -39,6 +39,9 @@ final class Participant {
     @Relationship(deleteRule: .nullify, inverse: \TransportLeg.participant)
     var transportLegs: [TransportLeg]?
 
+    @Relationship(deleteRule: .nullify, inverse: \ChecklistItem.assignedTo)
+    var checklistAssignments: [ChecklistItem]?
+
     init(
         name: String = "",
         email: String = "",

@@ -137,6 +137,13 @@
 		RMT01 /* DistanceServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = RMT101 /* DistanceServiceTests.swift */; };
 		RMT02 /* GPXServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = RMT102 /* GPXServiceTests.swift */; };
 		RMT03 /* RouteServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = RMT103 /* RouteServiceTests.swift */; };
+		CL001 /* ChecklistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CL101 /* ChecklistItem.swift */; };
+		CL002 /* ChecklistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CL102 /* ChecklistViewModel.swift */; };
+		CL003 /* ChecklistListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CL103 /* ChecklistListView.swift */; };
+		CL004 /* ChecklistDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CL104 /* ChecklistDetailView.swift */; };
+		CL005 /* ChecklistFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CL105 /* ChecklistFormView.swift */; };
+		CL006 /* ChecklistRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CL106 /* ChecklistRowView.swift */; };
+		CLT01 /* ChecklistItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CLT101 /* ChecklistItemTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -285,6 +292,13 @@
 		RMT101 /* DistanceServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceServiceTests.swift; sourceTree = "<group>"; };
 		RMT102 /* GPXServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPXServiceTests.swift; sourceTree = "<group>"; };
 		RMT103 /* RouteServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteServiceTests.swift; sourceTree = "<group>"; };
+		CL101 /* ChecklistItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistItem.swift; sourceTree = "<group>"; };
+		CL102 /* ChecklistViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistViewModel.swift; sourceTree = "<group>"; };
+		CL103 /* ChecklistListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistListView.swift; sourceTree = "<group>"; };
+		CL104 /* ChecklistDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistDetailView.swift; sourceTree = "<group>"; };
+		CL105 /* ChecklistFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistFormView.swift; sourceTree = "<group>"; };
+		CL106 /* ChecklistRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistRowView.swift; sourceTree = "<group>"; };
+		CLT101 /* ChecklistItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistItemTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -368,6 +382,7 @@
 				EC8E8443F18754BD48445A27 /* TransportLeg.swift */,
 				71203CF5DE80A45D4129DE9C /* Accommodation.swift */,
 				0418909D68337C695811A94A /* SatelliteDevice.swift */,
+				CL101 /* ChecklistItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -501,8 +516,21 @@
 				4F9D041395F4931688D7A7A1 /* Transport */,
 				AF73BF37A4B6D87F7855461F /* Accommodation */,
 				99A1B36E6E8868D608EF6698 /* SatelliteDevice */,
+				CLGRP /* Checklist */,
 			);
 			name = Logistics;
+			sourceTree = "<group>";
+		};
+		CLGRP /* Checklist */ = {
+			isa = PBXGroup;
+			children = (
+				CL103 /* ChecklistListView.swift */,
+				CL106 /* ChecklistRowView.swift */,
+				CL104 /* ChecklistDetailView.swift */,
+				CL105 /* ChecklistFormView.swift */,
+			);
+			name = Checklist;
+			path = Logistics/Checklist;
 			sourceTree = "<group>";
 		};
 		BCBD4D347997095576824E40 /* Services */ = {
@@ -580,6 +608,7 @@
 				RMT101 /* DistanceServiceTests.swift */,
 				RMT102 /* GPXServiceTests.swift */,
 				RMT103 /* RouteServiceTests.swift */,
+				CLT101 /* ChecklistItemTests.swift */,
 			);
 			path = ExpeditionPlannerTests;
 			sourceTree = "<group>";
@@ -630,6 +659,7 @@
 				2FC2A9CE7DFE26A05B3D01D6 /* TransportViewModel.swift */,
 				8C6E4BDE40E727E8662D2B36 /* AccommodationViewModel.swift */,
 				782368A25AAF9F42F3ABE1F2 /* SatelliteDeviceViewModel.swift */,
+				CL102 /* ChecklistViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -853,6 +883,12 @@
 				B7D422C03738923FB8BC212A /* SatelliteDeviceListView.swift in Sources */,
 				893BB1002E9669FC69C68A7A /* SatelliteDeviceDetailView.swift in Sources */,
 				EE3C0833CD9F39DE7F1C6DD5 /* SatelliteDeviceFormView.swift in Sources */,
+				CL001 /* ChecklistItem.swift in Sources */,
+				CL002 /* ChecklistViewModel.swift in Sources */,
+				CL003 /* ChecklistListView.swift in Sources */,
+				CL004 /* ChecklistDetailView.swift in Sources */,
+				CL005 /* ChecklistFormView.swift in Sources */,
+				CL006 /* ChecklistRowView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -873,6 +909,7 @@
 				RMT01 /* DistanceServiceTests.swift in Sources */,
 				RMT02 /* GPXServiceTests.swift in Sources */,
 				RMT03 /* RouteServiceTests.swift in Sources */,
+				CLT01 /* ChecklistItemTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
