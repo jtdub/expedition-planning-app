@@ -10,6 +10,14 @@ struct ChakiApp: App {
     let modelContainer: ModelContainer
 
     init() {
+        // Ensure Application Support directory exists before SwiftData initializes
+        // to avoid noisy CoreData recovery errors on first launch
+        let fileManager = FileManager.default
+        if let appSupportURL = fileManager.urls(for: .applicationSupportDirectory, in: .userDomainMask).first,
+           !fileManager.fileExists(atPath: appSupportURL.path) {
+            try? fileManager.createDirectory(at: appSupportURL, withIntermediateDirectories: true)
+        }
+
         do {
             let schema = Schema([
                 Expedition.self,
