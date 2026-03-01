@@ -42,6 +42,15 @@ final class Expedition {
     @Relationship(deleteRule: .cascade, inverse: \InsurancePolicy.expedition)
     var insurancePolicies: [InsurancePolicy]?
 
+    @Relationship(deleteRule: .cascade, inverse: \TransportLeg.expedition)
+    var transportLegs: [TransportLeg]?
+
+    @Relationship(deleteRule: .cascade, inverse: \Accommodation.expedition)
+    var accommodations: [Accommodation]?
+
+    @Relationship(deleteRule: .cascade, inverse: \SatelliteDevice.expedition)
+    var satelliteDevices: [SatelliteDevice]?
+
     init(
         name: String = "",
         expeditionDescription: String = "",

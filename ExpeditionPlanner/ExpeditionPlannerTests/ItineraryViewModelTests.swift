@@ -1,6 +1,6 @@
 import XCTest
 import SwiftData
-@testable import ExpeditionPlanner
+@testable import Chaki
 
 @MainActor
 final class ItineraryViewModelTests: XCTestCase {

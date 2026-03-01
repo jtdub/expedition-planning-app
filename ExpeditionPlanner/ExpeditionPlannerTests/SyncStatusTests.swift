@@ -1,5 +1,5 @@
 import XCTest
-@testable import ExpeditionPlanner
+@testable import Chaki
 
 final class SyncStatusTests: XCTestCase {
 
