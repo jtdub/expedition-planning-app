@@ -2,7 +2,7 @@ import SwiftUI
 import SwiftData
 import OSLog
 
-private let logger = Logger(subsystem: "com.expedition.planner", category: "ExpeditionForm")
+private let logger = Logger(subsystem: "com.chaki.app", category: "ExpeditionForm")
 
 struct ExpeditionFormView: View {
     enum Mode {

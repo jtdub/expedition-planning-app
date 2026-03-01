@@ -3,7 +3,7 @@ import SwiftData
 import CloudKit
 import OSLog
 
-private let logger = Logger(subsystem: "com.expedition.planner", category: "App")
+private let logger = Logger(subsystem: "com.chaki.app", category: "App")
 
 @main
 struct ChakiApp: App {

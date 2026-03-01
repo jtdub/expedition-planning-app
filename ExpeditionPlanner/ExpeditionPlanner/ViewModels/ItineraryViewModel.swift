@@ -2,7 +2,7 @@ import Foundation
 import SwiftData
 import OSLog
 
-private let logger = Logger(subsystem: "com.expedition.planner", category: "ItineraryViewModel")
+private let logger = Logger(subsystem: "com.chaki.app", category: "ItineraryViewModel")
 
 @Observable
 final class ItineraryViewModel {

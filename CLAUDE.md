@@ -1,4 +1,4 @@
-# Expedition Planning App
+# Chaki — Expedition Planning App
 
 ## Project Overview
 

@@ -2,7 +2,7 @@ import Foundation
 import SwiftData
 import OSLog
 
-private let logger = Logger(subsystem: "com.expedition.planner", category: "ContactViewModel")
+private let logger = Logger(subsystem: "com.chaki.app", category: "ContactViewModel")
 
 enum ContactSortOrder: String, CaseIterable {
     case name = "Name"

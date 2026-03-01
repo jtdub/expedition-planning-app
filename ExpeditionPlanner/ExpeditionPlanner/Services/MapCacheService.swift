@@ -2,7 +2,7 @@ import Foundation
 import MapKit
 import OSLog
 
-private let logger = Logger(subsystem: "com.expedition.planner", category: "MapCacheService")
+private let logger = Logger(subsystem: "com.chaki.app", category: "MapCacheService")
 
 /// Represents a tile coordinate in the slippy map system
 struct TileCoordinate {
@@ -216,7 +216,7 @@ final class MapCacheService: NSObject, ObservableObject {
         }
 
         var request = URLRequest(url: url)
-        request.setValue("ExpeditionPlanner/1.0", forHTTPHeaderField: "User-Agent")
+        request.setValue("Chaki/1.0", forHTTPHeaderField: "User-Agent")
 
         let (data, response) = try await URLSession.shared.data(for: request)
 
