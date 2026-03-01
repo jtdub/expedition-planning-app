@@ -73,6 +73,17 @@ struct GearRowView: View {
                 .foregroundStyle(.secondary)
                 .lineLimit(1)
 
+            // Carrier badge for group gear
+            if item.ownershipType == .group {
+                Label(
+                    item.carriedByName,
+                    systemImage: "person.3"
+                )
+                .font(.caption2)
+                .foregroundStyle(.secondary)
+                .lineLimit(1)
+            }
+
             // Selection if available
             if !item.selection.isEmpty {
                 Text(item.selection)

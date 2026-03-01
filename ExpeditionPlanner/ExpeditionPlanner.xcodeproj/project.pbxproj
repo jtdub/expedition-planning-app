@@ -101,6 +101,7 @@
 		ED5BF9CE473F11A025775732 /* ItineraryDayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCF1EDCF7A127F6EFDB3C9C /* ItineraryDayTests.swift */; };
 		EE3C0833CD9F39DE7F1C6DD5 /* SatelliteDeviceFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A47C679F714D3C79B17C7A9 /* SatelliteDeviceFormView.swift */; };
 		F02F02E586F929B8DFA99DFC /* WeightSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7E3C130067A7AA87459DD0 /* WeightSummaryView.swift */; };
+		GG001 /* GearWeightDistributionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = GG101 /* GearWeightDistributionView.swift */; };
 		F232F6609543E654078AD267 /* Shelter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953CFB3C4F714B47108640E3 /* Shelter.swift */; };
 		F2761D9703DE6E1357FE12E5 /* TransportDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9067035F1696616448AB21B /* TransportDetailView.swift */; };
 		F460DB2D6299AB4D2AFD2CB3 /* ParticipantDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856BCE3A7D33E4FA6D1AFD44 /* ParticipantDetailView.swift */; };
@@ -229,6 +230,7 @@
 		8DD483224C02737F12235F86 /* GearItemTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GearItemTests.swift; sourceTree = "<group>"; };
 		8E6DF5CC7C7DBD55808FA61E /* TransportListView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Logistics/Transport/TransportListView.swift; sourceTree = "<group>"; };
 		8E7E3C130067A7AA87459DD0 /* WeightSummaryView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WeightSummaryView.swift; sourceTree = "<group>"; };
+		GG101 /* GearWeightDistributionView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GearWeightDistributionView.swift; sourceTree = "<group>"; };
 		92318202FC80142AFC622A3E /* ShelterFormView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ShelterFormView.swift; sourceTree = "<group>"; };
 		9466AF824266C9E22E26D382 /* SyncStatusService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SyncStatusService.swift; sourceTree = "<group>"; };
 		952B6E770951CDC5A814EB29 /* ResupplyListView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ../Views/Logistics/Resupply/ResupplyListView.swift; sourceTree = "<group>"; };
@@ -587,6 +589,7 @@
 				C4CC970EF31F11B723572AD0 /* GearRowView.swift */,
 				B0136F567FEF4A9E645C0B0B /* GearItemFormView.swift */,
 				8E7E3C130067A7AA87459DD0 /* WeightSummaryView.swift */,
+				GG101 /* GearWeightDistributionView.swift */,
 			);
 			name = Gear;
 			path = Gear;
@@ -834,6 +837,7 @@
 				995C9B3B4C43AC5ECAFC5C0F /* GearListView.swift in Sources */,
 				A1276CA526054A3CFA3C6CFF /* GearRowView.swift in Sources */,
 				B08C0A233ADDC7301F0BE8F6 /* GearItemFormView.swift in Sources */,
+				GG001 /* GearWeightDistributionView.swift in Sources */,
 				F02F02E586F929B8DFA99DFC /* WeightSummaryView.swift in Sources */,
 				64BADD0DC57BA65EA41AFC26 /* BudgetListView.swift in Sources */,
 				BB0F4CB60B477009042ED4F3 /* BudgetRowView.swift in Sources */,

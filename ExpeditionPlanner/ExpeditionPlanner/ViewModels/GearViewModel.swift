@@ -9,6 +9,7 @@ enum GearSortOrder: String, CaseIterable {
     case priority = "Priority"
     case name = "Name"
     case weight = "Weight"
+    case carrier = "Carrier"
 }
 
 @Observable
@@ -22,6 +23,7 @@ final class GearViewModel {
     var searchText: String = ""
     var filterCategory: GearCategory?
     var filterPriority: GearPriority?
+    var filterOwnership: GearOwnershipType?
     var showUnpackedOnly: Bool = false
     var sortOrder: GearSortOrder = .category
 
@@ -66,6 +68,10 @@ final class GearViewModel {
                 let weight2 = item2.totalWeight?.value ?? 0
                 return weight1 > weight2
             }
+        case .carrier:
+            return items.sorted {
+                $0.carriedByName.localizedCaseInsensitiveCompare($1.carriedByName) == .orderedAscending
+            }
         }
     }
 
@@ -79,6 +85,11 @@ final class GearViewModel {
                 item.descriptionOrPurpose.localizedCaseInsensitiveContains(searchText) ||
                 item.selection.localizedCaseInsensitiveContains(searchText)
             }
+        }
+
+        // Apply ownership filter
+        if let ownership = filterOwnership {
+            items = items.filter { $0.ownershipType == ownership }
         }
 
         // Apply category filter
@@ -158,6 +169,40 @@ final class GearViewModel {
         return weights
     }
 
+    // MARK: - Group Gear & Weight Distribution
+
+    var groupItems: [GearItem] {
+        allItems.filter { $0.ownershipType == .group }
+    }
+
+    var groupWeightGrams: Double {
+        groupItems.compactMap { $0.totalWeight?.value }.reduce(0, +)
+    }
+
+    var unassignedGroupItems: [GearItem] {
+        groupItems.filter { $0.carriedBy == nil }
+    }
+
+    var unassignedGroupWeightGrams: Double {
+        unassignedGroupItems.compactMap { $0.totalWeight?.value }.reduce(0, +)
+    }
+
+    func weightForParticipant(_ participant: Participant) -> Double {
+        allItems
+            .filter { $0.carriedBy?.id == participant.id }
+            .compactMap { $0.totalWeight?.value }
+            .reduce(0, +)
+    }
+
+    var weightByParticipant: [(participant: Participant, weightGrams: Double)] {
+        let participants = expedition.participants ?? []
+        return participants.map { participant in
+            (participant: participant, weightGrams: weightForParticipant(participant))
+        }
+        .filter { $0.weightGrams > 0 }
+        .sorted { $0.weightGrams > $1.weightGrams }
+    }
+
     // MARK: - Weight Formatting
 
     func formatWeight(_ grams: Double, unit: WeightUnit) -> String {
@@ -233,6 +278,14 @@ final class GearViewModel {
         }
     }
 
+    // MARK: - Carrier Assignment
+
+    func assignCarrier(_ participant: Participant?, to item: GearItem) {
+        item.carriedBy = participant
+        logger.info("Assigned carrier '\(participant?.displayName ?? "none")' to gear '\(item.name)'")
+        save()
+    }
+
     // MARK: - Status Toggles
 
     func togglePacked(_ item: GearItem) {
@@ -266,12 +319,14 @@ final class GearViewModel {
     func clearFilters() {
         filterCategory = nil
         filterPriority = nil
+        filterOwnership = nil
         showUnpackedOnly = false
         searchText = ""
     }
 
     var hasActiveFilters: Bool {
-        filterCategory != nil || filterPriority != nil || showUnpackedOnly || !searchText.isEmpty
+        filterCategory != nil || filterPriority != nil || filterOwnership != nil
+            || showUnpackedOnly || !searchText.isEmpty
     }
 
     // MARK: - Persistence
