@@ -3,7 +3,7 @@ import SwiftData
 import CoreLocation
 import OSLog
 
-private let logger = Logger(subsystem: "com.expedition.planner", category: "DayFormViewModel")
+private let logger = Logger(subsystem: "com.chaki.app", category: "DayFormViewModel")
 
 @Observable
 final class DayFormViewModel {

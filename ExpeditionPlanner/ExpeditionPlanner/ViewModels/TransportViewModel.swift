@@ -2,7 +2,7 @@ import Foundation
 import SwiftData
 import OSLog
 
-private let logger = Logger(subsystem: "com.expedition.planner", category: "TransportViewModel")
+private let logger = Logger(subsystem: "com.chaki.app", category: "TransportViewModel")
 
 enum TransportSortOrder: String, CaseIterable {
     case departureTime = "Departure Time"

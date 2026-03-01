@@ -1,4 +1,4 @@
-# Expedition Planning App
+# Chaki — Expedition Planning App
 
 ## Project Overview
 
@@ -7,6 +7,7 @@ A native iOS app for planning remote expeditions, built with SwiftUI and SwiftDa
 **Target Platform**: iOS 17+ (iPhone primary, iPad adaptive)
 **Architecture**: SwiftUI + SwiftData + CloudKit
 **Pattern**: MVVM with Repository pattern
+**Scope**: Pre-trip planning only. Field-use (during expedition) and post-trip features are out of scope.
 
 ## Tech Stack
 
@@ -25,12 +26,23 @@ ExpeditionPlanner/
 ├── App/                    # App entry point, main ContentView
 ├── Models/                 # SwiftData models
 ├── Views/                  # SwiftUI views organized by feature
-│   ├── Expeditions/
-│   ├── Itinerary/
-│   ├── Gear/
-│   ├── Logistics/
 │   ├── Budget/
-│   └── Safety/
+│   ├── Components/         # Shared/reusable UI components
+│   ├── Expeditions/
+│   ├── Gear/
+│   ├── Itinerary/
+│   ├── Logistics/
+│   │   ├── Accommodation/
+│   │   ├── Contacts/
+│   │   ├── Participants/
+│   │   ├── Permits/
+│   │   ├── Resupply/
+│   │   ├── SatelliteDevice/
+│   │   └── Transport/
+│   ├── Map/
+│   ├── Safety/
+│   ├── Settings/
+│   └── Weather/
 ├── ViewModels/             # MVVM view models
 ├── Services/               # Data, export, currency, location services
 ├── Utilities/              # Extensions, constants, formatters
@@ -47,6 +59,12 @@ Based on real expedition planning documents:
 - **Participant**: Team members with group assignments, flight info, contact details
 - **ResupplyPoint**: Post offices, local contacts, services at waypoints
 - **RiskAssessment**: Hazard identification with mitigation strategies
+- **TransportLeg**: Travel segments between locations (flights, buses, boats, etc.)
+- **Accommodation**: Lodging at waypoints (hotels, campsites, huts)
+- **SatelliteDevice**: Satellite communicators and tracking devices
+- **InsurancePolicy**: Travel/evacuation insurance details
+- **Shelter**: Tents, tarps, and shelter equipment
+- **HistoricalClimate**: Historical weather data for route planning
 
 ## Development Commands
 
@@ -74,10 +92,12 @@ GitHub Actions workflow (`.github/workflows/ci.yml`) runs on push and PR to main
 ## Implementation Phases
 
 1. **Foundation** ✅ COMPLETE: SwiftData + CloudKit setup, core models, expedition CRUD
-2. **Itinerary**: Day-by-day editor, elevation tracking, acclimatization visualization
-3. **Gear Management**: Categorized lists, weight calculator, pack status
-4. **Logistics**: Participants, contacts, resupply points, permits
-5. **Budget & Export**: Multi-currency tracking, PDF guidebook generation
+2. **Itinerary** ✅ COMPLETE: Day-by-day editor, elevation tracking, acclimatization visualization
+3. **Gear Management** ✅ COMPLETE: Categorized lists, weight calculator, pack status
+4. **Logistics** ✅ COMPLETE: Participants, contacts, resupply points, permits, transport, accommodation, satellite devices
+5. **Budget & Export** ✅ COMPLETE: Multi-currency tracking, PDF guidebook generation
+
+> **Safety Module**: Risk assessments, insurance policies, and historical climate data are implemented. Field-use features (Lake Louise AMS scoring, live weather) were removed as out of scope.
 
 ## Code Quality
 
@@ -91,13 +111,19 @@ GitHub Actions workflow (`.github/workflows/ci.yml`) runs on push and PR to main
 ```
 Expedition
 ├── [ItineraryDay] - ordered by dayNumber
-├── [GearList] - categorized gear items
+├── [GearItem] - categorized gear with weight/priority
 ├── [Participant] - with group assignments
 ├── [Contact] - emergency, local resources
 ├── [ResupplyPoint] - with local contacts
 ├── [Permit] - documents and deadlines
 ├── [BudgetItem] - categorized expenses
-└── [RiskAssessment] - hazards and mitigations
+├── [RiskAssessment] - hazards and mitigations
+├── [InsurancePolicy] - travel/evacuation coverage
+├── [TransportLeg] - travel segments between locations
+├── [Accommodation] - lodging at waypoints
+├── [SatelliteDevice] - communicators and trackers
+├── [Shelter] - tents, tarps, shelter equipment
+└── [HistoricalClimate] - historical weather data
 ```
 
 ## Conventions

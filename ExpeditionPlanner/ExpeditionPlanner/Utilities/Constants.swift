@@ -2,7 +2,7 @@ import Foundation
 
 enum AppConstants {
     // CloudKit
-    static let cloudKitContainerIdentifier = "iCloud.com.expedition.planner"
+    static let cloudKitContainerIdentifier = "iCloud.com.chaki.app"
 
     // Acclimatization
     static let maxSafeElevationGainPerDay: Double = 500 // meters
