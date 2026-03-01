@@ -55,10 +55,10 @@ Based on real expedition planning documents:
 open ExpeditionPlanner/ExpeditionPlanner.xcodeproj
 
 # Build from command line
-cd ExpeditionPlanner && xcodebuild -scheme ExpeditionPlanner -destination 'platform=iOS Simulator,name=iPhone 17' build
+cd ExpeditionPlanner && xcodebuild -scheme Chaki -destination 'platform=iOS Simulator,name=iPhone 17' build
 
 # Run tests
-cd ExpeditionPlanner && xcodebuild -scheme ExpeditionPlanner -destination 'platform=iOS Simulator,name=iPhone 17' test
+cd ExpeditionPlanner && xcodebuild -scheme Chaki -destination 'platform=iOS Simulator,name=iPhone 17' test
 
 # Run SwiftLint
 cd ExpeditionPlanner && swiftlint lint --quiet
@@ -82,7 +82,7 @@ GitHub Actions workflow (`.github/workflows/ci.yml`) runs on push and PR to main
 ## Code Quality
 
 - SwiftLint configured via `ExpeditionPlanner/.swiftlint.yml`
-- Unit tests in `ExpeditionPlanner/ExpeditionPlannerTests/` (91 tests)
+- Unit tests in `ExpeditionPlanner/ExpeditionPlannerTests/` (185 tests)
 - All code must pass `swiftlint lint` with 0 violations
 - CI runs lint and tests on every PR
 

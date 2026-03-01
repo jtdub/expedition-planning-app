@@ -40,14 +40,6 @@ final class ItineraryDay {
     // Visual
     var colorCode: String?
 
-    // Lake Louise Score (AMS tracking)
-    // Each symptom scored 0-3, total 0-12
-    var llsHeadache: Int?
-    var llsGastrointestinal: Int?
-    var llsFatigue: Int?
-    var llsDizziness: Int?
-    var llsRecordedAt: Date?
-
     // Relationship - must be optional for CloudKit
     var expedition: Expedition?
 
@@ -119,75 +111,6 @@ final class ItineraryDay {
         return (endMeters - startMeters) > 500
     }
 
-    // MARK: - Lake Louise Score
-
-    var hasLakeLouiseScore: Bool {
-        llsHeadache != nil || llsGastrointestinal != nil ||
-        llsFatigue != nil || llsDizziness != nil
-    }
-
-    var lakeLouiseTotal: Int? {
-        guard hasLakeLouiseScore else { return nil }
-        return (llsHeadache ?? 0) + (llsGastrointestinal ?? 0) +
-               (llsFatigue ?? 0) + (llsDizziness ?? 0)
-    }
-
-    var lakeLouiseDiagnosis: LakeLouiseDiagnosis {
-        guard let total = lakeLouiseTotal else { return .notRecorded }
-        let hasHeadache = (llsHeadache ?? 0) > 0
-
-        if !hasHeadache {
-            return .noAMS
-        } else if total >= 6 {
-            return .severeAMS
-        } else if total >= 3 {
-            return .mildAMS
-        } else {
-            return .noAMS
-        }
-    }
-}
-
-// MARK: - Lake Louise Diagnosis
-
-enum LakeLouiseDiagnosis: String, Codable {
-    case notRecorded = "Not Recorded"
-    case noAMS = "No AMS"
-    case mildAMS = "Mild AMS"
-    case severeAMS = "Severe AMS"
-
-    var icon: String {
-        switch self {
-        case .notRecorded: return "pencil.slash"
-        case .noAMS: return "checkmark.circle.fill"
-        case .mildAMS: return "exclamationmark.triangle.fill"
-        case .severeAMS: return "xmark.octagon.fill"
-        }
-    }
-
-    var color: Color {
-        switch self {
-        case .notRecorded: return .secondary
-        case .noAMS: return .green
-        case .mildAMS: return .orange
-        case .severeAMS: return .red
-        }
-    }
-
-    var recommendation: String {
-        switch self {
-        case .notRecorded:
-            return "Record symptoms to assess altitude sickness risk."
-        case .noAMS:
-            return "No signs of acute mountain sickness. Continue as planned."
-        case .mildAMS:
-            return "Rest at current altitude. Do not ascend until symptoms resolve. " +
-                   "Consider descent if symptoms worsen."
-        case .severeAMS:
-            return "DESCEND IMMEDIATELY. Do not wait for improvement. " +
-                   "Seek medical attention. Consider oxygen and medications."
-        }
-    }
 }
 
 // MARK: - Activity Type
