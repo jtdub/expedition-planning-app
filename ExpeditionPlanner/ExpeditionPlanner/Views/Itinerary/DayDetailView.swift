@@ -13,7 +13,6 @@ struct DayDetailView: View {
     let elevationUnit: ElevationUnit
 
     @State private var showingEditSheet = false
-    @State private var showingLakeLouiseSheet = false
 
     private var risk: AcclimatizationRisk {
         ElevationService.assessRisk(for: day)
@@ -38,11 +37,6 @@ struct DayDetailView: View {
                         // Elevation Card
                         if day.startElevationMeters != nil || day.endElevationMeters != nil {
                             elevationCard
-                        }
-
-                        // Weather Card
-                        if day.date != nil && (day.startLatitude != nil || day.endLatitude != nil) {
-                            DayWeatherGroupBox(day: day)
                         }
 
                         // Map Card
@@ -77,8 +71,6 @@ struct DayDetailView: View {
                             campCard
                         }
 
-                        // Lake Louise Score Card
-                        lakeLouiseCard
                     }
                     .padding()
                 }
@@ -101,9 +93,6 @@ struct DayDetailView: View {
             }
             .sheet(isPresented: $showingEditSheet) {
                 DayFormView(mode: .edit(day: day), modelContext: modelContext)
-            }
-            .sheet(isPresented: $showingLakeLouiseSheet) {
-                LakeLouiseScoreEntryView(day: day)
             }
         }
     }
@@ -374,51 +363,6 @@ struct DayDetailView: View {
 
                 if let camp = day.campName, !camp.isEmpty {
                     LabeledContent("Camp Name", value: camp)
-                }
-            }
-        }
-    }
-
-    // MARK: - Lake Louise Score Card
-
-    private var lakeLouiseCard: some View {
-        GroupBox {
-            if day.hasLakeLouiseScore {
-                // Show existing score
-                LakeLouiseScoreSummaryCard(day: day) {
-                    showingLakeLouiseSheet = true
-                }
-            } else {
-                // Show option to record
-                VStack(spacing: 12) {
-                    Image(systemName: "heart.text.square")
-                        .font(.largeTitle)
-                        .foregroundStyle(.secondary)
-
-                    Text("No AMS score recorded")
-                        .font(.subheadline)
-                        .foregroundStyle(.secondary)
-
-                    Button {
-                        showingLakeLouiseSheet = true
-                    } label: {
-                        Label("Record Lake Louise Score", systemImage: "plus.circle")
-                    }
-                    .buttonStyle(.borderedProminent)
-                }
-                .frame(maxWidth: .infinity)
-                .padding(.vertical, 8)
-            }
-        } label: {
-            HStack {
-                Text("Altitude Sickness Assessment")
-                Spacer()
-                if day.hasLakeLouiseScore {
-                    Button {
-                        showingLakeLouiseSheet = true
-                    } label: {
-                        Image(systemName: "pencil.circle")
-                    }
                 }
             }
         }
