@@ -185,6 +185,15 @@ struct ExpeditionDetailView: View {
                         detail: insuranceDetail
                     )
                 }
+
+                NavigationLink(value: ExpeditionSection.escapeRoutes) {
+                    SectionRow(
+                        title: "Escape Routes",
+                        icon: "arrow.uturn.backward.circle",
+                        color: .orange,
+                        detail: escapeRoutesDetail
+                    )
+                }
             } header: {
                 Text("Safety")
             }
@@ -297,6 +306,14 @@ struct ExpeditionDetailView: View {
         return "\(done)/\(items.count) done"
     }
 
+    private var escapeRoutesDetail: String {
+        let routes = expedition.escapeRoutes ?? []
+        if routes.isEmpty { return "No routes" }
+        let unverified = routes.filter { !$0.isVerified }.count
+        if unverified > 0 { return "\(routes.count) routes, \(unverified) unverified" }
+        return "\(routes.count) routes"
+    }
+
     private var satelliteDevicesDetail: String {
         let count = (expedition.satelliteDevices ?? []).count
         if count == 0 {
@@ -344,6 +361,8 @@ struct ExpeditionDetailView: View {
             EmergencyContactsView(expedition: expedition)
         case .insurance:
             InsuranceListView(expedition: expedition)
+        case .escapeRoutes:
+            EscapeRouteListView(expedition: expedition)
         case .shelters:
             ShelterListView()
         }
@@ -371,6 +390,7 @@ enum ExpeditionSection: Hashable {
     case safety
     case emergencyContacts
     case insurance
+    case escapeRoutes
 }
 
 // MARK: - Section Row

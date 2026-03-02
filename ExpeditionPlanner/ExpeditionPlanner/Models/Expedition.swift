@@ -54,6 +54,9 @@ final class Expedition {
     @Relationship(deleteRule: .cascade, inverse: \ChecklistItem.expedition)
     var checklistItems: [ChecklistItem]?
 
+    @Relationship(deleteRule: .cascade, inverse: \EscapeRoute.expedition)
+    var escapeRoutes: [EscapeRoute]?
+
     init(
         name: String = "",
         expeditionDescription: String = "",

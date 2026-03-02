@@ -145,6 +145,14 @@
 		CL005 /* ChecklistFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CL105 /* ChecklistFormView.swift */; };
 		CL006 /* ChecklistRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CL106 /* ChecklistRowView.swift */; };
 		CLT01 /* ChecklistItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CLT101 /* ChecklistItemTests.swift */; };
+		ER001 /* EscapeRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = ER101 /* EscapeRoute.swift */; };
+		ER002 /* EscapeRouteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ER102 /* EscapeRouteViewModel.swift */; };
+		ER003 /* EscapeRouteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ER103 /* EscapeRouteListView.swift */; };
+		ER004 /* EscapeRouteDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ER104 /* EscapeRouteDetailView.swift */; };
+		ER005 /* EscapeRouteFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ER105 /* EscapeRouteFormView.swift */; };
+		ER006 /* EscapeRouteRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ER106 /* EscapeRouteRowView.swift */; };
+		ER007 /* EscapeWaypointFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ER107 /* EscapeWaypointFormView.swift */; };
+		ERT01 /* EscapeRouteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ERT101 /* EscapeRouteTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -301,6 +309,14 @@
 		CL105 /* ChecklistFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistFormView.swift; sourceTree = "<group>"; };
 		CL106 /* ChecklistRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistRowView.swift; sourceTree = "<group>"; };
 		CLT101 /* ChecklistItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistItemTests.swift; sourceTree = "<group>"; };
+		ER101 /* EscapeRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EscapeRoute.swift; sourceTree = "<group>"; };
+		ER102 /* EscapeRouteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EscapeRouteViewModel.swift; sourceTree = "<group>"; };
+		ER103 /* EscapeRouteListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EscapeRouteListView.swift; sourceTree = "<group>"; };
+		ER104 /* EscapeRouteDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EscapeRouteDetailView.swift; sourceTree = "<group>"; };
+		ER105 /* EscapeRouteFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EscapeRouteFormView.swift; sourceTree = "<group>"; };
+		ER106 /* EscapeRouteRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EscapeRouteRowView.swift; sourceTree = "<group>"; };
+		ER107 /* EscapeWaypointFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EscapeWaypointFormView.swift; sourceTree = "<group>"; };
+		ERT101 /* EscapeRouteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EscapeRouteTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -385,6 +401,7 @@
 				71203CF5DE80A45D4129DE9C /* Accommodation.swift */,
 				0418909D68337C695811A94A /* SatelliteDevice.swift */,
 				CL101 /* ChecklistItem.swift */,
+				ER101 /* EscapeRoute.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -472,6 +489,11 @@
 				3F754F8CC551CCB5BBEDB3F1 /* RiskAssessmentFormView.swift */,
 				D4FC6A206E66F64BCEF9EB32 /* RiskMatrixView.swift */,
 				7917753DDED431080D16D270 /* EmergencyContactsView.swift */,
+				ER103 /* EscapeRouteListView.swift */,
+				ER104 /* EscapeRouteDetailView.swift */,
+				ER105 /* EscapeRouteFormView.swift */,
+				ER106 /* EscapeRouteRowView.swift */,
+				ER107 /* EscapeWaypointFormView.swift */,
 			);
 			name = Safety;
 			path = Safety;
@@ -612,6 +634,7 @@
 				RMT102 /* GPXServiceTests.swift */,
 				RMT103 /* RouteServiceTests.swift */,
 				CLT101 /* ChecklistItemTests.swift */,
+				ERT101 /* EscapeRouteTests.swift */,
 			);
 			path = ExpeditionPlannerTests;
 			sourceTree = "<group>";
@@ -663,6 +686,7 @@
 				8C6E4BDE40E727E8662D2B36 /* AccommodationViewModel.swift */,
 				782368A25AAF9F42F3ABE1F2 /* SatelliteDeviceViewModel.swift */,
 				CL102 /* ChecklistViewModel.swift */,
+				ER102 /* EscapeRouteViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -893,6 +917,13 @@
 				CL004 /* ChecklistDetailView.swift in Sources */,
 				CL005 /* ChecklistFormView.swift in Sources */,
 				CL006 /* ChecklistRowView.swift in Sources */,
+				ER001 /* EscapeRoute.swift in Sources */,
+				ER002 /* EscapeRouteViewModel.swift in Sources */,
+				ER003 /* EscapeRouteListView.swift in Sources */,
+				ER004 /* EscapeRouteDetailView.swift in Sources */,
+				ER005 /* EscapeRouteFormView.swift in Sources */,
+				ER006 /* EscapeRouteRowView.swift in Sources */,
+				ER007 /* EscapeWaypointFormView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -914,6 +945,7 @@
 				RMT02 /* GPXServiceTests.swift in Sources */,
 				RMT03 /* RouteServiceTests.swift in Sources */,
 				CLT01 /* ChecklistItemTests.swift in Sources */,
+				ERT01 /* EscapeRouteTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
