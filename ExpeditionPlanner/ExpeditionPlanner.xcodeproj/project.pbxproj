@@ -153,6 +153,35 @@
 		ER006 /* EscapeRouteRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ER106 /* EscapeRouteRowView.swift */; };
 		ER007 /* EscapeWaypointFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ER107 /* EscapeWaypointFormView.swift */; };
 		ERT01 /* EscapeRouteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ERT101 /* EscapeRouteTests.swift */; };
+		RS001 /* RouteSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = RS101 /* RouteSegment.swift */; };
+		RS002 /* RouteSegmentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = RS102 /* RouteSegmentViewModel.swift */; };
+		RS003 /* RouteSegmentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = RS103 /* RouteSegmentListView.swift */; };
+		RS004 /* RouteSegmentDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = RS104 /* RouteSegmentDetailView.swift */; };
+		RS005 /* RouteSegmentFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = RS105 /* RouteSegmentFormView.swift */; };
+		RS006 /* RouteSegmentRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = RS106 /* RouteSegmentRowView.swift */; };
+		RST01 /* RouteSegmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = RST101 /* RouteSegmentTests.swift */; };
+		WS001 /* WaterSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = WS101 /* WaterSource.swift */; };
+		WS002 /* WaterSourceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = WS102 /* WaterSourceViewModel.swift */; };
+		WS003 /* WaterSourceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = WS103 /* WaterSourceListView.swift */; };
+		WS004 /* WaterSourceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = WS104 /* WaterSourceDetailView.swift */; };
+		WS005 /* WaterSourceFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = WS105 /* WaterSourceFormView.swift */; };
+		WS006 /* WaterSourceRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = WS106 /* WaterSourceRowView.swift */; };
+		WST01 /* WaterSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = WST101 /* WaterSourceTests.swift */; };
+		VE001 /* TravelDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = VE101 /* TravelDocument.swift */; };
+		VE002 /* TravelDocumentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = VE102 /* TravelDocumentViewModel.swift */; };
+		VE003 /* TravelDocumentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = VE103 /* TravelDocumentListView.swift */; };
+		VE004 /* TravelDocumentDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = VE104 /* TravelDocumentDetailView.swift */; };
+		VE005 /* TravelDocumentFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = VE105 /* TravelDocumentFormView.swift */; };
+		VE006 /* TravelDocumentRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = VE106 /* TravelDocumentRowView.swift */; };
+		VET01 /* TravelDocumentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = VET101 /* TravelDocumentTests.swift */; };
+		MP001 /* MealPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = MP101 /* MealPlan.swift */; };
+		MP002 /* MealPlanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = MP102 /* MealPlanViewModel.swift */; };
+		MP003 /* MealPlanListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = MP103 /* MealPlanListView.swift */; };
+		MP004 /* MealPlanDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = MP104 /* MealPlanDetailView.swift */; };
+		MP005 /* MealPlanFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = MP105 /* MealPlanFormView.swift */; };
+		MP006 /* MealPlanRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = MP106 /* MealPlanRowView.swift */; };
+		MP007 /* MealFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = MP107 /* MealFormView.swift */; };
+		MPT01 /* MealPlanTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = MPT101 /* MealPlanTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -317,6 +346,35 @@
 		ER106 /* EscapeRouteRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EscapeRouteRowView.swift; sourceTree = "<group>"; };
 		ER107 /* EscapeWaypointFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EscapeWaypointFormView.swift; sourceTree = "<group>"; };
 		ERT101 /* EscapeRouteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EscapeRouteTests.swift; sourceTree = "<group>"; };
+		RS101 /* RouteSegment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteSegment.swift; sourceTree = "<group>"; };
+		RS102 /* RouteSegmentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteSegmentViewModel.swift; sourceTree = "<group>"; };
+		RS103 /* RouteSegmentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteSegmentListView.swift; sourceTree = "<group>"; };
+		RS104 /* RouteSegmentDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteSegmentDetailView.swift; sourceTree = "<group>"; };
+		RS105 /* RouteSegmentFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteSegmentFormView.swift; sourceTree = "<group>"; };
+		RS106 /* RouteSegmentRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteSegmentRowView.swift; sourceTree = "<group>"; };
+		RST101 /* RouteSegmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteSegmentTests.swift; sourceTree = "<group>"; };
+		WS101 /* WaterSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterSource.swift; sourceTree = "<group>"; };
+		WS102 /* WaterSourceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterSourceViewModel.swift; sourceTree = "<group>"; };
+		WS103 /* WaterSourceListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterSourceListView.swift; sourceTree = "<group>"; };
+		WS104 /* WaterSourceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterSourceDetailView.swift; sourceTree = "<group>"; };
+		WS105 /* WaterSourceFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterSourceFormView.swift; sourceTree = "<group>"; };
+		WS106 /* WaterSourceRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterSourceRowView.swift; sourceTree = "<group>"; };
+		WST101 /* WaterSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterSourceTests.swift; sourceTree = "<group>"; };
+		VE101 /* TravelDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelDocument.swift; sourceTree = "<group>"; };
+		VE102 /* TravelDocumentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelDocumentViewModel.swift; sourceTree = "<group>"; };
+		VE103 /* TravelDocumentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelDocumentListView.swift; sourceTree = "<group>"; };
+		VE104 /* TravelDocumentDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelDocumentDetailView.swift; sourceTree = "<group>"; };
+		VE105 /* TravelDocumentFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelDocumentFormView.swift; sourceTree = "<group>"; };
+		VE106 /* TravelDocumentRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelDocumentRowView.swift; sourceTree = "<group>"; };
+		VET101 /* TravelDocumentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelDocumentTests.swift; sourceTree = "<group>"; };
+		MP101 /* MealPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlan.swift; sourceTree = "<group>"; };
+		MP102 /* MealPlanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlanViewModel.swift; sourceTree = "<group>"; };
+		MP103 /* MealPlanListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlanListView.swift; sourceTree = "<group>"; };
+		MP104 /* MealPlanDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlanDetailView.swift; sourceTree = "<group>"; };
+		MP105 /* MealPlanFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlanFormView.swift; sourceTree = "<group>"; };
+		MP106 /* MealPlanRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlanRowView.swift; sourceTree = "<group>"; };
+		MP107 /* MealFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealFormView.swift; sourceTree = "<group>"; };
+		MPT101 /* MealPlanTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlanTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -402,6 +460,10 @@
 				0418909D68337C695811A94A /* SatelliteDevice.swift */,
 				CL101 /* ChecklistItem.swift */,
 				ER101 /* EscapeRoute.swift */,
+				RS101 /* RouteSegment.swift */,
+				WS101 /* WaterSource.swift */,
+				VE101 /* TravelDocument.swift */,
+				MP101 /* MealPlan.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -418,6 +480,9 @@
 				DC481E6BF63F4D46704E27FC /* Gear */,
 				664DCFBF3928664B5F573148 /* Budget */,
 				BAC6D6D06D2EEEC1487E66C6 /* Logistics */,
+				RSGRP /* RouteSegments */,
+				WSGRP /* WaterSources */,
+				MPGRP /* MealPlanning */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -541,6 +606,7 @@
 				AF73BF37A4B6D87F7855461F /* Accommodation */,
 				99A1B36E6E8868D608EF6698 /* SatelliteDevice */,
 				CLGRP /* Checklist */,
+				VEGRP /* TravelDocuments */,
 			);
 			name = Logistics;
 			sourceTree = "<group>";
@@ -635,6 +701,10 @@
 				RMT103 /* RouteServiceTests.swift */,
 				CLT101 /* ChecklistItemTests.swift */,
 				ERT101 /* EscapeRouteTests.swift */,
+				RST101 /* RouteSegmentTests.swift */,
+				WST101 /* WaterSourceTests.swift */,
+				VET101 /* TravelDocumentTests.swift */,
+				MPT101 /* MealPlanTests.swift */,
 			);
 			path = ExpeditionPlannerTests;
 			sourceTree = "<group>";
@@ -687,6 +757,10 @@
 				782368A25AAF9F42F3ABE1F2 /* SatelliteDeviceViewModel.swift */,
 				CL102 /* ChecklistViewModel.swift */,
 				ER102 /* EscapeRouteViewModel.swift */,
+				RS102 /* RouteSegmentViewModel.swift */,
+				WS102 /* WaterSourceViewModel.swift */,
+				VE102 /* TravelDocumentViewModel.swift */,
+				MP102 /* MealPlanViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -705,6 +779,52 @@
 				5E6C15CE83AC38C6CF3D5954 /* ShelterDetailView.swift */,
 			);
 			path = Map;
+			sourceTree = "<group>";
+		};
+		RSGRP /* RouteSegments */ = {
+			isa = PBXGroup;
+			children = (
+				RS103 /* RouteSegmentListView.swift */,
+				RS104 /* RouteSegmentDetailView.swift */,
+				RS105 /* RouteSegmentFormView.swift */,
+				RS106 /* RouteSegmentRowView.swift */,
+			);
+			path = RouteSegments;
+			sourceTree = "<group>";
+		};
+		WSGRP /* WaterSources */ = {
+			isa = PBXGroup;
+			children = (
+				WS103 /* WaterSourceListView.swift */,
+				WS104 /* WaterSourceDetailView.swift */,
+				WS105 /* WaterSourceFormView.swift */,
+				WS106 /* WaterSourceRowView.swift */,
+			);
+			path = WaterSources;
+			sourceTree = "<group>";
+		};
+		VEGRP /* TravelDocuments */ = {
+			isa = PBXGroup;
+			children = (
+				VE103 /* TravelDocumentListView.swift */,
+				VE104 /* TravelDocumentDetailView.swift */,
+				VE105 /* TravelDocumentFormView.swift */,
+				VE106 /* TravelDocumentRowView.swift */,
+			);
+			name = TravelDocuments;
+			path = Logistics/TravelDocuments;
+			sourceTree = "<group>";
+		};
+		MPGRP /* MealPlanning */ = {
+			isa = PBXGroup;
+			children = (
+				MP103 /* MealPlanListView.swift */,
+				MP104 /* MealPlanDetailView.swift */,
+				MP105 /* MealPlanFormView.swift */,
+				MP106 /* MealPlanRowView.swift */,
+				MP107 /* MealFormView.swift */,
+			);
+			path = MealPlanning;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -924,6 +1044,31 @@
 				ER005 /* EscapeRouteFormView.swift in Sources */,
 				ER006 /* EscapeRouteRowView.swift in Sources */,
 				ER007 /* EscapeWaypointFormView.swift in Sources */,
+				RS001 /* RouteSegment.swift in Sources */,
+				RS002 /* RouteSegmentViewModel.swift in Sources */,
+				RS003 /* RouteSegmentListView.swift in Sources */,
+				RS004 /* RouteSegmentDetailView.swift in Sources */,
+				RS005 /* RouteSegmentFormView.swift in Sources */,
+				RS006 /* RouteSegmentRowView.swift in Sources */,
+				WS001 /* WaterSource.swift in Sources */,
+				WS002 /* WaterSourceViewModel.swift in Sources */,
+				WS003 /* WaterSourceListView.swift in Sources */,
+				WS004 /* WaterSourceDetailView.swift in Sources */,
+				WS005 /* WaterSourceFormView.swift in Sources */,
+				WS006 /* WaterSourceRowView.swift in Sources */,
+				VE001 /* TravelDocument.swift in Sources */,
+				VE002 /* TravelDocumentViewModel.swift in Sources */,
+				VE003 /* TravelDocumentListView.swift in Sources */,
+				VE004 /* TravelDocumentDetailView.swift in Sources */,
+				VE005 /* TravelDocumentFormView.swift in Sources */,
+				VE006 /* TravelDocumentRowView.swift in Sources */,
+				MP001 /* MealPlan.swift in Sources */,
+				MP002 /* MealPlanViewModel.swift in Sources */,
+				MP003 /* MealPlanListView.swift in Sources */,
+				MP004 /* MealPlanDetailView.swift in Sources */,
+				MP005 /* MealPlanFormView.swift in Sources */,
+				MP006 /* MealPlanRowView.swift in Sources */,
+				MP007 /* MealFormView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -946,6 +1091,10 @@
 				RMT03 /* RouteServiceTests.swift in Sources */,
 				CLT01 /* ChecklistItemTests.swift in Sources */,
 				ERT01 /* EscapeRouteTests.swift in Sources */,
+				RST01 /* RouteSegmentTests.swift in Sources */,
+				WST01 /* WaterSourceTests.swift in Sources */,
+				VET01 /* TravelDocumentTests.swift in Sources */,
+				MPT01 /* MealPlanTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

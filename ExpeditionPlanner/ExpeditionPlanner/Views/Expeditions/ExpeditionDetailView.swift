@@ -54,6 +54,38 @@ struct ExpeditionDetailView: View {
                         detail: "Database"
                     )
                 }
+
+                NavigationLink(value: ExpeditionSection.routeSegments) {
+                    SectionRow(
+                        title: "Route Segments",
+                        icon: "point.topleft.down.to.point.bottomright.curvepath",
+                        color: .indigo,
+                        detail: routeSegmentsDetail
+                    )
+                }
+
+                NavigationLink(value: ExpeditionSection.waterSources) {
+                    SectionRow(
+                        title: "Water Sources",
+                        icon: "drop.fill",
+                        color: .cyan,
+                        detail: waterSourcesDetail
+                    )
+                }
+            }
+
+            // Planning Section
+            Section {
+                NavigationLink(value: ExpeditionSection.mealPlanning) {
+                    SectionRow(
+                        title: "Meal Planning",
+                        icon: "fork.knife",
+                        color: .orange,
+                        detail: mealPlanningDetail
+                    )
+                }
+            } header: {
+                Text("Planning")
             }
 
             // Logistics Section
@@ -109,6 +141,15 @@ struct ExpeditionDetailView: View {
                         icon: "doc.text",
                         color: .gray,
                         detail: "\((expedition.permits ?? []).count) permits"
+                    )
+                }
+
+                NavigationLink(value: ExpeditionSection.travelDocuments) {
+                    SectionRow(
+                        title: "Travel Documents",
+                        icon: "book.closed",
+                        color: .indigo,
+                        detail: travelDocumentsDetail
                     )
                 }
 
@@ -228,101 +269,64 @@ struct ExpeditionDetailView: View {
     }
 
     private var routeMapDetail: String {
-        let waypoints = RouteService.extractWaypoints(from: expedition)
-        let waypointCount = waypoints.count
-        if waypointCount == 0 {
-            return "No waypoints"
-        } else if waypointCount == 1 {
-            return "1 waypoint"
-        } else {
-            return "\(waypointCount) waypoints"
-        }
+        let count = RouteService.extractWaypoints(from: expedition).count
+        return count == 0 ? "No waypoints" : count == 1 ? "1 waypoint" : "\(count) waypoints"
     }
 
     private var insuranceDetail: String {
         let count = (expedition.insurancePolicies ?? []).count
-        if count == 0 {
-            return "No policies"
-        } else if count == 1 {
-            return "1 policy"
-        } else {
-            return "\(count) policies"
-        }
+        return count == 0 ? "No policies" : count == 1 ? "1 policy" : "\(count) policies"
     }
-
     private var riskAssessmentDetail: String {
         let assessments = expedition.riskAssessments ?? []
-        let count = assessments.count
-        let needsAttention = assessments.filter { $0.needsAttention }.count
-        if count == 0 {
-            return "No risks"
-        } else if needsAttention > 0 {
-            return "\(count) risks, \(needsAttention) need attention"
-        } else {
-            return "\(count) risks"
-        }
+        guard !assessments.isEmpty else { return "No risks" }
+        let attention = assessments.filter { $0.needsAttention }.count
+        return attention > 0 ? "\(assessments.count) risks, \(attention) need attention" : "\(assessments.count) risks"
     }
-
     private var emergencyContactsDetail: String {
-        let contacts = expedition.contacts ?? []
-        let emergencyCount = contacts.filter { $0.isEmergencyContact }.count
-        if emergencyCount == 0 {
-            return "None set"
-        } else if emergencyCount == 1 {
-            return "1 contact"
-        } else {
-            return "\(emergencyCount) contacts"
-        }
+        let count = (expedition.contacts ?? []).filter { $0.isEmergencyContact }.count
+        return count == 0 ? "None set" : count == 1 ? "1 contact" : "\(count) contacts"
     }
-
     private var transportDetail: String {
         let count = (expedition.transportLegs ?? []).count
-        if count == 0 {
-            return "No transport"
-        } else if count == 1 {
-            return "1 leg"
-        } else {
-            return "\(count) legs"
-        }
+        return count == 0 ? "No transport" : count == 1 ? "1 leg" : "\(count) legs"
     }
-
     private var accommodationsDetail: String {
         let count = (expedition.accommodations ?? []).count
-        if count == 0 {
-            return "No accommodations"
-        } else if count == 1 {
-            return "1 accommodation"
-        } else {
-            return "\(count) accommodations"
-        }
+        return count == 0 ? "No accommodations" : count == 1 ? "1 accommodation" : "\(count) accommodations"
     }
-
     private var checklistDetail: String {
         let items = expedition.checklistItems ?? []
-        if items.isEmpty {
-            return "No tasks"
-        }
-        let done = items.filter { $0.isComplete }.count
-        return "\(done)/\(items.count) done"
+        guard !items.isEmpty else { return "No tasks" }
+        return "\(items.filter { $0.isComplete }.count)/\(items.count) done"
     }
-
     private var escapeRoutesDetail: String {
         let routes = expedition.escapeRoutes ?? []
-        if routes.isEmpty { return "No routes" }
+        guard !routes.isEmpty else { return "No routes" }
         let unverified = routes.filter { !$0.isVerified }.count
-        if unverified > 0 { return "\(routes.count) routes, \(unverified) unverified" }
-        return "\(routes.count) routes"
+        return unverified > 0 ? "\(routes.count) routes, \(unverified) unverified" : "\(routes.count) routes"
     }
-
+    private var routeSegmentsDetail: String {
+        let count = (expedition.routeSegments ?? []).count
+        return count == 0 ? "No segments" : count == 1 ? "1 segment" : "\(count) segments"
+    }
+    private var waterSourcesDetail: String {
+        let count = (expedition.waterSources ?? []).count
+        return count == 0 ? "No sources" : count == 1 ? "1 source" : "\(count) sources"
+    }
+    private var travelDocumentsDetail: String {
+        let docs = expedition.travelDocuments ?? []
+        guard !docs.isEmpty else { return "No documents" }
+        let actionNeeded = docs.filter { $0.isActionRequired }.count
+        return actionNeeded > 0 ? "\(docs.count) documents, \(actionNeeded) action needed" : "\(docs.count) documents"
+    }
+    private var mealPlanningDetail: String {
+        let count = (expedition.mealPlans ?? []).count
+        return count == 0 ? "No days planned" : count == 1 ? "1 day planned" : "\(count) days planned"
+    }
     private var satelliteDevicesDetail: String {
         let count = (expedition.satelliteDevices ?? []).count
-        if count == 0 {
-            return "No devices"
-        } else if count == 1 {
-            return "1 device"
-        } else {
-            return "\(count) devices"
-        }
+        return count == 0 ? "No devices" : count == 1 ? "1 device" : "\(count) devices"
     }
 
     // swiftlint:disable cyclomatic_complexity
@@ -365,6 +369,14 @@ struct ExpeditionDetailView: View {
             EscapeRouteListView(expedition: expedition)
         case .shelters:
             ShelterListView()
+        case .routeSegments:
+            RouteSegmentListView(expedition: expedition)
+        case .waterSources:
+            WaterSourceListView(expedition: expedition)
+        case .travelDocuments:
+            TravelDocumentListView(expedition: expedition)
+        case .mealPlanning:
+            MealPlanListView(expedition: expedition)
         }
     }
     // swiftlint:enable cyclomatic_complexity
@@ -391,6 +403,10 @@ enum ExpeditionSection: Hashable {
     case emergencyContacts
     case insurance
     case escapeRoutes
+    case routeSegments
+    case waterSources
+    case travelDocuments
+    case mealPlanning
 }
 
 // MARK: - Section Row

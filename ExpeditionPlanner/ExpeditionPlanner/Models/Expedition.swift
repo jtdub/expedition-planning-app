@@ -57,6 +57,18 @@ final class Expedition {
     @Relationship(deleteRule: .cascade, inverse: \EscapeRoute.expedition)
     var escapeRoutes: [EscapeRoute]?
 
+    @Relationship(deleteRule: .cascade, inverse: \RouteSegment.expedition)
+    var routeSegments: [RouteSegment]?
+
+    @Relationship(deleteRule: .cascade, inverse: \WaterSource.expedition)
+    var waterSources: [WaterSource]?
+
+    @Relationship(deleteRule: .cascade, inverse: \TravelDocument.expedition)
+    var travelDocuments: [TravelDocument]?
+
+    @Relationship(deleteRule: .cascade, inverse: \MealPlan.expedition)
+    var mealPlans: [MealPlan]?
+
     init(
         name: String = "",
         expeditionDescription: String = "",
