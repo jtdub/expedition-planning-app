@@ -34,7 +34,12 @@ struct ChakiApp: App {
                 HistoricalClimate.self,
                 ChecklistItem.self,
                 EscapeRoute.self,
-                EscapeWaypoint.self
+                EscapeWaypoint.self,
+                RouteSegment.self,
+                WaterSource.self,
+                TravelDocument.self,
+                MealPlan.self,
+                Meal.self
             ])
 
             let cloudKitDatabase: ModelConfiguration.CloudKitDatabase
