@@ -22,8 +22,17 @@ enum AppConstants {
 
 enum NotificationIdentifiers {
     static let permitDeadline = "permit.deadline"
+    static let permitExpiry = "permit.expiry"
     static let checkIn = "checkin.reminder"
     static let departureReminder = "departure.reminder"
+    static let transportDeparture = "transport.departure"
+    static let accommodationCheckIn = "accommodation.checkin"
+    static let documentExpiry = "document.expiry"
+    static let checklistDue = "checklist.due"
+    static let insuranceExpiry = "insurance.expiry"
+    static let deviceSubscription = "device.subscription"
+    static let deviceReturn = "device.return"
+    static let expeditionDeparture = "expedition.departure"
 }
 
 enum UserDefaultsKeys {

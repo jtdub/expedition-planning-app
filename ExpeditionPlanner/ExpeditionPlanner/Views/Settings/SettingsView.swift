@@ -1,4 +1,5 @@
 import SwiftUI
+import SwiftData
 
 struct SettingsView: View {
     // Unit preferences
@@ -49,6 +50,8 @@ struct SettingsView: View {
     // Templates
     @AppStorage("defaultGearTemplate")
     private var defaultGearTemplate: GearTemplate = .backpacking
+
+    @ObservedObject private var notificationService = NotificationService.shared
 
     private let githubURL = URL(string: "https://github.com/jtdub/expedition-planning-app")
 
@@ -106,10 +109,23 @@ struct SettingsView: View {
                 }
 
                 Section {
+                    if notificationService.authorizationStatus == .denied {
+                        Label(
+                            "Notifications are disabled. Enable in Settings.",
+                            systemImage: "exclamationmark.triangle"
+                        )
+                        .foregroundStyle(.orange)
+                        .font(.caption)
+                    }
+
                     Toggle("Permit Deadlines", isOn: $permitDeadlineNotifications)
+                        .onChange(of: permitDeadlineNotifications) { handleNotificationToggle() }
                     Toggle("Departure Reminders", isOn: $departureReminderNotifications)
+                        .onChange(of: departureReminderNotifications) { handleNotificationToggle() }
                     Toggle("Gear Checklist", isOn: $gearChecklistReminders)
+                        .onChange(of: gearChecklistReminders) { handleNotificationToggle() }
                     Toggle("Budget Alerts", isOn: $budgetAlertNotifications)
+                        .onChange(of: budgetAlertNotifications) { handleNotificationToggle() }
 
                     Picker("Remind Me", selection: $reminderDaysBefore) {
                         Text("1 day before").tag(1)
@@ -118,6 +134,7 @@ struct SettingsView: View {
                         Text("14 days before").tag(14)
                         Text("30 days before").tag(30)
                     }
+                    .onChange(of: reminderDaysBefore) { handleNotificationToggle() }
                 } header: {
                     Text("Notifications")
                 } footer: {
@@ -168,6 +185,21 @@ struct SettingsView: View {
                 }
             }
             .navigationTitle("Settings")
+            .onAppear {
+                Task { await notificationService.checkAuthorizationStatus() }
+            }
+        }
+    }
+
+    private func handleNotificationToggle() {
+        Task {
+            let anyEnabled = permitDeadlineNotifications
+                || departureReminderNotifications
+                || gearChecklistReminders
+                || budgetAlertNotifications
+            if anyEnabled {
+                _ = await notificationService.requestAuthorization()
+            }
         }
     }
 }
@@ -176,9 +208,12 @@ struct SettingsView: View {
 
 struct DataManagementView: View {
     @StateObject private var mapCache = MapCacheService.shared
+    @Query private var expeditions: [Expedition]
     @State private var showingExportSheet = false
     @State private var showingClearConfirmation = false
     @State private var showingDownloadSheet = false
+    @State private var showingImportSheet = false
+    @State private var selectedExpedition: Expedition?
 
     var body: some View {
         List {
@@ -190,14 +225,19 @@ struct DataManagementView: View {
                 }
 
                 Button {
-                    // Import action
+                    showingImportSheet = true
                 } label: {
                     Label("Import Data", systemImage: "square.and.arrow.down")
                 }
+                .disabled(expeditions.isEmpty)
             } header: {
                 Text("Import / Export")
             } footer: {
-                Text("Export your expedition data for backup or transfer.")
+                if expeditions.isEmpty {
+                    Text("Create an expedition first to import data.")
+                } else {
+                    Text("Export your expedition data for backup or transfer.")
+                }
             }
 
             // Offline Maps Section
@@ -256,6 +296,47 @@ struct DataManagementView: View {
             Button("Cancel", role: .cancel) {}
         } message: {
             Text("This will remove all downloaded offline map tiles.")
+        }
+        .sheet(isPresented: $showingImportSheet) {
+            importDestinationView
+        }
+    }
+
+    @ViewBuilder private var importDestinationView: some View {
+        if let expedition = selectedExpedition {
+            CSVImportView(expedition: expedition)
+        } else {
+            NavigationStack {
+                List {
+                    Section("Choose Expedition") {
+                        ForEach(expeditions) { expedition in
+                            Button {
+                                selectedExpedition = expedition
+                            } label: {
+                                VStack(alignment: .leading, spacing: 4) {
+                                    Text(expedition.name)
+                                        .font(.body)
+                                    if !expedition.location.isEmpty {
+                                        Text(expedition.location)
+                                            .font(.caption)
+                                            .foregroundStyle(.secondary)
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .navigationTitle("Import CSV")
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItem(placement: .cancellationAction) {
+                        Button("Cancel") {
+                            showingImportSheet = false
+                            selectedExpedition = nil
+                        }
+                    }
+                }
+            }
         }
     }
 

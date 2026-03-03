@@ -1,6 +1,7 @@
 import SwiftUI
 import SwiftData
 
+// swiftlint:disable file_length
 struct ExpeditionDetailView: View {
     @Environment(\.modelContext)
     private var modelContext
@@ -10,6 +11,7 @@ struct ExpeditionDetailView: View {
     @ObservedObject private var syncService = SyncStatusService.shared
 
     @State private var showingEditSheet = false
+    @State private var showingCSVImport = false
     @State private var selectedSection: ExpeditionSection = .overview
 
     var body: some View {
@@ -249,15 +251,28 @@ struct ExpeditionDetailView: View {
                 SyncStatusIndicator(syncService: syncService)
             }
             ToolbarItem(placement: .primaryAction) {
-                Button {
-                    showingEditSheet = true
+                Menu {
+                    Button {
+                        showingEditSheet = true
+                    } label: {
+                        Label("Edit Expedition", systemImage: "pencil")
+                    }
+
+                    Button {
+                        showingCSVImport = true
+                    } label: {
+                        Label("Import CSV", systemImage: "square.and.arrow.down")
+                    }
                 } label: {
-                    Text("Edit")
+                    Image(systemName: "ellipsis.circle")
                 }
             }
         }
         .sheet(isPresented: $showingEditSheet) {
             ExpeditionFormView(mode: .edit(expedition))
+        }
+        .sheet(isPresented: $showingCSVImport) {
+            CSVImportView(expedition: expedition)
         }
     }
 

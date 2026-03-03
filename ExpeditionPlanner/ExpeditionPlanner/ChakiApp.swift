@@ -1,6 +1,7 @@
 import SwiftUI
 import SwiftData
 import CloudKit
+import UserNotifications
 import OSLog
 
 private let logger = Logger(subsystem: "com.chaki.app", category: "App")
@@ -66,10 +67,31 @@ struct ChakiApp: App {
         }
     }
 
+    @Environment(\.scenePhase)
+    private var scenePhase
+
     var body: some Scene {
         WindowGroup {
             ContentView()
         }
         .modelContainer(modelContainer)
+        .onChange(of: scenePhase) { _, newPhase in
+            if newPhase == .active {
+                Task { await rescheduleNotifications() }
+            }
+        }
+    }
+
+    @MainActor
+    private func rescheduleNotifications() async {
+        let context = modelContainer.mainContext
+        do {
+            let descriptor = FetchDescriptor<Expedition>()
+            let expeditions = try context.fetch(descriptor)
+            await NotificationService.shared.scheduleAllNotifications(for: expeditions)
+            await NotificationService.shared.updateBadgeCount(for: expeditions)
+        } catch {
+            logger.error("Failed to reschedule notifications: \(error.localizedDescription)")
+        }
     }
 }

@@ -182,6 +182,15 @@
 		MP006 /* MealPlanRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = MP106 /* MealPlanRowView.swift */; };
 		MP007 /* MealFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = MP107 /* MealFormView.swift */; };
 		MPT01 /* MealPlanTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = MPT101 /* MealPlanTests.swift */; };
+		NT001 /* NotificationScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = NT101 /* NotificationScheduler.swift */; };
+		NT002 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = NT102 /* NotificationService.swift */; };
+		NTT01 /* NotificationSchedulerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = NTT101 /* NotificationSchedulerTests.swift */; };
+		CI001 /* CSVParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CI101 /* CSVParser.swift */; };
+		CI002 /* CSVImportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CI102 /* CSVImportService.swift */; };
+		CI003 /* CSVImportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CI103 /* CSVImportViewModel.swift */; };
+		CI004 /* CSVImportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CI104 /* CSVImportView.swift */; };
+		CIT01 /* CSVParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CIT101 /* CSVParserTests.swift */; };
+		CIT02 /* CSVImportServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CIT102 /* CSVImportServiceTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -375,6 +384,15 @@
 		MP106 /* MealPlanRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlanRowView.swift; sourceTree = "<group>"; };
 		MP107 /* MealFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealFormView.swift; sourceTree = "<group>"; };
 		MPT101 /* MealPlanTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlanTests.swift; sourceTree = "<group>"; };
+		NT101 /* NotificationScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationScheduler.swift; sourceTree = "<group>"; };
+		NT102 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		NTT101 /* NotificationSchedulerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSchedulerTests.swift; sourceTree = "<group>"; };
+		CI101 /* CSVParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVParser.swift; sourceTree = "<group>"; };
+		CI102 /* CSVImportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVImportService.swift; sourceTree = "<group>"; };
+		CI103 /* CSVImportViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVImportViewModel.swift; sourceTree = "<group>"; };
+		CI104 /* CSVImportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVImportView.swift; sourceTree = "<group>"; };
+		CIT101 /* CSVParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVParserTests.swift; sourceTree = "<group>"; };
+		CIT102 /* CSVImportServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVImportServiceTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -483,6 +501,7 @@
 				RSGRP /* RouteSegments */,
 				WSGRP /* WaterSources */,
 				MPGRP /* MealPlanning */,
+				CIGRP /* Import */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -636,6 +655,10 @@
 				RM112 /* MapCacheService.swift */,
 				C512B137A913FAAF4A29C0C7 /* PDFExportService.swift */,
 				6ECAA25E019B53031A2B27FC /* CSVExportService.swift */,
+				NT101 /* NotificationScheduler.swift */,
+				NT102 /* NotificationService.swift */,
+				CI101 /* CSVParser.swift */,
+				CI102 /* CSVImportService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -705,6 +728,9 @@
 				WST101 /* WaterSourceTests.swift */,
 				VET101 /* TravelDocumentTests.swift */,
 				MPT101 /* MealPlanTests.swift */,
+				NTT101 /* NotificationSchedulerTests.swift */,
+				CIT101 /* CSVParserTests.swift */,
+				CIT102 /* CSVImportServiceTests.swift */,
 			);
 			path = ExpeditionPlannerTests;
 			sourceTree = "<group>";
@@ -761,6 +787,7 @@
 				WS102 /* WaterSourceViewModel.swift */,
 				VE102 /* TravelDocumentViewModel.swift */,
 				MP102 /* MealPlanViewModel.swift */,
+				CI103 /* CSVImportViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -825,6 +852,14 @@
 				MP107 /* MealFormView.swift */,
 			);
 			path = MealPlanning;
+			sourceTree = "<group>";
+		};
+		CIGRP /* Import */ = {
+			isa = PBXGroup;
+			children = (
+				CI104 /* CSVImportView.swift */,
+			);
+			path = Import;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1069,6 +1104,12 @@
 				MP005 /* MealPlanFormView.swift in Sources */,
 				MP006 /* MealPlanRowView.swift in Sources */,
 				MP007 /* MealFormView.swift in Sources */,
+				NT001 /* NotificationScheduler.swift in Sources */,
+				NT002 /* NotificationService.swift in Sources */,
+				CI001 /* CSVParser.swift in Sources */,
+				CI002 /* CSVImportService.swift in Sources */,
+				CI003 /* CSVImportViewModel.swift in Sources */,
+				CI004 /* CSVImportView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1095,6 +1136,9 @@
 				WST01 /* WaterSourceTests.swift in Sources */,
 				VET01 /* TravelDocumentTests.swift in Sources */,
 				MPT01 /* MealPlanTests.swift in Sources */,
+				NTT01 /* NotificationSchedulerTests.swift in Sources */,
+				CIT01 /* CSVParserTests.swift in Sources */,
+				CIT02 /* CSVImportServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
