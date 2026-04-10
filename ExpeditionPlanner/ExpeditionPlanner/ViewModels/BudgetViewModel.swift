@@ -2,7 +2,7 @@ import Foundation
 import SwiftData
 import OSLog
 
-private let logger = Logger(subsystem: "com.chaki.app", category: "BudgetViewModel")
+private let logger = Logger(subsystem: "com.expedition.planner", category: "BudgetViewModel")
 
 enum BudgetSortOrder: String, CaseIterable {
     case category = "Category"

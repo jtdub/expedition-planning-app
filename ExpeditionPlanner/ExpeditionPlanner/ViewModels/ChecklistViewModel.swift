@@ -2,7 +2,7 @@ import Foundation
 import SwiftData
 import OSLog
 
-private let logger = Logger(subsystem: "com.chaki.app", category: "ChecklistViewModel")
+private let logger = Logger(subsystem: "com.expedition.planner", category: "ChecklistViewModel")
 
 enum ChecklistSortOrder: String, CaseIterable {
     case dueDate = "Due Date"

@@ -2,7 +2,7 @@ import Foundation
 import SwiftData
 import OSLog
 
-private let logger = Logger(subsystem: "com.chaki.app", category: "CSVImport")
+private let logger = Logger(subsystem: "com.expedition.planner", category: "CSVImport")
 
 /// View model managing the CSV import workflow: file parsing, type detection,
 /// preview, duplicate checking, and import execution.

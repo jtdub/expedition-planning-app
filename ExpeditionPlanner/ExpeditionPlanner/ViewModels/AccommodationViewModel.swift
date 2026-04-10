@@ -2,7 +2,7 @@ import Foundation
 import SwiftData
 import OSLog
 
-private let logger = Logger(subsystem: "com.chaki.app", category: "AccommodationViewModel")
+private let logger = Logger(subsystem: "com.expedition.planner", category: "AccommodationViewModel")
 
 enum AccommodationSortOrder: String, CaseIterable {
     case checkInDate = "Check-in Date"
