@@ -47,13 +47,10 @@ struct SettingsView: View {
     @AppStorage("defaultExportFormat")
     private var defaultExportFormat: ExportFormat = .pdf
 
-    // Templates
-    @AppStorage("defaultGearTemplate")
-    private var defaultGearTemplate: GearTemplate = .backpacking
-
     @ObservedObject private var notificationService = NotificationService.shared
 
-    private let githubURL = URL(string: "https://github.com/jtdub/expedition-planning-app")
+    private let supportURL = URL(string: "https://www.jtdub.com/apps/support/expedition-planning/")
+    private let privacyPolicyURL = URL(string: "https://www.jtdub.com/apps/privacy/expedition-planning/")
 
     var body: some View {
         NavigationStack {
@@ -142,18 +139,6 @@ struct SettingsView: View {
                 }
 
                 Section {
-                    Picker("Default Template", selection: $defaultGearTemplate) {
-                        ForEach(GearTemplate.allCases, id: \.self) { template in
-                            Text(template.rawValue).tag(template)
-                        }
-                    }
-                } header: {
-                    Text("Gear Lists")
-                } footer: {
-                    Text("This template will be used when creating new expeditions.")
-                }
-
-                Section {
                     Picker("Default Format", selection: $defaultExportFormat) {
                         ForEach(ExportFormat.allCases, id: \.self) { format in
                             Label(format.rawValue, systemImage: format.icon).tag(format)
@@ -177,9 +162,15 @@ struct SettingsView: View {
                     LabeledContent("Version", value: Bundle.main.appVersion)
                     LabeledContent("Build", value: Bundle.main.buildNumber)
 
-                    if let url = githubURL {
+                    if let url = supportURL {
                         Link(destination: url) {
-                            Label("GitHub Repository", systemImage: "link")
+                            Label("Support", systemImage: "questionmark.circle")
+                        }
+                    }
+
+                    if let url = privacyPolicyURL {
+                        Link(destination: url) {
+                            Label("Privacy Policy", systemImage: "hand.raised")
                         }
                     }
                 }

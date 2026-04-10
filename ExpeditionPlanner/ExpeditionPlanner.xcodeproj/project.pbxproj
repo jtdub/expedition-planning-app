@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		001 /* ChakiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101 /* ChakiApp.swift */; };
 		A001 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A101 /* Assets.xcassets */; };
+		A002 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 120 /* PrivacyInfo.xcprivacy */; };
 		002 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102 /* ContentView.swift */; };
 		003 /* Expedition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103 /* Expedition.swift */; };
 		004 /* ItineraryDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104 /* ItineraryDay.swift */; };
@@ -228,6 +229,7 @@
 		117 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		118 /* ExpeditionPlanner.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ExpeditionPlanner.entitlements; sourceTree = "<group>"; };
 		119 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		120 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		19048C3A13B24CE36258073E /* ShelterViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ShelterViewModel.swift; sourceTree = "<group>"; };
 		1A976D9B7F821FC04903A551 /* InsuranceViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = InsuranceViewModel.swift; sourceTree = "<group>"; };
 		20A34FDFEB22A2ECDFEE5051 /* ContactListView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ../Views/Logistics/Contacts/ContactListView.swift; sourceTree = "<group>"; };
@@ -439,6 +441,7 @@
 				102 /* ContentView.swift */,
 				118 /* ExpeditionPlanner.entitlements */,
 				119 /* Info.plist */,
+				120 /* PrivacyInfo.xcprivacy */,
 				A101 /* Assets.xcassets */,
 				303 /* Models */,
 				304 /* Views */,
@@ -940,6 +943,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A001 /* Assets.xcassets in Resources */,
+				A002 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
