@@ -6,5 +6,9 @@
 	<string>Chaki</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Chaki uses your location to show your position on the route map during expedition planning.</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>remote-notification</string>
+	</array>
 </dict>
 </plist>
