@@ -30,8 +30,6 @@ fastlane/Preview.html
 fastlane/screenshots/**/*.png
 fastlane/test_output
 
-# Xcode-generated Info.plist
-ExpeditionPlanner/ExpeditionPlanner/Info.plist
 
 # Code Injection
 iOSInjectionProject/

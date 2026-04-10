@@ -4,16 +4,16 @@ import SwiftData
 struct SettingsView: View {
     // Unit preferences
     @AppStorage("elevationUnit")
-    private var elevationUnit: ElevationUnit = .meters
+    private var elevationUnit: ElevationUnit = .feet
 
     @AppStorage("weightUnit")
-    private var weightUnit: WeightUnit = .kilograms
+    private var weightUnit: WeightUnit = .pounds
 
     @AppStorage("distanceUnit")
-    private var distanceUnit: DistanceUnit = .kilometers
+    private var distanceUnit: DistanceUnit = .miles
 
     @AppStorage("temperatureUnit")
-    private var temperatureUnit: TemperatureUnit = .celsius
+    private var temperatureUnit: TemperatureUnit = .fahrenheit
 
     // Currency
     @AppStorage("defaultCurrency")
@@ -47,13 +47,7 @@ struct SettingsView: View {
     @AppStorage("defaultExportFormat")
     private var defaultExportFormat: ExportFormat = .pdf
 
-    // Templates
-    @AppStorage("defaultGearTemplate")
-    private var defaultGearTemplate: GearTemplate = .backpacking
-
     @ObservedObject private var notificationService = NotificationService.shared
-
-    private let githubURL = URL(string: "https://github.com/jtdub/expedition-planning-app")
 
     var body: some View {
         NavigationStack {
@@ -142,18 +136,6 @@ struct SettingsView: View {
                 }
 
                 Section {
-                    Picker("Default Template", selection: $defaultGearTemplate) {
-                        ForEach(GearTemplate.allCases, id: \.self) { template in
-                            Text(template.rawValue).tag(template)
-                        }
-                    }
-                } header: {
-                    Text("Gear Lists")
-                } footer: {
-                    Text("This template will be used when creating new expeditions.")
-                }
-
-                Section {
                     Picker("Default Format", selection: $defaultExportFormat) {
                         ForEach(ExportFormat.allCases, id: \.self) { format in
                             Label(format.rawValue, systemImage: format.icon).tag(format)
@@ -177,10 +159,12 @@ struct SettingsView: View {
                     LabeledContent("Version", value: Bundle.main.appVersion)
                     LabeledContent("Build", value: Bundle.main.buildNumber)
 
-                    if let url = githubURL {
-                        Link(destination: url) {
-                            Label("GitHub Repository", systemImage: "link")
-                        }
+                    Link(destination: AppConstants.supportURL) {
+                        Label("Support", systemImage: "questionmark.circle")
+                    }
+
+                    Link(destination: AppConstants.privacyPolicyURL) {
+                        Label("Privacy Policy", systemImage: "hand.raised")
                     }
                 }
             }
@@ -393,16 +377,6 @@ enum ExportFormat: String, CaseIterable {
             return "curlybraces"
         }
     }
-}
-
-enum GearTemplate: String, CaseIterable {
-    case backpacking = "Backpacking"
-    case mountaineering = "Mountaineering"
-    case kayaking = "Kayaking/Packrafting"
-    case skiing = "Ski Touring"
-    case ultralight = "Ultralight"
-    case expeditionHeavy = "Expedition (Heavy)"
-    case custom = "Custom"
 }
 
 // MARK: - Currency

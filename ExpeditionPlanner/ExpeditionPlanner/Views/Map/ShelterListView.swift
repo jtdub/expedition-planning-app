@@ -38,7 +38,7 @@ struct ShelterListView: View {
                         Button("All Regions") {
                             filterRegion = nil
                         }
-                        ForEach(ShelterService.availableRegions, id: \.self) { region in
+                        ForEach(viewModel?.availableRegions ?? [], id: \.self) { region in
                             Button(region) {
                                 filterRegion = region
                             }
@@ -77,7 +77,6 @@ struct ShelterListView: View {
         .onAppear {
             if viewModel == nil {
                 let vm = ShelterViewModel(modelContext: modelContext)
-                vm.seedIfNeeded()
                 vm.loadAllShelters()
                 viewModel = vm
             }

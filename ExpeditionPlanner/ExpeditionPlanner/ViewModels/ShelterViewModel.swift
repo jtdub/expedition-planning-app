@@ -78,47 +78,6 @@ final class ShelterViewModel {
         loadAllShelters()
     }
 
-    // MARK: - Seeding
-
-    func seedIfNeeded() {
-        let descriptor = FetchDescriptor<Shelter>()
-        do {
-            let count = try modelContext.fetchCount(descriptor)
-            if count == 0 {
-                seedShelters()
-            }
-        } catch {
-            seedShelters()
-        }
-    }
-
-    private func seedShelters() {
-        let shelterData = ShelterService.sampleShelterData
-        for data in shelterData {
-            let shelter = Shelter(
-                name: data.name,
-                shelterType: data.shelterType,
-                latitude: data.latitude,
-                longitude: data.longitude,
-                elevationMeters: data.elevationMeters,
-                region: data.region,
-                capacity: data.capacity,
-                notes: data.notes,
-                isUserAdded: false
-            )
-            shelter.hasWoodStove = data.amenities.contains(.woodStove)
-            shelter.hasSleepingPlatform = data.amenities.contains(.sleepingPlatform)
-            shelter.hasFirewood = data.amenities.contains(.firewood)
-            shelter.hasOuthouse = data.amenities.contains(.outhouse)
-            shelter.hasWater = data.amenities.contains(.water)
-            shelter.hasFirstAid = data.amenities.contains(.firstAid)
-            shelter.hasEmergencySupplies = data.amenities.contains(.emergencySupplies)
-            shelter.hasHelipad = data.amenities.contains(.helipad)
-            modelContext.insert(shelter)
-        }
-        saveContext()
-    }
-
     // MARK: - Location Queries
 
     func shelters(near coordinate: CLLocationCoordinate2D, withinMeters distance: Double) -> [Shelter] {
@@ -149,6 +108,10 @@ final class ShelterViewModel {
     }
 
     // MARK: - Statistics
+
+    var availableRegions: [String] {
+        Array(Set(shelters.map { $0.region })).sorted()
+    }
 
     var sheltersByRegion: [String: Int] {
         var result: [String: Int] = [:]
