@@ -18,6 +18,12 @@ enum AppConstants {
     // UI
     static let maxRecentExpeditions: Int = 5
     static let searchDebounceInterval: TimeInterval = 0.3
+
+    // URLs
+    // swiftlint:disable force_unwrapping
+    static let supportURL = URL(string: "https://www.jtdub.com/apps/support/expedition-planning/")!
+    static let privacyPolicyURL = URL(string: "https://www.jtdub.com/apps/privacy/expedition-planning/")!
+    // swiftlint:enable force_unwrapping
 }
 
 enum NotificationIdentifiers {

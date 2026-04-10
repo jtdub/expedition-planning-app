@@ -49,9 +49,6 @@ struct SettingsView: View {
 
     @ObservedObject private var notificationService = NotificationService.shared
 
-    private let supportURL = URL(string: "https://www.jtdub.com/apps/support/expedition-planning/")
-    private let privacyPolicyURL = URL(string: "https://www.jtdub.com/apps/privacy/expedition-planning/")
-
     var body: some View {
         NavigationStack {
             Form {
@@ -162,16 +159,12 @@ struct SettingsView: View {
                     LabeledContent("Version", value: Bundle.main.appVersion)
                     LabeledContent("Build", value: Bundle.main.buildNumber)
 
-                    if let url = supportURL {
-                        Link(destination: url) {
-                            Label("Support", systemImage: "questionmark.circle")
-                        }
+                    Link(destination: AppConstants.supportURL) {
+                        Label("Support", systemImage: "questionmark.circle")
                     }
 
-                    if let url = privacyPolicyURL {
-                        Link(destination: url) {
-                            Label("Privacy Policy", systemImage: "hand.raised")
-                        }
+                    Link(destination: AppConstants.privacyPolicyURL) {
+                        Label("Privacy Policy", systemImage: "hand.raised")
                     }
                 }
             }
@@ -384,16 +377,6 @@ enum ExportFormat: String, CaseIterable {
             return "curlybraces"
         }
     }
-}
-
-enum GearTemplate: String, CaseIterable {
-    case backpacking = "Backpacking"
-    case mountaineering = "Mountaineering"
-    case kayaking = "Kayaking/Packrafting"
-    case skiing = "Ski Touring"
-    case ultralight = "Ultralight"
-    case expeditionHeavy = "Expedition (Heavy)"
-    case custom = "Custom"
 }
 
 // MARK: - Currency

@@ -54,19 +54,6 @@ final class SettingsTests: XCTestCase {
         XCTAssertEqual(ExportFormat.json.icon, "curlybraces")
     }
 
-    // MARK: - Gear Template Tests
-
-    func testGearTemplateValues() {
-        XCTAssertEqual(GearTemplate.backpacking.rawValue, "Backpacking")
-        XCTAssertEqual(GearTemplate.mountaineering.rawValue, "Mountaineering")
-        XCTAssertEqual(GearTemplate.kayaking.rawValue, "Kayaking/Packrafting")
-        XCTAssertEqual(GearTemplate.skiing.rawValue, "Ski Touring")
-        XCTAssertEqual(GearTemplate.ultralight.rawValue, "Ultralight")
-        XCTAssertEqual(GearTemplate.expeditionHeavy.rawValue, "Expedition (Heavy)")
-        XCTAssertEqual(GearTemplate.custom.rawValue, "Custom")
-        XCTAssertEqual(GearTemplate.allCases.count, 7)
-    }
-
     // MARK: - Currency Tests
 
     func testCurrencyValues() {

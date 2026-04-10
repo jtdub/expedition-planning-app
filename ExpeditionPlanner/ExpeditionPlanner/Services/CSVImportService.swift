@@ -109,7 +109,7 @@ final class CSVImportService {
         var items: [GearItem] = []
         var errors: [String] = []
 
-        for (index, row) in parseResult.rows.enumerated() {
+        for index in parseResult.rows.indices {
             let rowNum = index + 2 // 1-indexed, skip header
             guard let name = parseResult.value(row: index, column: "Name"), !name.isEmpty else {
                 errors.append("Row \(rowNum): Missing name")
@@ -174,7 +174,7 @@ final class CSVImportService {
         var items: [Participant] = []
         var errors: [String] = []
 
-        for (index, row) in parseResult.rows.enumerated() {
+        for index in parseResult.rows.indices {
             let rowNum = index + 2
             guard let name = parseResult.value(row: index, column: "Name"), !name.isEmpty else {
                 errors.append("Row \(rowNum): Missing name")
@@ -233,7 +233,7 @@ final class CSVImportService {
         var items: [ItineraryDay] = []
         var errors: [String] = []
 
-        for (index, row) in parseResult.rows.enumerated() {
+        for index in parseResult.rows.indices {
             let rowNum = index + 2
             guard let dayStr = parseResult.value(row: index, column: "Day"),
                   let dayNumber = Int(dayStr) else {
@@ -300,7 +300,7 @@ final class CSVImportService {
         var items: [Contact] = []
         var errors: [String] = []
 
-        for (index, row) in parseResult.rows.enumerated() {
+        for index in parseResult.rows.indices {
             let rowNum = index + 2
             guard let name = parseResult.value(row: index, column: "Name"), !name.isEmpty else {
                 errors.append("Row \(rowNum): Missing name")
@@ -364,10 +364,10 @@ final class CSVImportService {
         var items: [BudgetItem] = []
         var errors: [String] = []
 
-        for (index, row) in parseResult.rows.enumerated() {
+        for index in parseResult.rows.indices {
             let rowNum = index + 2
             guard let name = parseResult.value(row: index, column: "Name"), !name.isEmpty else {
-                // Skip TOTAL rows and empty rows
+                errors.append("Row \(rowNum): Missing name")
                 continue
             }
 
@@ -431,7 +431,7 @@ final class CSVImportService {
         var items: [Permit] = []
         var errors: [String] = []
 
-        for (index, row) in parseResult.rows.enumerated() {
+        for index in parseResult.rows.indices {
             let rowNum = index + 2
             guard let name = parseResult.value(row: index, column: "Name"), !name.isEmpty else {
                 errors.append("Row \(rowNum): Missing name")
@@ -492,7 +492,7 @@ final class CSVImportService {
         var items: [ResupplyPoint] = []
         var errors: [String] = []
 
-        for (index, row) in parseResult.rows.enumerated() {
+        for index in parseResult.rows.indices {
             let rowNum = index + 2
             guard let name = parseResult.value(row: index, column: "Name"), !name.isEmpty else {
                 errors.append("Row \(rowNum): Missing name")
