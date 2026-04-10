@@ -14,7 +14,7 @@ struct DayFormView: View {
     let modelContext: ModelContext
 
     @AppStorage("elevationUnit")
-    private var elevationUnit: ElevationUnit = .meters
+    private var elevationUnit: ElevationUnit = .feet
 
     @State private var viewModel: DayFormViewModel?
 

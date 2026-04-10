@@ -14,7 +14,7 @@ struct GearItemFormView: View {
     var viewModel: GearViewModel
 
     @AppStorage("weightUnit")
-    private var weightUnit: WeightUnit = .kilograms
+    private var weightUnit: WeightUnit = .pounds
 
     // Form state
     @State private var name = ""

@@ -8,7 +8,7 @@ struct GearListView: View {
     @Bindable var expedition: Expedition
 
     @AppStorage("weightUnit")
-    private var weightUnit: WeightUnit = .kilograms
+    private var weightUnit: WeightUnit = .pounds
 
     @State private var viewModel: GearViewModel?
     @State private var showingAddSheet = false

@@ -8,7 +8,7 @@ struct ItineraryView: View {
     @Bindable var expedition: Expedition
 
     @AppStorage("elevationUnit")
-    private var elevationUnit: ElevationUnit = .meters
+    private var elevationUnit: ElevationUnit = .feet
 
     @State private var viewModel: ItineraryViewModel?
     @State private var showingAddSheet = false

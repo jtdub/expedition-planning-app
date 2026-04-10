@@ -4,16 +4,16 @@ import SwiftData
 struct SettingsView: View {
     // Unit preferences
     @AppStorage("elevationUnit")
-    private var elevationUnit: ElevationUnit = .meters
+    private var elevationUnit: ElevationUnit = .feet
 
     @AppStorage("weightUnit")
-    private var weightUnit: WeightUnit = .kilograms
+    private var weightUnit: WeightUnit = .pounds
 
     @AppStorage("distanceUnit")
-    private var distanceUnit: DistanceUnit = .kilometers
+    private var distanceUnit: DistanceUnit = .miles
 
     @AppStorage("temperatureUnit")
-    private var temperatureUnit: TemperatureUnit = .celsius
+    private var temperatureUnit: TemperatureUnit = .fahrenheit
 
     // Currency
     @AppStorage("defaultCurrency")
