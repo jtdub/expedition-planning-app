@@ -72,7 +72,7 @@ final class SyncStatusService: ObservableObject {
     @Published private(set) var status: SyncStatus = .idle
     @Published private(set) var lastSyncDate: Date?
 
-    private let logger = Logger(subsystem: "com.chaki.app", category: "SyncStatus")
+    private let logger = Logger(subsystem: "com.expedition.planner", category: "SyncStatus")
     private var accountStatusTask: Task<Void, Never>?
 
     private init() {

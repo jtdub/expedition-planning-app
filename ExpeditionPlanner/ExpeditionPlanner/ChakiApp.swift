@@ -4,7 +4,7 @@ import CloudKit
 import UserNotifications
 import OSLog
 
-private let logger = Logger(subsystem: "com.chaki.app", category: "App")
+private let logger = Logger(subsystem: "com.expedition.planner", category: "App")
 
 @main
 struct ChakiApp: App {

@@ -2,7 +2,7 @@ import Foundation
 import MapKit
 import OSLog
 
-private let logger = Logger(subsystem: "com.chaki.app", category: "MapCacheService")
+private let logger = Logger(subsystem: "com.expedition.planner", category: "MapCacheService")
 
 /// Represents a tile coordinate in the slippy map system
 struct TileCoordinate {

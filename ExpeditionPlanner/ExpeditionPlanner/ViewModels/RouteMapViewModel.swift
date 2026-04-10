@@ -4,7 +4,7 @@ import SwiftUI
 import MapKit
 import OSLog
 
-private let logger = Logger(subsystem: "com.chaki.app", category: "RouteMapViewModel")
+private let logger = Logger(subsystem: "com.expedition.planner", category: "RouteMapViewModel")
 
 @Observable
 final class RouteMapViewModel {

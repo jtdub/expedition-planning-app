@@ -3,7 +3,7 @@
 ## App Information
 
 - **App Name**: Chaki
-- **Bundle ID**: com.chaki.app
+- **Bundle ID**: com.expedition.planner
 - **Primary Category**: Travel
 - **Secondary Category**: Productivity
 - **Content Rights**: Does not contain third-party content

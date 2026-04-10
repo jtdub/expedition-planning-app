@@ -2,7 +2,7 @@ import Foundation
 import SwiftData
 import OSLog
 
-private let logger = Logger(subsystem: "com.chaki.app", category: "SatelliteDeviceViewModel")
+private let logger = Logger(subsystem: "com.expedition.planner", category: "SatelliteDeviceViewModel")
 
 enum SatelliteDeviceSortOrder: String, CaseIterable {
     case name = "Name"

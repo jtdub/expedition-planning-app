@@ -3,7 +3,7 @@ import UserNotifications
 import SwiftData
 import OSLog
 
-private let logger = Logger(subsystem: "com.chaki.app", category: "Notifications")
+private let logger = Logger(subsystem: "com.expedition.planner", category: "Notifications")
 
 /// Singleton service wrapping UNUserNotificationCenter.
 /// Requests authorization, schedules/cancels notifications, and manages badge count.

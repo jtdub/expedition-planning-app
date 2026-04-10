@@ -2,7 +2,7 @@ import Foundation
 import SwiftData
 import OSLog
 
-private let logger = Logger(subsystem: "com.chaki.app", category: "RouteSegmentViewModel")
+private let logger = Logger(subsystem: "com.expedition.planner", category: "RouteSegmentViewModel")
 
 enum RouteSegmentSortOrder: String, CaseIterable {
     case terrain = "Terrain"
